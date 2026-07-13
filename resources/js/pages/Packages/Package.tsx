@@ -10,6 +10,8 @@ type Destination = {
     slug: string
     short_description: string
     hero_image: string
+    lat: number
+    lng: number
 }
 
 // Inclusions table type
@@ -28,7 +30,6 @@ export interface Exclusion {
     sort_order: number
 }
 
-
 type Package = {
     id: number
     title: string
@@ -41,6 +42,10 @@ type Package = {
     starting_city: string
     ending_city: string
     starting_price: string
+    start_lat: number
+    end_lat: number
+    start_lng: number
+    end_lng: number
     destinations: Destination[]
     itineraries: []
     inclusions: Inclusion[]
@@ -50,37 +55,11 @@ type Package = {
 export default function PackagePage({ pkg }: { pkg: Package }) {
     const destinations = pkg.destinations ?? []
 
-    const [points, setPoints] = useState([]);
-
-    async function getCoordinates(city: string) {
-        const response = await fetch(
-            `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(city)}`
-        )
-        const data = await response.json()
-        if (data.length > 0) {
-            return {
-                lat: parseFloat(data[0].lat),
-                lng: parseFloat(data[0].lon),
-            }
-        }
-        return null
-    }
-
-    useEffect(() => {
-        async function fetchCoords() {
-            const start = await getCoordinates(pkg.starting_city)
-            const end = await getCoordinates(pkg.ending_city)
-            const dests = await Promise.all(
-                pkg.destinations.map(async (d) => {
-                    const coords = await getCoordinates(d.name)
-                    return { ...d, ...coords }
-                })
-            )
-            setPoints([start, ...dests, end].filter(Boolean))
-        }
-        fetchCoords()
-    }, [pkg]);
-
+    const points = [
+        { name: pkg.starting_city, lat: pkg.start_lat, lng: pkg.start_lng },
+        ...pkg.destinations.map(d => ({ name: d.name, lat: d.lat, lng: d.lng })),
+        { name: pkg.ending_city, lat: pkg.end_lat, lng: pkg.end_lng },
+    ];
 
     return (
         <div className="bg-gray-50 text-black">
