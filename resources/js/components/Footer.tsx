@@ -1,0 +1,106 @@
+import { Link } from "@inertiajs/react"
+
+const Footer = () => {
+  return (
+    <footer className="w-full bg-gray-900 text-gray-300 py-10 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10">
+        
+        {/* Brand */}
+        <div>
+          <h4 className="text-2xl font-bold text-pink-500 mb-4">
+            <Link href={"/"}>Heritage Junction</Link>
+          </h4>
+          <p className="text-sm leading-relaxed">
+            Preserving culture, connecting heritage, and building bridges to the future.
+          </p>
+        </div>
+
+        {/* Contact Info */}
+        <div>
+          <h4 className="text-lg font-semibold text-purple-400 mb-4">Contact</h4>
+          <p className="text-sm mb-2">
+            <span className="font-bold">Address:</span> 5/38 Vipul Khand, Gomti Nagar, Lucknow, Uttar Pradesh, India, 226010
+          </p>
+          <p className="text-sm mb-2">
+            <span className="font-bold">Phone:</span> +91 79053 58890
+          </p>
+          <p className="text-sm">
+            <span className="font-bold">Email:</span>{" "}
+            <a className="hover:text-pink-500" href="mailto:info@heritagejunction.in">
+              info@heritagejunction.in
+            </a>
+          </p>
+        </div>
+
+        {/* Quick Links */}
+        <div>
+          <h4 className="text-lg font-semibold text-purple-400 mb-4">Quick Links</h4>
+          <ul className="space-y-2">
+            <li><Link href="/about" className="hover:text-pink-300 transition">About Us</Link></li>
+            <li><Link href="/privacy" className="hover:text-pink-300 transition">Privacy Policy</Link></li>
+            <li><Link href="/terms" className="hover:text-pink-300 transition">Terms & Conditions</Link></li>
+            <li><Link href="/contact" className="hover:text-pink-300 transition">Contact Us</Link></li>
+          </ul>
+        </div>
+
+        {/* Support */}
+        <div>
+          <h4 className="text-lg font-semibold text-purple-400 mb-4">Support</h4>
+          <ul className="space-y-2">
+            <li><Link href="/faqs" className="hover:text-pink-300 transition">FAQs</Link></li>
+            <li><Link href="/help" className="hover:text-pink-300 transition">Help Center</Link></li>
+            <li><Link href="/cancellation-refund" className="hover:text-pink-300 transition">Cancellation & Refund Policy</Link></li>
+            <li><Link href="/terms" className="hover:text-pink-300 transition">Terms & Conditions</Link></li>
+            <li><Link href="/privacy" className="hover:text-pink-300 transition">Privacy Policy</Link></li>
+          </ul>
+        </div>
+
+        {/* Social Links */}
+        <div>
+          <h4 className="text-lg font-semibold text-purple-400 mb-4">Follow Us</h4>
+          <ul className="flex space-y-3 flex-col">
+            <li>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-300 transition">
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-300 transition">
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-300 transition">
+                X
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-300 transition">
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="border-t border-gray-700 mt-10 pt-6 text-center">
+        <p className="text-sm">© 2025 Heritage Junction. All rights reserved.</p>
+        <p className="text-sm mt-2">
+          Website Powered by{" "}
+          <span className="text-purple-400">
+            <a
+              className="no-underline hover:text-pink-300"
+              target="_blank"
+              href="https://www.kryoteksoftwares.com/"
+            >
+              Kryotek Softwares Private Limited
+            </a>
+          </span>
+        </p>
+      </div>
+    </footer>
+  )
+}
+
+export default Footer
