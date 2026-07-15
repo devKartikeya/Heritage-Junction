@@ -17,10 +17,11 @@ class PackageController extends Controller
     {
         $pkg = Package::where('slug', $slug)
             ->with([
-                'destinations',
+                'destinations.heritageSites',
                 'itineraries',
                 'inclusions',
                 'exclusions',
+                'pricings'
             ])
             ->firstOrFail();
 

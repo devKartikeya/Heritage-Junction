@@ -131,7 +131,7 @@ const Hero = () => {
 
           <div className="mt-6 flex gap-5">
             <Button command="Learn More" link="/services" />
-            <Button command="Book Now" link="/book" variant='secondary' />
+            <Button command="Book Now" link="/packages" variant='secondary' />
           </div>
         </div>
       </section>

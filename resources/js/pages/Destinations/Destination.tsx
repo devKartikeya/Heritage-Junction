@@ -165,7 +165,7 @@ export default function DestinationPage({
                         from guided tours and cultural immersion to comfortable stays and authentic dining.
                     </p>
                     <Link
-                        href={"/book"}
+                        href={"/packages"}
                         className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg shadow hover:bg-purple-700 transition"
                     >
                         Book Your Experience

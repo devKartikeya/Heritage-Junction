@@ -12,6 +12,7 @@ type Destination = {
     hero_image: string
     lat: number
     lng: number
+    heritage_sites: []
 }
 
 // Inclusions table type
@@ -20,6 +21,7 @@ export interface Inclusion {
     package_id: number
     inclusion: string
     sort_order: number
+    description: string
 }
 
 // Exclusions table type
@@ -28,6 +30,17 @@ export interface Exclusion {
     package_id: number
     exclusion: string
     sort_order: number
+    description: string
+}
+
+type Pricing = {
+    id: number
+    package_id: number
+    vehicle_name: string
+    total_cost: number
+    per_person_cost: number
+    minimum_persons: number
+    visit_order: 2
 }
 
 type Package = {
@@ -48,6 +61,7 @@ type Package = {
     end_lng: number
     destinations: Destination[]
     itineraries: []
+    pricings: Pricing[]
     inclusions: Inclusion[]
     exclusions: Exclusion[]
 }
@@ -209,6 +223,55 @@ export default function PackagePage({ pkg }: { pkg: Package }) {
                     )}
                 </section>
 
+                {/* Heritage Sites Covered */}
+                <section>
+                    <h2 className="text-3xl font-bold text-teal-700 mb-6">4. Heritage Sites Covered</h2>
+
+                    {destinations.length === 0 ? (
+                        <p className="text-gray-600">No destinations linked to this package yet.</p>
+                    ) : (
+                        <div className="space-y-10">
+                            {destinations.map((dest) => (
+                                <div key={dest.id}>
+                                    <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                                        {dest.name}
+                                    </h3>
+
+                                    {dest.heritage_sites && dest.heritage_sites.length > 0 ? (
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                                            {dest.heritage_sites.map((site: any) => (
+                                                <div
+                                                    key={site.id}
+                                                    className="bg-white rounded-lg shadow-md overflow-hidden"
+                                                >
+                                                    <img
+                                                        src={site.image_path}
+                                                        alt={site.name}
+                                                        className="w-full h-48 object-cover"
+                                                    />
+                                                    <div className="p-4">
+                                                        <h4 className="text-lg font-semibold text-gray-900">
+                                                            {site.name}
+                                                        </h4>
+                                                        <p className="text-gray-700 text-sm mt-2">
+                                                            {site.description}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        <p className="text-gray-600">
+                                            No heritage sites listed for {dest.name}.
+                                        </p>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </section>
+
+
                 {/* Itinerary Placeholder */}
                 <section>
                     {/* <p className="text-gray-600">Detailed itinerary will be available soon.</p> */}
@@ -227,12 +290,17 @@ export default function PackagePage({ pkg }: { pkg: Package }) {
                                 .map((item) => (
                                     <li
                                         key={item.id}
-                                        className="flex items-start gap-3 bg-green-50 border border-green-200 rounded-lg p-4 shadow-sm"
+                                        className="flex flex-col gap-2 bg-green-50 border border-green-200 rounded-lg p-4 shadow-sm"
                                     >
-                                        <div className="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
-                                            ✓
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+                                                ✓
+                                            </div>
+                                            <span className="text-gray-900 font-semibold">{item.inclusion}</span>
                                         </div>
-                                        <span className="text-gray-800">{item.inclusion}</span>
+                                        {item.description && (
+                                            <p className="text-gray-700 text-sm ml-9">{item.description}</p>
+                                        )}
                                     </li>
                                 ))}
                         </ul>
@@ -251,18 +319,57 @@ export default function PackagePage({ pkg }: { pkg: Package }) {
                                 .map((item) => (
                                     <li
                                         key={item.id}
-                                        className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-lg p-4 shadow-sm"
+                                        className="flex flex-col gap-2 bg-red-50 border border-red-200 rounded-lg p-4 shadow-sm"
                                     >
-                                        <div className="w-6 h-6 flex items-center justify-center rounded-full bg-red-100 text-red-600">
-                                            ✗
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-6 h-6 flex items-center justify-center rounded-full bg-red-100 text-red-600">
+                                                ✗
+                                            </div>
+                                            <span className="text-gray-900 font-semibold">{item.exclusion}</span>
                                         </div>
-                                        <span className="text-gray-800">{item.exclusion}</span>
+                                        {item.description && (
+                                            <p className="text-gray-700 text-sm ml-9">{item.description}</p>
+                                        )}
                                     </li>
                                 ))}
                         </ul>
                     )}
                 </section>
 
+
+                {/* Package Pricing */}
+                <section>
+                    <h2 className="text-3xl font-bold text-orange-700 mb-6">8. Package Pricing</h2>
+
+                    {pkg.pricings && pkg.pricings.length > 0 ? (
+                        <div className="overflow-x-auto bg-white rounded-lg shadow-lg">
+                            <table className="min-w-full border border-gray-200 text-gray-800">
+                                <thead className="bg-gray-100">
+                                    <tr>
+                                        <th className="px-6 py-3 text-left text-sm font-semibold">Vehicle Type</th>
+                                        <th className="px-6 py-3 text-left text-sm font-semibold">Total Cost</th>
+                                        <th className="px-6 py-3 text-left text-sm font-semibold">Per Person Cost</th>
+                                        <th className="px-6 py-3 text-left text-sm font-semibold">Minimum Persons</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {pkg.pricings
+                                        .sort((a, b) => a.visit_order - b.visit_order)
+                                        .map((pricing) => (
+                                            <tr key={pricing.id} className="border-t">
+                                                <td className="px-6 py-4">{pricing.vehicle_name}</td>
+                                                <td className="px-6 py-4">₹{pricing.total_cost}</td>
+                                                <td className="px-6 py-4">₹{pricing.per_person_cost}</td>
+                                                <td className="px-6 py-4">{pricing.minimum_persons}</td>
+                                            </tr>
+                                        ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    ) : (
+                        <p className="text-gray-600">No pricing details available for this package yet.</p>
+                    )}
+                </section>
 
                 {/* FAQs Placeholder */}
                 <section>

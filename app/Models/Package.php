@@ -44,4 +44,9 @@ class Package extends Model
         return $this->hasMany(PackageExclusion::class)
             ->orderBy('sort_order');
     }
+    public function pricings(): HasMany
+    {
+        return $this->hasMany(PackagePricing::class)
+            ->orderBy('sort_order');
+    }
 }

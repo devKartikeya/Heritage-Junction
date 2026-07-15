@@ -94,7 +94,7 @@ const Footer = () => {
               target="_blank"
               href="https://www.kryoteksoftwares.com/"
             >
-              Kryotek Softwares Private Limited
+              Kryotek Softwares Private Limited <a href="https://github.com/devKartikeya" target="_blank" className="text-pink-500">@Kartikeya Mishra</a> 
             </a>
           </span>
         </p>
