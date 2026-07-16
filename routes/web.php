@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\DestinationController;
@@ -22,6 +23,7 @@ Route::get('/destinations/{slug}', [DestinationController::class, 'show'])->name
 Route::get("/packages", [PackageController::class, "index"]);
 Route::get('/packages/{slug}', [PackageController::class, 'show'])->name('packages.show');
 
+Route::get("/booking/{id}", [BookingController::class, 'index'])->middleware(['auth']);
 
 Route::fallback(function () {
     return Inertia::render('NotFound');

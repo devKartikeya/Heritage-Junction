@@ -68,6 +68,7 @@ type Package = {
 
 export default function PackagePage({ pkg }: { pkg: Package }) {
     const destinations = pkg.destinations ?? []
+    console.log(pkg.id);
 
     const points = [
         { name: pkg.starting_city, lat: pkg.start_lat, lng: pkg.start_lng },
@@ -394,7 +395,7 @@ export default function PackagePage({ pkg }: { pkg: Package }) {
                         from guided tours and cultural immersion to comfortable stays and authentic dining.
                     </p>
                     <Link
-                        href="/contact"
+                        href={`/booking/${pkg.id}`}
                         className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg shadow hover:bg-purple-700 transition"
                     >
                         Book Your Experience

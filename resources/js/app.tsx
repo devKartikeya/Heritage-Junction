@@ -19,6 +19,8 @@ createInertiaApp({
                 return null;
             case name.startsWith('Packages/'):
                 return null;
+            case name.startsWith('Booking/'):
+                return null;
             case name === 'NotFound' || name === 'About' || name == 'Services':
                 return null;
             case name.startsWith('auth/'):
