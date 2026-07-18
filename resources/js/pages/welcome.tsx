@@ -9,6 +9,7 @@ import Contact from '@/components/Home/Contact'
 import { useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Map from '@/components/Home/Map'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -56,6 +57,9 @@ const Welcome = () => {
             </div>
             <div>
                 <Contact />
+            </div>
+            <div>
+                <Map />
             </div>
             <div className="footer-section">
                 <Footer />

@@ -2,7 +2,7 @@ import { FaEnvelope, FaPhoneAlt, FaGithub, FaLinkedin, FaFacebook, FaTwitter, Fa
 
 const Contact = () => {
     return (
-        <section className="w-full bg-gray-100 py-16 px-6 bg-yellow-50">
+        <section id='contact' className="w-full bg-gray-100 py-16 px-6 bg-yellow-50">
             <div className="max-w-6xl mx-auto flex flex-col gap-12 ">
                 {/* Heading */}
                 <h2 className="text-5xl font-bold text-center text-purple-600">

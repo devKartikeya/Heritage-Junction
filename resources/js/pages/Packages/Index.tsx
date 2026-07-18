@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import { Link } from '@inertiajs/react'
 import { useState } from 'react'
 
@@ -132,6 +133,7 @@ const Index = ({ packages }: { packages: Package[] }) => {
                     </div>
                 )}
             </div>
+            <Footer />
         </div>
     )
 }

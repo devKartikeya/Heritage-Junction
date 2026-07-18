@@ -162,7 +162,6 @@ const Index = () => {
           )}
         </section>
       </div>
-
       <Footer />
     </div>
   )

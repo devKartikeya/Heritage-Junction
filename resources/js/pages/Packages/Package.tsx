@@ -1,9 +1,11 @@
-import QuickFactCard from './QuickFactCard'
+import QuickFactCard from '../../components/Packages/QuickFactCard'
 import React, { useEffect, useState } from 'react'
 import { Link } from '@inertiajs/react'
-import RouteMap from './RouteMap'
-import Itinerary from './Itinerary'
-import { Plus, Minus } from 'lucide-react'
+import RouteMap from '../../components/Packages/RouteMap'
+import Itinerary from '../../components/Packages/Itinerary'
+import { Plus, Minus, Plane } from 'lucide-react'
+import BookNow from '@/components/Packages/BookNow'
+import Footer from '@/components/Footer'
 
 type Destination = {
     id: number
@@ -75,10 +77,6 @@ type Package = {
 export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg: Package, booking_faqs: Faqs[], packages_faqs: Faqs[] }) {
     const destinations = pkg.destinations ?? []
     const [openFAQ, setOpenFAQ] = useState<number | null>(0);
-    console.log(pkg.id);
-
-    console.log(packages_faqs);
-    console.log(Array.isArray(packages_faqs));
     const faqs = [...packages_faqs, ...booking_faqs];
 
     const points = [
@@ -89,6 +87,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
     return (
         <div className="bg-gray-50 text-black">
+            <BookNow id={pkg.id} />
             {/* Banner */}
             <div className="relative w-full h-96">
                 <img
@@ -117,7 +116,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                     {/* Route Text */}
                     <div className="bg-white rounded-xl shadow-lg px-6 py-8 text-center">
-                        {/* <h3 className="text-xl font-semibold text-gray-800 mb-4">Journey Flow</h3> */}
                         <div className="flex flex-wrap items-center justify-center gap-6 text-lg sm:text-xl md:text-2xl font-bold text-gray-700">
                             {/* Starting City */}
                             <span className="text-red-600">{pkg.starting_city}</span>
@@ -284,9 +282,8 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                 </section>
 
 
-                {/* Itinerary Placeholder */}
+                {/* Itinerary */}
                 <section>
-                    {/* <p className="text-gray-600">Detailed itinerary will be available soon.</p> */}
                     <Itinerary itineraries={pkg.itineraries ?? []} starting_city={pkg.starting_city} ending_city={pkg.ending_city} />
                 </section>
 
@@ -348,7 +345,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     )}
                 </section>
 
-
                 {/* Package Pricing */}
                 <section>
                     <h2 className="text-3xl font-bold text-orange-700 mb-6">8. Package Pricing</h2>
@@ -398,7 +394,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     <div className="space-y-5">
                         {faqs.map((faq, index) => {
                             const isOpen = openFAQ === index;
-
                             return (
                                 <div
                                     key={faq.id}
@@ -457,6 +452,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     </Link>
                 </section>
             </div>
+            <Footer />
         </div>
     )
 }

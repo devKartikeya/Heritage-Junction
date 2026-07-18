@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { Link } from '@inertiajs/react'
-import Button from './Button'
+import { useState, useEffect, useRef } from 'react';
+import { Link } from '@inertiajs/react';
+import Button from './Button';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
-    const menuRef = useRef(null)
-    const buttonRef = useRef(null)
+    const menuRef = useRef<any>(null)
+    const buttonRef = useRef<any>(null)
 
     useEffect(() => {
-        const handleClickOutside = (event) => {
+        const handleClickOutside = (event: any) => {
             // if click is outside menu and hamburger button
             if (
                 menuRef.current &&
@@ -60,7 +60,7 @@ const Navbar = () => {
                 <li className="navbar-link hover:text-pink-400 hover:underline"><Link href="/destinations">Destinations</Link></li>
                 <li className="navbar-link hover:text-pink-400 hover:underline"><Link href="/services">Services</Link></li>
                 <li className="navbar-link hover:text-pink-400 hover:underline"><Link href="/about">About Us</Link></li>
-                <li className="navbar-link hover:text-pink-400 hover:underline"><Link href="/contact">Contact Us</Link></li>
+                <li className="navbar-link hover:text-pink-400 hover:underline"><a href="/#contact">Contact Us</a></li>
                 <div className="navbar-link">
                     <Button command="Signup" variant="primary" size="md" link="/register" />
                 </div>

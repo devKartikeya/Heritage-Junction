@@ -10,7 +10,7 @@ class DashboardController extends Controller
     {
         $bookings = auth()->user()
             ->bookings()
-            ->with('package')
+            ->with(['package', 'pricing', 'travelers'])
             ->latest()
             ->get();
 

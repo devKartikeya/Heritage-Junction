@@ -1,9 +1,10 @@
 import Footer from '@/components/Footer'
+import About from '@/components/Home/About'
 import Navbar from '@/components/navbar'
 
 const Services = () => {
     return (
-        <div className="bg-white text-black w-full min-h-screen">
+        <div className="bg-white text-black w-full min-h-screen overflow-x-hidden">
             <Navbar />
             {/* Page Header */}
             <div className="p-8 text-left">
@@ -18,6 +19,8 @@ const Services = () => {
                     we create experiences that leave footprints on your heart — not just your passport.
                 </p>
             </div>
+
+            <About />
 
             {/* Services Section */}
             <section className="px-6 md:px-12 py-12 bg-gray-50">
@@ -116,6 +119,22 @@ const Services = () => {
                             <p className="text-gray-700 text-sm">
                                 Discover India’s diverse flavors through curated food trails, cooking classes, and authentic dining experiences.
                                 From street food to royal feasts, savor the essence of Indian cuisine.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Adventure & Nature Escapes */}
+                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+                            alt="Adventure & Nature"
+                            className="w-full h-56 object-cover object-center"
+                        />
+                        <div className="p-6">
+                            <h3 className="text-xl font-bold text-purple-700 mb-2">Adventure & Nature Escapes</h3>
+                            <p className="text-gray-700 text-sm">
+                                Balance heritage with the thrill of nature. Trek Himalayan trails, raft in Rishikesh,
+                                or explore wildlife sanctuaries. Perfect for travelers seeking both culture and adventure.
                             </p>
                         </div>
                     </div>

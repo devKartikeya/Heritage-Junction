@@ -2,7 +2,7 @@ import React from 'react'
 
 const Card = ({ title, description, icon }: { title: string, description: string, icon: any }) => {
     return (
-        <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition hover:bg-pink-100">
+        <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition hover:bg-pink-100 cursor-default">
             <div className="text-4xl mb-4 text-red-500">{icon}</div>
             <h3 className="text-xl font-semibold mb-2">{title}</h3>
             <p className="text-gray-600 text-sm">{description}</p>
@@ -12,10 +12,10 @@ const Card = ({ title, description, icon }: { title: string, description: string
 
 const WhyChooseUs = () => {
     return (
-        <section className="w-full bg-gray-50 text-black py-16 px-6">
+        <section className="w-full bg-blue-50 text-black py-16 px-6">
             <div className="max-w-7xl mx-auto flex flex-col gap-10">
                 {/* Heading */}
-                <h2 className="font-bold text-5xl text-center text-red-500">
+                <h2 className="font-bold sm:text-3xl md:text-4xl lg:text-6xl text-center text-red-500">
                     Why Choose Us?
                 </h2>
 

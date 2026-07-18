@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer"
 import { Link } from "@inertiajs/react"
 
 type Destination = {
@@ -172,6 +173,7 @@ export default function DestinationPage({
                     </Link>
                 </section>
             </div>
+            <Footer />
         </div>
     )
 }
