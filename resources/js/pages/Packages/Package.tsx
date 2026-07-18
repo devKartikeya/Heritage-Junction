@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from '@inertiajs/react'
 import RouteMap from './RouteMap'
 import Itinerary from './Itinerary'
+import { Plus, Minus } from 'lucide-react'
 
 type Destination = {
     id: number
@@ -15,7 +16,13 @@ type Destination = {
     heritage_sites: []
 }
 
-// Inclusions table type
+type Faqs = {
+    id: number,
+    question: string,
+    answer: string,
+    category: string
+}
+
 export interface Inclusion {
     id: number
     package_id: number
@@ -24,7 +31,6 @@ export interface Inclusion {
     description: string
 }
 
-// Exclusions table type
 export interface Exclusion {
     id: number
     package_id: number
@@ -66,9 +72,14 @@ type Package = {
     exclusions: Exclusion[]
 }
 
-export default function PackagePage({ pkg }: { pkg: Package }) {
+export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg: Package, booking_faqs: Faqs[], packages_faqs: Faqs[] }) {
     const destinations = pkg.destinations ?? []
+    const [openFAQ, setOpenFAQ] = useState<number | null>(0);
     console.log(pkg.id);
+
+    console.log(packages_faqs);
+    console.log(Array.isArray(packages_faqs));
+    const faqs = [...packages_faqs, ...booking_faqs];
 
     const points = [
         { name: pkg.starting_city, lat: pkg.start_lat, lng: pkg.start_lng },
@@ -372,18 +383,62 @@ export default function PackagePage({ pkg }: { pkg: Package }) {
                     )}
                 </section>
 
-                {/* FAQs Placeholder */}
-                <section>
-                    <h2 className="text-3xl font-bold text-purple-700 mb-6">7. FAQs</h2>
-                    <div className="space-y-4">
-                        <div>
-                            <h3 className="font-semibold">Q: How do I book this package?</h3>
-                            <p className="text-gray-700">You can book directly through our website or contact our support team.</p>
-                        </div>
-                        <div>
-                            <h3 className="font-semibold">Q: Can I customize the itinerary?</h3>
-                            <p className="text-gray-700">Yes, customization options are available. Reach out to us for details.</p>
-                        </div>
+                {/* FAQs */}
+                <section className="py-8">
+                    <div className="mb-8">
+                        <h2 className="text-4xl font-bold text-purple-500">
+                            Frequently Asked Questions
+                        </h2>
+
+                        <p className="mt-3 text-gray-600 max-w-2xl">
+                            Everything you need to know before booking your journey with us.
+                        </p>
+                    </div>
+
+                    <div className="space-y-5">
+                        {faqs.map((faq, index) => {
+                            const isOpen = openFAQ === index;
+
+                            return (
+                                <div
+                                    key={faq.id}
+                                    className="rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300"
+                                >
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            setOpenFAQ(isOpen ? null : index)
+                                        }
+                                        className="w-full flex items-center justify-between px-6 py-5 text-left"
+                                    >
+                                        <h3 className="text-lg font-semibold text-gray-900">
+                                            {faq.question}
+                                        </h3>
+
+                                        <div className="transition-all duration-300 hover:scale-110">
+                                            {isOpen ? (
+                                                <Minus size={22} className="text-purple-600 cursor-pointer" />
+                                            ) : (
+                                                <Plus size={22} className="text-purple-600 cursor-pointer" />
+                                            )}
+                                        </div>
+                                    </button>
+
+                                    <div
+                                        className={`overflow-hidden transition-all duration-300 ${isOpen
+                                            ? "max-h-96 opacity-100"
+                                            : "max-h-0 opacity-0"
+                                            }`}
+                                    >
+                                        <div className="px-6 pb-6 border-t border-gray-100">
+                                            <p className="pt-4 leading-7 text-gray-700">
+                                                {faq.answer}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 </section>
 

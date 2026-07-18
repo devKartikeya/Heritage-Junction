@@ -5,12 +5,13 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\DashboardController;
 
 Route::inertia('/', 'welcome')->name('home');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::inertia('dashboard', 'dashboard')->name('dashboard');
-});
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::inertia("/about", 'About')->name("about");
 
@@ -24,6 +25,8 @@ Route::get("/packages", [PackageController::class, "index"]);
 Route::get('/packages/{slug}', [PackageController::class, 'show'])->name('packages.show');
 
 Route::get("/booking/{id}", [BookingController::class, 'index'])->middleware(['auth']);
+
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 
 Route::fallback(function () {
     return Inertia::render('NotFound');

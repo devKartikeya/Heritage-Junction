@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
 use App\Models\Package;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -25,8 +26,13 @@ class PackageController extends Controller
             ])
             ->firstOrFail();
 
+        $booking_faqs = Faq::where('category', "Booking")->get();
+        $packages_faqs = Faq::where('category', "Packages")->get();
+
         return Inertia::render('Packages/Package', [
             'pkg' => $pkg,
+            'booking_faqs' => $booking_faqs,
+            'packages_faqs' => $packages_faqs,
         ]);
     }
 }

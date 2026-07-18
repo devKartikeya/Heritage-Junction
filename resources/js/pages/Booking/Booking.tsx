@@ -1,5 +1,7 @@
+import { usePage } from '@inertiajs/react'
 import Footer from "@/components/Footer";
 import { useState } from "react"
+import { useForm } from "@inertiajs/react";
 
 type User = { name: string; email: string }
 type Pricing = {
@@ -17,197 +19,401 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
   const chosen = pricings.find(p => p.id === selectedPricing)
   const calculatedTotal = chosen ? travelers * chosen.per_person_cost : 0
   const meetsRequirement = chosen ? travelers >= chosen.minimum_persons : true
+  const { props } = usePage()
+  const successMessage = props.flash?.success
+
+  console.log(props.flash);
 
   console.log(pkg);
 
+  const form = useForm({
+    packageTitle: pkg,
+    packageID: packageId,
+    name: user.name,
+    email: user.email,
+    phone: "",
+    additionalEmail: "",
+    additionalPhone: "",
+    address: "",
+    travelers: [], // array of { name, aadhar },
+    transport: "",
+    startDate: "",
+  });
+
+  const handleTravelerChange = (index: number, field: string, value: any) => {
+    const updated: any = [...form.data.travelers]
+    updated[index] = { ...updated[index], [field]: value }
+    form.setData("travelers", updated)
+  }
+
+
   return (
-    <div id="booking" className="min-w-screen min-h-screen overflow-x-hidden [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
-      <section className="w-full p-10 h-full flex flex-col">
-        <header className="mb-8">
-          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white">
-            Book your Journey
+    <div
+      id="booking"
+      className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-black text-white"
+    >
+      {/* Success */}
+      {successMessage && (
+        <div className="max-w-6xl mx-auto pt-8">
+          <div className="rounded-2xl border border-green-500/40 bg-green-500/10 p-5 text-green-300 shadow-lg">
+            <h2 className="text-xl font-bold">🎉 Booking Submitted</h2>
+            <p className="mt-1">
+              {successMessage}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Hero */}
+      <section className="max-w-7xl mx-auto px-6 pt-16 pb-10">
+        <div className="text-center">
+          <h2 className='text-3xl md:text-4xl font-black tracking-tight'>Heritage Junction</h2>
+          <h1 className="text-5xl mt-5 md:text-7xl font-black tracking-tight">
+            Book Your Journey
           </h1>
-          <h2 className="mt-3 text-lg text-gray-300">
-            You are just one step away from experiencing the adventure of a lifetime.
-          </h2>
-        </header>
+          <p className="mt-6 text-2xl text-purple-300 font-semibold">
+            {pkg}
+          </p>
+          <p className="text-gray-400 mt-4 max-w-3xl mx-auto leading-8">
+            Complete your booking in just a few minutes.
+            Our travel executive will verify your booking
+            and contact you shortly after submission.
+          </p>
 
-        <form className="text-white p-8 rounded-xl shadow-lg max-w-4xl space-y-12 backdrop-blur">
+        </div>
+      </section>
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
 
-          {/* Section 1: Package Info */}
-          <div className="space-y-6 text-white">
-            <h2 className="text-xl font-bold text-purple-300  border-b border-gray-600 pb-2">Package Information</h2>
-            <label htmlFor="packageID" className="my-3">Package ID</label>
-            <input
-              type="text"
-              id="packageID"
-              name="packageID"
-              readOnly
-              defaultValue={packageId}
-              className="w-full border text-white border-gray-500 rounded-lg mt-3 px-4 py-2 bg-transparent"
-            />
-            <label htmlFor="packageTitle" className="my-3">Package Name</label>
-            <input
-              type="text"
-              id="packageTitle"
-              name="packageTitle"
-              readOnly
-              defaultValue={pkg}
-              className="w-full border text-white border-gray-500 rounded-lg mt-3 px-4 py-2 bg-transparent"
-            />
-          </div>
+            form.post("/booking", {
+              forceFormData: true,
+              onError: (errors) => console.log(errors),
+            })
+          }}
+          className="grid lg:grid-cols-[2fr_1fr] gap-10 items-start"
+        >
 
-          {/* Section 2: Primary Contact */}
-          <div className="space-y-6">
-            <h2 className="text-xl font-bold text-purple-300 border-b border-gray-600 pb-2">Primary Contact</h2>
-            <label htmlFor="name">Full name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              readOnly
-              defaultValue={user.name}
-              className="w-full border mt-3 text-white border-gray-500 rounded-lg px-4 py-2 bg-transparent"
-            />
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              readOnly
-              defaultValue={user.email}
-              className="w-full border text-white mt-3 border-gray-500 rounded-lg px-4 py-2 bg-transparent"
-            />
-            <label htmlFor="phone">Phone Number</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              required
-              placeholder="Enter your phone number"
-              className="w-full border text-white mt-3 border-gray-500 rounded-lg px-4 py-2 bg-transparent"
-            />
-          </div>
+          {/* LEFT */}
+          <div className="space-y-10">
 
-          {/* Section 3: Secondary Contact */}
-          <div className="space-y-6">
-            <h2 className="text-xl font-bold text-purple-300 border-b border-gray-600 pb-2">Secondary Contact</h2>
-            <label htmlFor="additionalPhone">Additional Phone Number</label>
-            <input
-              type="tel"
-              id="additionalPhone"
-              name="additionalPhone"
-              required
-              placeholder="Enter an alternate phone number"
-              className="w-full border text-white mt-3 border-gray-500 rounded-lg px-4 py-2 bg-transparent"
-            />
-            <label htmlFor="additionalEmail">Additional Email</label>
-            <input
-              type="email"
-              id="additionalEmail"
-              name="additionalEmail"
-              required
-              placeholder="Enter an alternate email"
-              className="w-full border text-white mt-3 border-gray-500 rounded-lg px-4 py-2 bg-transparent"
-            />
-            <label htmlFor="address">Address</label>
-            <textarea
-              id="address"
-              name="address"
-              required
-              rows={3}
-              placeholder="Enter your full address"
-              className="w-full border text-white mt-3 border-gray-500 rounded-lg px-4 py-2 bg-transparent resize-none"
-            />
-          </div>
+            {/* Package Summary */}
+            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl p-8">
 
-          {/* Section 4: Travelers */}
-          <div className="space-y-6">
-            <h2 className="text-xl font-bold text-purple-300 border-b border-gray-600 pb-2">Travelers</h2>
-            <label htmlFor="travelers">Number of Travelers</label>
-            <input
-              type="number"
-              id="travelers"
-              min="1"
-              value={travelers}
-              onChange={(e) => setTravelers(parseInt(e.target.value) || 0)}
-              className="w-full border border-gray-500 rounded-lg mt-3 px-4 py-2 bg-transparent text-white"
-            />
+              <h2 className="text-2xl font-bold text-purple-300">
+                📦 Package Summary
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6 mt-8">
+                <div>
+                  <p className="text-sm text-gray-400">
+                    Package
+                  </p>
+                  <p className="text-2xl font-semibold mt-2">
+                    {pkg}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">
+                    Package ID
+                  </p>
+                  <p className="text-2xl font-semibold mt-2">
+                    #{packageId}
+                  </p>
+                </div>
+              </div>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {Array.from({ length: travelers }).map((_, index) => (
-                <div key={index} className="border border-gray-600 rounded-lg p-4 space-y-3">
-                  <h3 className="text-lg font-semibold text-purple-300">Traveler {index + 1}</h3>
+            {/* Primary Contact */}
+
+            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl p-8">
+              <h2 className="text-2xl font-bold text-purple-300 mb-8">
+                👤 Primary Contact
+              </h2>
+              <div className="space-y-6">
+                <div>
+                  <label className="text-gray-300">
+                    Full Name
+                  </label>
                   <input
-                    type="text"
-                    placeholder={`Name for traveler ${index + 1}`}
-                    className="w-full border text-white border-gray-500 rounded-lg px-4 py-2 bg-transparent"
-                  />
-                  <input
-                    type="file"
-                    accept="image/*,.pdf"
-                    className="w-full border text-white border-gray-500 rounded-lg px-4 py-2 bg-transparent file:cursor-pointer file:rounded-md file:border-0 file:bg-purple-600 file:px-3 file:py-1 file:text-white hover:file:bg-purple-700"
+                    readOnly
+                    value={form.data.name}
+                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3"
                   />
                 </div>
-              ))}
+                <div>
+                  <label className="text-gray-300">Email </label>
+                  <input
+                    readOnly
+                    value={form.data.email}
+                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3"
+                  />
+                </div>
+                <div>
+                  <label>  Phone Number</label>
+                  <input
+                    required
+                    type="tel"
+                    value={form.data.phone}
+                    onChange={(e) =>
+                      form.setData("phone", e.target.value)
+                    }
+                    placeholder="Enter phone number"
+                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3 focus:border-purple-500 outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Secondary */}
+
+            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl p-8">
+
+              <h2 className="text-2xl font-bold text-purple-300 mb-8">☎ Secondary Contact</h2>
+
+              <div className="space-y-6">
+                <div>
+                  <label>
+                    Additional Phone
+                  </label>
+                  <input
+                    required
+                    value={form.data.additionalPhone}
+                    onChange={(e) =>
+                      form.setData("additionalPhone", e.target.value)
+                    }
+                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3 focus:border-purple-500 outline-none"
+                  />
+                </div>
+                <div>
+                  <label>
+                    Additional Email
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    value={form.data.additionalEmail}
+                    onChange={(e) =>
+                      form.setData("additionalEmail", e.target.value)
+                    }
+                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3 focus:border-purple-500 outline-none"
+                  />
+                </div>
+                <div>
+                  <label> Address</label>
+                  <textarea
+                    rows={4}
+                    required
+                    value={form.data.address}
+                    onChange={(e) =>
+                      form.setData("address", e.target.value)
+                    }
+                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3 resize-none focus:border-purple-500 outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+            {/* Travellers */}
+
+            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl p-8">
+              <h2 className="text-2xl font-bold text-purple-300">👥 Travellers</h2>
+              <div className="mt-8">
+                <label> Number of Travellers
+                </label>
+                <input
+                  type="number"
+                  value={travelers}
+                  min={0}
+                  onChange={(e) => {
+                    const val = parseInt(e.target.value) || 0
+                    setTravelers(val)
+                    form.setData(
+                      "travelers",
+                      Array.from(
+                        { length: val },
+                        (_, i) =>
+                          form.data.travelers[i] ??
+                          {
+                            name: "",
+                            aadhar: null,
+                          }
+                      )
+                    )
+
+                  }}
+                  className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3"
+                />
+              </div>
+              <div className="grid md:grid-cols-2 gap-6 mt-8">
+
+                {Array.from({ length: travelers }).map((_, index) => (
+                  <div
+                    key={index}
+                    className="rounded-2xl border border-purple-500/20 bg-black/20 p-6 hover:border-purple-500 transition"
+                  >
+
+                    <h3 className="text-lg font-semibold text-purple-300 mb-5"> Traveller {index + 1} <span className='text-white text-sm'>- Upload your Aadhar</span> </h3>
+
+                    <input
+                      placeholder="Traveller Name"
+                      onChange={(e) =>
+                        handleTravelerChange(
+                          index,
+                          "name",
+                          e.target.value
+                        )
+                      }
+                      className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3"
+                    />
+                    <input
+                      type="file"
+                      accept="image/*,.pdf"
+                      onChange={(e) =>
+                        handleTravelerChange(
+                          index,
+                          "aadhar",
+                          e.target.files?.[0]
+                        )
+                      }
+                      className="mt-4 w-full text-sm file:mr-4 file:rounded-lg file:border-0 file:bg-purple-600 file:px-4 file:py-2 file:text-white hover:file:bg-purple-700"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Transportation */}
+            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl p-8">
+              <h2 className="text-2xl font-bold text-purple-300 mb-8">
+                🚗 Transportation
+              </h2>
+              <div className="grid gap-5">
+                {pricings.map((pricing) => {
+                  const active = selectedPricing === pricing.id
+                  return (
+                    <label
+                      key={pricing.id}
+                      className={`cursor-pointer rounded-2xl border p-6 transition-all duration-300 ${active
+                        ? "border-purple-500 bg-purple-500/20 shadow-xl"
+                        : "border-white/10 bg-black/20 hover:border-purple-400"
+                        }`}
+                    >
+
+                      <input
+                        type="radio"
+                        className="hidden"
+                        checked={active}
+                        onChange={() => {
+                          setSelectedPricing(pricing.id)
+                          form.setData("transport", pricing.id as any)
+                        }}
+                      />
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <h3 className="text-xl font-bold">
+                            {pricing.vehicle_name}
+                          </h3>
+                          <p className="text-gray-400 mt-2">Minimum {pricing.minimum_persons} Travellers</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-2xl font-bold text-purple-300">
+                            ₹{pricing.per_person_cost}
+                          </p>
+                          <p className="text-gray-400 text-sm">
+                            per person
+                          </p>
+                        </div>
+                      </div>
+                    </label>
+                  )
+
+                })}
+              </div>
+            </div>
+            {/* Trip Date */}
+            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl p-8">
+              <h2 className="text-2xl font-bold text-purple-300 mb-6">
+                📅 Travel Date
+              </h2>
+              <input
+                type="date"
+                required
+                value={form.data.startDate}
+                onChange={(e) =>
+                  form.setData("startDate", e.target.value)
+                }
+                className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3"
+              />
             </div>
           </div>
 
-          {/* Section 5: Transportation */}
-          <div className="space-y-6">
-            <h2 className="text-xl font-bold text-purple-300 border-b border-gray-600 pb-2">Transportation</h2>
-            <select
-              id="transport"
-              required
-              value={selectedPricing ?? ""}
-              onChange={(e) => setSelectedPricing(parseInt(e.target.value))}
-              className="w-full border border-gray-500 rounded-lg px-4 py-2 bg-transparent text-white"
-            >
-              <option value="" disabled>Select an option</option>
-              {pricings.map((pricing) => (
-                <option key={pricing.id} value={pricing.id} className="text-black">
-                  {pricing.vehicle_name} — ₹{pricing.per_person_cost} per person (min {pricing.minimum_persons} pax)
-                </option>
-              ))}
-            </select>
+          {/* RIGHT SIDEBAR */}
 
-            {selectedPricing && (
-              <div className="mt-4 p-4 border border-gray-600 rounded-lg">
-                <p className="text-purple-300 font-semibold">Per Person Cost: ₹{chosen?.per_person_cost}</p>
-                <p className="text-purple-300 font-semibold">Total Cost ({travelers} travelers): ₹{calculatedTotal}</p>
-                {!meetsRequirement && (
-                  <p className="text-red-400 font-semibold">
-                    ⚠ Minimum {chosen?.minimum_persons} travelers required for {chosen?.vehicle_name}.
-                  </p>
+          <aside className="sticky top-8">
+            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl p-8 space-y-8">
+              <div>
+                <h2 className="text-3xl font-bold text-purple-300">
+                  Booking Summary
+                </h2>
+              </div>
+              <div className="space-y-5">
+                <div className="flex justify-between">
+                  <span className="text-gray-400">
+                    Package
+                  </span>
+                  <span className="font-semibold text-right">
+                    {pkg}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">
+                    Travellers
+                  </span>
+                  <span>
+                    {travelers}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">
+                    Vehicle
+                  </span>
+                  <span>
+                    {chosen?.vehicle_name ?? "-"}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">
+                    Price / Person
+                  </span>
+                  <span>
+                    ₹{chosen?.per_person_cost ?? 0}
+                  </span>
+                </div>
+                <hr className="border-white/10" />
+                <div className="flex justify-between text-2xl font-bold">
+                  <span>Total</span>
+                  <span className="text-green-400">
+                    ₹{calculatedTotal}
+                  </span>
+                </div>
+                {!meetsRequirement && selectedPricing && (
+                  <div className="rounded-xl bg-red-500/10 border border-red-500/30 p-4 text-red-300">
+                    Minimum {chosen?.minimum_persons} travellers are required for{" "}
+                    {chosen?.vehicle_name}.
+                  </div>
                 )}
               </div>
-            )}
-          </div>
-
-          {/* Section 6: Trip Dates */}
-          <div className="space-y-6">
-            <h2 className="text-xl font-bold text-purple-300 border-b border-gray-600 pb-2">Trip Dates</h2>
-            <label htmlFor="startDate">Trip Start Date</label>
-            <input
-              type="date"
-              required
-              id="startDate"
-              name="startDate"
-              className="w-full border mt-3 border-gray-500 rounded-lg text-white px-4 py-2 bg-transparent"
-            />
-          </div>
-
-          {/* Submit */}
-          <button
-            type="submit"
-            disabled={!meetsRequirement}
-            className={`w-full cursor-pointer px-6 py-3 rounded-lg shadow transition 
-              ${meetsRequirement
-                ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700"
-                : "bg-gray-600 text-gray-300 cursor-not-allowed"}`}
-          >
-            Continue
-          </button>
+              <button
+                type="submit"
+                disabled={!meetsRequirement}
+                className={`w-full rounded-xl py-4 text-lg font-semibold transition-all duration-300 ${meetsRequirement
+                  ? "bg-gradient-to-r from-purple-600 to-indigo-600 hover:scale-[1.02] hover:shadow-xl"
+                  : "bg-gray-700 cursor-not-allowed"
+                  }`}
+              >
+                Complete Booking →
+              </button>
+            </div>
+          </aside>
         </form>
       </section>
       <Footer />
