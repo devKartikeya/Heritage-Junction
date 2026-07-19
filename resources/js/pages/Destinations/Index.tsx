@@ -67,7 +67,7 @@ const Index = () => {
               className="w-full cursor-pointer px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               <option value="">All States</option>
-              {states.map((state) => (
+              {states.map((state: any) => (
                 <option key={state} value={state}>{state}</option>
               ))}
             </select>
@@ -81,7 +81,7 @@ const Index = () => {
               className="w-full px-3 cursor-pointer py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               <option value="">All Categories</option>
-              {categories.map((cat) => (
+              {categories.map((cat: any) => (
                 <option key={cat} value={cat}>{cat}</option>
               ))}
             </select>
@@ -144,7 +144,7 @@ const Index = () => {
                       <p><span className="font-bold">State:</span> {destination.state}</p>
                       <p><span className="font-bold">Category:</span> {destination.category}</p>
                       <p><span className="font-bold">Best Time:</span> {destination.best_time}</p>
-                      <p><span className="font-bold">Average Budget:</span> ₹{destination.average_budget}</p>
+                      {/* <p><span className="font-bold">Average Budget:</span> ₹{destination.average_budget}</p> */}
                     </div>
 
                     <div className="mt-4">

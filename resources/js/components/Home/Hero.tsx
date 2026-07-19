@@ -29,18 +29,6 @@ const Hero = () => {
       description: "“Famed for the sacred Sangam — the confluence of the Ganga, Yamuna, and mythical Saraswati — Prayagraj is a city of immense spiritual significance. It hosts the grand Kumbh Mela, drawing millions of devotees. The city blends spirituality with history, offering forts, temples, and cultural vibrancy.”"
     },
     {
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZZw3XIpJjtiXuDB8PllQ7HpBGKvKgQk6TEtCf5w07RA&s=10",
-      title: "Kanpur",
-      link: "/kanpur",
-      description: "“Kanpur, once a major industrial hub, is known for its leather industry and textile heritage. The city also carries historical importance from the era of India’s independence struggle. Today, Kanpur balances its industrial identity with cultural landmarks, gardens, and a growing modern spirit.”"
-    },
-    {
-      image: "https://imgs.search.brave.com/HiE63o60WNki3LlHZhYFfGhnGL5yzt1Avp9c7lmQaQA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTIz/NTgwOTkyL3Bob3Rv/L2t1bWJoLW1lbGEt/aGluZHUtZmVzdGl2/YWwuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPThoM0xScGVx/TmV5ek9xaUR0enVh/SVYyNDBNX3RJWDBF/ZEI1Nk1mYUFvMDg9",
-      title: "Kumbh Mela",
-      link: "/kumbh-mela",
-      description: "“The Kumbh Mela, held in Prayagraj and other sacred sites, is the largest spiritual gathering on Earth. Millions of pilgrims, saints, and seekers come together to bathe in holy rivers, participate in rituals, and celebrate faith. It is a spectacle of devotion, unity, and timeless tradition.”"
-    },
-    {
       image: "https://imgs.search.brave.com/fqDQ7PegrsS0btIe8JzO7w8ukJvFQVTPwJ_M__1-IQQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI2/NDEzMDU2Ni9waG90/by9wYW5vcmFtaWMt/b2YtdnJpbmRhdmFu/LXV0dGFyLXByYWRl/c2gtaW5kaWEuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPU83/UldhY1E3RE5VYzhJ/dzRrQWR2elRhMTdu/RlY2WF9rU3duaEF0/eDZXbnc9",
       title: "Vrindavan",
       link: "/vrindavan",
@@ -132,6 +120,7 @@ const Hero = () => {
           <div className="mt-6 flex gap-5">
             <Button command="Learn More" link="/services" />
             <Button command="Book Now" link="/packages" variant='secondary' />
+            <Button command="My Dashboard" link="/dashboard" variant='danger' />
           </div>
         </div>
       </section>
