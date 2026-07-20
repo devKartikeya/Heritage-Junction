@@ -1,9 +1,11 @@
 import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
-import { CalendarDays, Users, IndianRupee, Car } from "lucide-react";
+import { CalendarDays, Users, IndianRupee, Car, Stamp, Ban } from "lucide-react";
 import { useState } from 'react';
 import Modal from "@/components/User/Modal";
 import Button from '../Button';
 import { Link } from '@inertiajs/react';
+import { router } from '@inertiajs/react';
+
 
 type Booking = {
     id: number;
@@ -16,6 +18,7 @@ type Booking = {
     full_name: string;
     email: string;
     phone: string;
+    status: string;
     package: {
         id: number;
         duration_days: number;
@@ -41,8 +44,10 @@ const Bookings = ({ bookings }: { bookings: Booking[] }) => {
                     {bookings.map((booking) => (
                         <div
                             key={booking.id}
-                            className="bg-blue-50a rounded-xl shadow-lg overflow-hidden border-2 border-purple-500 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                            className="bg-blue-50a rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+
                         >
+
                             {/* Image Banner */}
                             <div className="relative h-40">
                                 <img
@@ -70,6 +75,10 @@ const Bookings = ({ bookings }: { bookings: Booking[] }) => {
                                 <p className="flex items-center gap-2 text-sm">
                                     <IndianRupee className="w-4 h-4 text-purple-600" />
                                     <span className="font-semibold">₹{booking.total_cost}</span>
+                                </p>
+                                <p className="flex items-center gap-2 text-sm">
+                                    <Stamp className="w-4 h-4 text-purple-600" />
+                                    <span className="font-semibold"><span className='font-bold'>Status: </span>{booking.status}</span>
                                 </p>
 
                                 <button
@@ -149,10 +158,10 @@ const Bookings = ({ bookings }: { bookings: Booking[] }) => {
 
                                 {/* Travelers */}
                                 <div>
-                                    <h3 className="text-lg font-semibold text-purple-600 mb-2">Traveler Details</h3>
-                                    <ul className="space-y-3">
+                                    <h3 className="text-lg font-semibold text-purple-600 mb-1">Traveler Details</h3>
+                                    <ul className="space-x-3 flex">
                                         {selectedBooking.travelers.map((t: any) => (
-                                            <li key={t.id} className="flex items-center gap-3 text-sm text-gray-700">
+                                            <li key={t.id} className="flex items-center flex gap-3 text-sm text-gray-700">
                                                 <span className="font-medium">{t.traveler_name}</span>
                                                 {t.aadhar_path && (
                                                     <a
@@ -161,14 +170,31 @@ const Bookings = ({ bookings }: { bookings: Booking[] }) => {
                                                         rel="noopener noreferrer"
                                                         className="text-purple-600 hover:underline text-xs"
                                                     >
-                                                        View Aadhar
+                                                        View Aadhar |
                                                     </a>
                                                 )}
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
+                                {selectedBooking.status !== "cancelled" &&
+                                    selectedBooking.status !== "completed" && (
+                                        <button
+                                            onClick={() => {
+                                                if (confirm("Are you sure you want to cancel this booking?")) {
+                                                    router.patch(
+                                                        `/bookings/${selectedBooking.id}/cancel`
+                                                    );
+                                                }
+                                            }}
+                                            className="flex items-center gap-3 rounded-xl bg-red-600 px-2 py-2 font-semibold text-white transition justify-end hover:bg-red-700"
+                                        >
+                                            <Ban size={20} />
+                                            Cancel Booking
+                                        </button>
+                                    )}
                             </div>
+
                         )}
                     </Modal>
 

@@ -87,4 +87,15 @@ class BookingController extends Controller
 
         return redirect()->back()->with('success', 'Thank you! We will contact you within 15–20 minutes.');
     }
+
+    public function cancel(Booking $booking)
+    {
+        abort_if($booking->user_id !== auth()->id(), 403);
+
+        $booking->update([
+            'status' => 'Cancelled',
+        ]);
+
+        return back()->with('success', 'Booking cancelled successfully.');
+    }
 }

@@ -14,6 +14,7 @@ class BookingTravelers extends Model
         'booking_id',
         'traveler_name',
         'aadhar_path',
+        'verification_status'
     ];
 
     public function booking()

@@ -20,6 +20,7 @@ class Booking extends Model
         'additional_email',
         'additional_phone',
         'address',
+        'status',
         'number_of_travelers',
         'start_date',
         'per_person_cost',

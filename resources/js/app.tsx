@@ -5,6 +5,7 @@ import { initializeTheme } from '@/hooks/use-appearance';
 import AppLayout from '@/layouts/app-layout';
 import AuthLayout from '@/layouts/auth-layout';
 import SettingsLayout from '@/layouts/settings/layout';
+import AdminLayout from './layouts/admin-layout';
 import 'leaflet/dist/leaflet.css'
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
@@ -19,6 +20,8 @@ createInertiaApp({
                 return null;
             case name.startsWith('Packages/'):
                 return null;
+            case name.startsWith('Admin/'):
+                return AdminLayout;
             case name.startsWith('Booking/'):
                 return null;
             case name === 'NotFound' || name === 'About' || name == 'Services':
