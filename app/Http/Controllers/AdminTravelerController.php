@@ -6,7 +6,7 @@ use App\Models\BookingTravelers;
 
 class AdminTravelerController extends Controller
 {
-    public function verify(BookingTravelers $traveler)b
+    public function verify(BookingTravelers $traveler)
     {
         $traveler->update([
             'verification_status' => 'verified'

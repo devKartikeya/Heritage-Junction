@@ -72,11 +72,69 @@ Route::prefix('admin')->group(function () {
         [AdminTravelerController::class, 'reject']
     );
 
-
     Route::get(
         '/packages',
         [AdminPackageController::class, 'index']
     )->name('admin.packages.index');
+    Route::get(
+        '/packages/{package}',
+        [AdminPackageController::class, 'show']
+    )->name('admin.packages.show');
+
+    Route::put(
+        '/packages/{package}',
+        [AdminPackageController::class, 'update']
+    )->name('admin.packages.update');
+
+    Route::patch(
+        '/packages/{package}/toggle-status',
+        [AdminPackageController::class, 'toggleStatus']
+    )->name('admin.packages.toggle-status');
+
+    Route::post(
+        '/packages/{package}/pricing',
+        [AdminPackageController::class, 'storePricing']
+    )->name('admin.pricing.store');
+
+    Route::put(
+        '/pricing/{pricing}',
+        [AdminPackageController::class, 'updatePricing']
+    )->name('admin.pricing.update');
+
+    Route::delete(
+        '/pricing/{pricing}',
+        [AdminPackageController::class, 'destroyPricing']
+    )->name('admin.pricing.destroy');
+
+    Route::post(
+        '/packages/{package}/itinerary',
+        [AdminPackageController::class, 'storeItinerary']
+    );
+
+    Route::put(
+        '/itinerary/{itinerary}',
+        [AdminPackageController::class, 'updateItinerary']
+    );
+
+    Route::delete(
+        '/itinerary/{itinerary}',
+        [AdminPackageController::class, 'destroyItinerary']
+    );
+
+    Route::post(
+        '/packages/{package}/duplicate',
+        [AdminPackageController::class, 'duplicate']
+    );
+
+    Route::delete(
+        '/packages/{package}',
+        [AdminPackageController::class, 'destroy']
+    );
+
+    Route::put(
+    '/packages/{package}/destinations',
+    [AdminPackageController::class, 'updateDestinations']
+)->name('admin.packages.destinations');
 });
 
 Route::fallback(function () {

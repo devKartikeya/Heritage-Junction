@@ -32,7 +32,7 @@ class PackageController extends Controller
         return Inertia::render('Packages/Package', [
             'pkg' => $pkg,
             'booking_faqs' => $booking_faqs,
-            'packages_faqs' => $packages_faqs,
+            'packages_faqs' => $packages_faqs
         ]);
     }
 }
