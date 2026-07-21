@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\AdminBookingController;
+use App\Http\Controllers\AdminCreatePackageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminTravelerController;
 use App\Http\Controllers\AdminPackageController;
@@ -132,9 +133,14 @@ Route::prefix('admin')->group(function () {
     );
 
     Route::put(
-    '/packages/{package}/destinations',
-    [AdminPackageController::class, 'updateDestinations']
-)->name('admin.packages.destinations');
+        '/packages/{package}/destinations',
+        [AdminPackageController::class, 'updateDestinations']
+    )->name('admin.packages.destinations');
+
+    Route::get('/create-package', [AdminCreatePackageController::class, 'index']);
+
+    Route::post('/packages', [AdminCreatePackageController::class, 'store'])
+        ->name('admin.packages.store');
 });
 
 Route::fallback(function () {

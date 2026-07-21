@@ -97,7 +97,7 @@ export default function Index({
                     </div>
 
                     <Link
-                        href="/admin/packages/create"
+                        href="/admin/create-package"
                         className="flex items-center gap-2 rounded-xl bg-purple-600 px-5 py-4 font-semibold transition hover:bg-purple-700"
                     >
                         <Plus size={20} />
