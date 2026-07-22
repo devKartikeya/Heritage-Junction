@@ -62,10 +62,10 @@ const Navbar = () => {
                 <li className="navbar-link hover:text-pink-400 hover:underline"><Link href="/about">About Us</Link></li>
                 <li className="navbar-link hover:text-pink-400 hover:underline"><a href="/#contact">Contact Us</a></li>
                 <div className="navbar-link">
-                    <Button command="Signup" variant="primary" size="md" link="/register" />
+                    <Button command="Login" variant="primary" size="md" link="/login" />
                 </div>
                 <div className="navbar-link">
-                    <Button command="Login" variant="primary" size="md" link="/login" />
+                    <Button command="Register" variant="primary" size="md" link="/register" />
                 </div>
             </ul>
         </nav>

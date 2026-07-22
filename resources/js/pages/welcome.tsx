@@ -1,21 +1,21 @@
+import { gsap } from 'gsap'
+import { useEffect } from 'react'
 import { Head } from '@inertiajs/react'
+import Map from '@/components/Home/Map'
 import Navbar from '@/components/navbar'
+import Footer from '@/components/Footer'
 import Hero from '@/components/Home/Hero'
 import About from '@/components/Home/About'
-import Footer from '@/components/Footer'
-import WhyChooseUs from '@/components/Home/WhyChooseUs'
-import Services from '@/components/Home/Services'
 import Contact from '@/components/Home/Contact'
-import { useEffect } from 'react'
-import { gsap } from 'gsap'
+import Services from '@/components/Home/Services'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Map from '@/components/Home/Map'
+import WhyChooseUs from '@/components/Home/WhyChooseUs'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Welcome = () => {
     useEffect(() => {
-        // Animate each section on scroll
+       
         const sections = gsap.utils.toArray([
             '.hero-section',
             '.about-section',
@@ -42,25 +42,33 @@ const Welcome = () => {
     return (
         <div className="overflow-x-hidden bg-white">
             <Head title="Home" />
+            {/* Navbar */}
             <Navbar />
+            {/* Hero Section */}
             <div className="hero-section">
                 <Hero />
             </div>
+            {/* About */}
             <div className="about-section">
                 <About />
             </div>
+            {/* Why Choose Us */}
             <div className="why-section">
                 <WhyChooseUs />
             </div>
+            {/* Services */}
             <div className="services-section">
                 <Services />
             </div>
+            {/* Contact */}
             <div>
                 <Contact />
             </div>
+            {/* Map */}
             <div>
                 <Map />
             </div>
+            {/* Footer */}
             <div className="footer-section">
                 <Footer />
             </div>

@@ -82,7 +82,7 @@ export default function Dashboard({
                             Manage Destinations
                         </Link>
                         <Link
-                            href="/admin/destinations"
+                            href="/admin/users"
                             className="rounded-lg bg-pink-600 px-5 py-3 text-white transition hover:bg-pink-700"
                         >
                             Manage Users

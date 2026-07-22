@@ -36,8 +36,7 @@ class AdminPackageController extends Controller
                     ->orderBy('time');
             },
             'destinations.heritageSites',
-            'destinations.foods',
-            'destinations.culturalHighlights',
+            'destinations.foods'
         ]);
 
         return Inertia::render(

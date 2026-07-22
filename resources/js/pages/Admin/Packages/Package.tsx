@@ -22,6 +22,7 @@ export default function Package({
         starting_city: pkg.starting_city,
         ending_city: pkg.ending_city,
         duration_days: pkg.duration_days,
+        duration_nights: pkg.duration_nights,
     });
     return (
         <div className="min-h-screen bg-black text-white">

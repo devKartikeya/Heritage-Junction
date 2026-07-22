@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer'
 import About from '@/components/Home/About'
 import Navbar from '@/components/navbar'
+import { Link } from '@inertiajs/react'
 
 const Services = () => {
     return (
@@ -139,6 +140,20 @@ const Services = () => {
                         </div>
                     </div>
                 </div>
+            </section>
+            {/* Call to Action */}
+            <section className="text-center py-10 mb-5">
+                <h2 className="text-3xl font-bold text-purple-700 mb-4">Plan Your Journey</h2>
+                <p className="text-gray-700 max-w-2xl mx-auto mb-6">
+                    Ready to explore Uttar Pradesh? Let Heritage Junction craft the perfect itinerary for you —
+                    from guided tours and cultural immersion to comfortable stays and authentic dining.
+                </p>
+                <Link
+                    href={`/packages`}
+                    className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg shadow hover:bg-purple-700 transition"
+                >
+                    Book Your Experience
+                </Link>
             </section>
             <Footer />
         </div>

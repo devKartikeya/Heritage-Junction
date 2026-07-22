@@ -61,7 +61,7 @@ const Contact = () => {
                             <FaLinkedin className="text-2xl" /> LinkedIn
                         </a>
                         <a
-                            href="tel:+911234567890"
+                            href="tel:+917905358890"
                             className="flex items-center gap-3 text-gray-700 hover:text-purple-600 transition"
                         >
                             <FaPhoneAlt className="text-2xl" /> +91 79053 58890

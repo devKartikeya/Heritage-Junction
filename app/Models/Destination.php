@@ -35,12 +35,6 @@ class Destination extends Model
         return $this->hasMany(HeritageSite::class)
             ->orderBy('sort_order');
     }
-    public function culturalHighlights(): HasMany
-    {
-        return $this->hasMany(CulturalHighlight::class)
-            ->orderBy('sort_order');
-    }
-
     public function packages(): BelongsToMany
     {
         return $this->belongsToMany(Package::class)

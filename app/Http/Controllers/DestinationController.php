@@ -20,7 +20,7 @@ class DestinationController extends Controller
     public function show(string $slug)
     {
         $destination = Destination::where('slug', $slug)
-            ->with(['heritageSites', 'foods', 'culturalHighlights'])
+            ->with(['heritageSites', 'foods'])
             ->firstOrFail();
         logger($destination);
         return Inertia::render('Destinations/Destination', [

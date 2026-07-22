@@ -1,4 +1,5 @@
 import Footer from '@/components/Footer'
+import Navbar from '@/components/navbar'
 import { Link } from '@inertiajs/react'
 import { useState } from 'react'
 
@@ -104,7 +105,7 @@ const Index = ({ packages }: { packages: Package[] }) => {
                 {filteredPackages.length === 0 ? (
                     <p className="text-gray-600 text-center">No packages match your filters.</p>
                 ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                         {filteredPackages.map((pkg) => (
                             <div
                                 key={pkg.id}

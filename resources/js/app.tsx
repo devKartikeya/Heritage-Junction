@@ -24,7 +24,7 @@ createInertiaApp({
                 return AdminLayout;
             case name.startsWith('Booking/'):
                 return null;
-            case name === 'NotFound' || name === 'About' || name == 'Services':
+            case name === 'NotFound' || name === 'About' || name == 'Services' || name === 'FAQS':
                 return null;
             case name.startsWith('auth/'):
                 return AuthLayout;

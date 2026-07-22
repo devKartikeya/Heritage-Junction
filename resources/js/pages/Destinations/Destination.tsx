@@ -38,12 +38,10 @@ export default function DestinationPage({
     destination: Destination & {
         foods: Item2[]
         heritage_sites: Item2[]
-        cultural_highlights: Item[]
     }
 }) {
     const foods = destination.foods ?? []
     const heritageSites = destination.heritage_sites ?? []
-    const culturalHighlights = destination.cultural_highlights ?? []
 
     return (
         <div className="bg-gray-50 text-black">
@@ -87,7 +85,7 @@ export default function DestinationPage({
 
                     {/* Heritage Sites */}
                     <div className="mb-12">
-                        <h3 className="text-xl md:text-2xl font-bold text-green-700 mb-4">Heritage Sites</h3>
+                        <h3 className="text-xl md:text-2xl font-bold text-green-700 mb-4">Heritage & Cultural Sites</h3>
                         {heritageSites.length === 0 ? (
                             <p className="text-gray-600">No heritage sites listed for this destination.</p>
                         ) : (
@@ -102,30 +100,6 @@ export default function DestinationPage({
                                         <div className="p-4">
                                             <h4 className="text-lg font-semibold text-gray-900">{site.name}</h4>
                                             <p className="text-gray-700 text-sm mt-2">{site.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-
-                    {/* Cultural Highlights */}
-                    <div className="mb-12">
-                        <h3 className="text-xl md:text-2xl font-bold text-blue-700 mb-4">Cultural Highlights</h3>
-                        {culturalHighlights.length === 0 ? (
-                            <p className="text-gray-600">No cultural highlights listed for this destination.</p>
-                        ) : (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                                {culturalHighlights.map((highlight) => (
-                                    <div key={highlight.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                                        <img
-                                            src={highlight.image_path}
-                                            alt={highlight.title}
-                                            className="w-full h-48 object-cover"
-                                        />
-                                        <div className="p-4">
-                                            <h4 className="text-lg font-semibold text-gray-900">{highlight.title}</h4>
-                                            <p className="text-gray-700 text-sm mt-2">{highlight.description}</p>
                                         </div>
                                     </div>
                                 ))}

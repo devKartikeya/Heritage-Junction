@@ -4,13 +4,16 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Faq;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\AdminBookingController;
 use App\Http\Controllers\AdminCreatePackageController;
+use App\Http\Controllers\AdminFAQSController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminTravelerController;
 use App\Http\Controllers\AdminPackageController;
+use App\Http\Controllers\AdminUsersController;
 
 Route::inertia('/', 'welcome')->name('home');
 
@@ -33,10 +36,20 @@ Route::get('/packages/{slug}', [PackageController::class, 'show'])->name('packag
 
 Route::get("/booking/{id}", [BookingController::class, 'index'])->middleware(['auth']);
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
-
 Route::patch('/bookings/{booking}/cancel', [BookingController::class, 'cancel'])
     ->middleware('auth')
     ->name('bookings.cancel');
+
+Route::get('/faqs', function () {
+    return Inertia::render(
+        'FAQS',
+        [
+            'faqs' => FAQ::orderBy('category')
+                ->orderBy('sort_order')
+                ->get(),
+        ]
+    );
+});
 
 
 Route::prefix('admin')->group(function () {
@@ -141,6 +154,39 @@ Route::prefix('admin')->group(function () {
 
     Route::post('/packages', [AdminCreatePackageController::class, 'store'])
         ->name('admin.packages.store');
+
+    Route::get('/faqs', [AdminFAQSController::class, 'index'])->name('admin.faqs.index');
+
+    Route::get('/faqs/create', [AdminFAQSController::class, 'create']);
+    Route::post('/faqs', [AdminFAQSController::class, 'store'])
+        ->name('admin.faqs.store');
+
+    Route::get(
+        '/faqs/{faq}/edit',
+        [AdminFAQSController::class, 'edit']
+    )->name('admin.faqs.edit');
+
+    Route::put(
+        '/faqs/{faq}',
+        [AdminFAQSController::class, 'update']
+    )->name('admin.faqs.update');
+
+    Route::delete(
+        '/faqs/{faq}',
+        [AdminFAQSController::class, 'destroy']
+    )->name('admin.faqs.destroy');
+
+    Route::get('/users', [AdminUsersController::class, 'index'])->name('admin.users.index');
+
+    Route::get(
+        '/users/{user}',
+        [AdminUsersController::class, 'show']
+    )->name('admin.users.show');
+
+    Route::patch(
+        '/users/{user}/toggle',
+        [AdminUsersController::class, 'toggle']
+    );
 });
 
 Route::fallback(function () {

@@ -85,7 +85,23 @@ export default function BasicInfoCard({
             value={form.data.duration_days}
             onChange={(e) =>
               form.setData(
-                "number_of_days",
+                "duration_days",
+                Number(e.target.value)
+              )
+            }
+            className="w-full rounded-xl border border-zinc-700 bg-zinc-800 px-3 py-2 outline-none focus:border-purple-500"
+          />
+
+        </InfoField>
+
+        <InfoField label="Duration (Nights)">
+          <input
+            type="number"
+            min={1}
+            value={form.data.duration_nights}
+            onChange={(e) =>
+              form.setData(
+                "duration_nights",
                 Number(e.target.value)
               )
             }
