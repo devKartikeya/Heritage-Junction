@@ -26,20 +26,25 @@ Route::inertia("/about", 'About')->name("about");
 Route::inertia("/services", 'Services')->name("services");
 
 
+/* Destinations Routes */
 Route::get('/destinations', [DestinationController::class, 'index']);
 Route::get('/destinations/{slug}', [DestinationController::class, 'show'])->name('destinations.show');
 
 
+/* Packages Routes */
 Route::get("/packages", [PackageController::class, "index"]);
 Route::get('/packages/{slug}', [PackageController::class, 'show'])->name('packages.show');
 
 
+/* Booking Routes */
 Route::get("/booking/{id}", [BookingController::class, 'index'])->middleware(['auth']);
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 Route::patch('/bookings/{booking}/cancel', [BookingController::class, 'cancel'])
     ->middleware('auth')
     ->name('bookings.cancel');
 
+
+/* FAQS Route */
 Route::get('/faqs', function () {
     return Inertia::render(
         'FAQS',
@@ -51,7 +56,7 @@ Route::get('/faqs', function () {
     );
 });
 
-
+/* Admin Routes */
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index']);
     Route::get('/bookings', [AdminBookingController::class, 'index'])
@@ -189,6 +194,8 @@ Route::prefix('admin')->group(function () {
     );
 });
 
+
+/* Fallback Route */
 Route::fallback(function () {
     return Inertia::render('NotFound');
 })->name("notfound");

@@ -1,20 +1,21 @@
 import InfoField from "./InfoField";
 
-type FormData = {
-  full_name: string;
-  email: string;
-  phone: string;
-  additional_email: string;
-  additional_phone: string;
-  address: string;
-};
+// type FormData = {
+//   full_name: string;
+//   email: string;
+//   phone: string;
+//   additional_email: string;
+//   additional_phone: string;
+//   address: string;
+// };
 
 type Props = {
   form: any;
   booking: number;
 };
 
-export default function CustomerCard({ form, booking }: Props) {
+/* Removed Booking Prop from here */
+export default function CustomerCard({ form }: Props) {
   return (
     <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8">
 

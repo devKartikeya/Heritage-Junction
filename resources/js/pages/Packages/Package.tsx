@@ -1,9 +1,9 @@
 import QuickFactCard from '../../components/Packages/QuickFactCard'
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { Link } from '@inertiajs/react'
 import RouteMap from '../../components/Packages/RouteMap'
 import Itinerary from '../../components/Packages/Itinerary'
-import { Plus, Minus, Plane } from 'lucide-react'
+import { Plus, Minus } from 'lucide-react'
 import BookNow from '@/components/Packages/BookNow'
 import Footer from '@/components/Footer'
 

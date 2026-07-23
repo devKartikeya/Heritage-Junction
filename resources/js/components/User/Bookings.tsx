@@ -2,7 +2,6 @@ import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
 import { CalendarDays, Users, IndianRupee, Car, Stamp, Ban } from "lucide-react";
 import { useState } from 'react';
 import Modal from "@/components/User/Modal";
-import Button from '../Button';
 import { Link } from '@inertiajs/react';
 import { router } from '@inertiajs/react';
 

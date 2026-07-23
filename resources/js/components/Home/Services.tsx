@@ -59,7 +59,7 @@ const Services = () => {
         <section className="w-full bg-blue-50 py-16 px-6">
             <div className="max-w-7xl mx-auto flex flex-col gap-12">
                 {/* Heading */}
-                <h2 className="sm:text-3xl md:text-4xl lg:text-6xl font-bold text-center text-purple-600">Our Services</h2>
+                <h2 className="text-4xl lg:text-6xl font-bold text-center text-purple-600">Our Services</h2>
 
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

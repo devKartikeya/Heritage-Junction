@@ -1,5 +1,3 @@
-import React from 'react'
-
 type QuickFactCardProps = {
     icon: React.ReactNode
     title: string

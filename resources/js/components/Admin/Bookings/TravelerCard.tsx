@@ -1,7 +1,6 @@
 import { router } from "@inertiajs/react";
 import {
     BadgeCheck,
-    CircleAlert,
     CircleX,
     Eye,
 } from "lucide-react";

@@ -1,5 +1,3 @@
-import React from 'react'
-
 type Itinerary = {
     id: number
     package_id: number
@@ -10,7 +8,8 @@ type Itinerary = {
     sort_order: number
 }
 
-export default function Itinerary({ itineraries, starting_city, ending_city }: { itineraries: Itinerary[], starting_city: string, ending_city: string }) {
+/* Removed Starting city and Ending City Prop from here */
+export default function Itinerary({ itineraries }: { itineraries: Itinerary[], starting_city: string, ending_city: string }) {
     // Group activities by day_number
     const grouped = itineraries.reduce((acc: Record<number, Itinerary[]>, item) => {
         if (!acc[item.day_number]) acc[item.day_number] = []

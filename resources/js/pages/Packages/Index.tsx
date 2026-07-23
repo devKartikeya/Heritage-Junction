@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer'
-import Navbar from '@/components/navbar'
+// import Navbar from '@/components/navbar'
 import { Link } from '@inertiajs/react'
 import { useState } from 'react'
 

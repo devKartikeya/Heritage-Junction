@@ -1,13 +1,10 @@
 import { router } from "@inertiajs/react";
 import {
   Eye,
-  Pencil,
-  Plus,
   Copy,
   Power,
   Trash2,
-  Map,
-  IndianRupee,
+  Map
 } from "lucide-react";
 
 export default function PackageActions({

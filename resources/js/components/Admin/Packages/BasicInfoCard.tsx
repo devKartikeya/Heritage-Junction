@@ -5,8 +5,8 @@ type Props = {
   form: any;
 };
 
+/* Removed pkg Prop from heree */
 export default function BasicInfoCard({
-  pkg,
   form,
 }: Props) {
   return (

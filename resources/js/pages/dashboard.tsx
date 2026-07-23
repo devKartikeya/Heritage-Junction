@@ -1,6 +1,5 @@
 import { Head } from '@inertiajs/react';
 import { dashboard } from '@/routes';
-import Modal from "@/components/User/Modal";
 import Bookings from '@/components/User/Bookings';
 
 type Booking = {
@@ -30,10 +29,10 @@ type Booking = {
 };
 
 export default function Dashboard({ bookings }: { bookings: Booking[] }) {
-    console.log(bookings[0]);
     return (
         <div className=''>
             <Head title="Dashboard" />
+            {/* Bookings of User */}
             <Bookings bookings={bookings}/>
         </div>
     );

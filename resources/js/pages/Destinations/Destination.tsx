@@ -14,14 +14,14 @@ type Destination = {
     state: string
 }
 
-type Item = {
-    id: number
-    destination_id: number
-    title: string
-    image_path: string
-    description: string
-    sort_order: number
-}
+// type Item = {
+//     id: number
+//     destination_id: number
+//     title: string
+//     image_path: string
+//     description: string
+//     sort_order: number
+// }
 
 type Item2 = {
     id: number

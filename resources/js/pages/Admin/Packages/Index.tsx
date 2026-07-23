@@ -1,4 +1,4 @@
-import { Link, useForm } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 import { Plus, Search, Eye, Pencil, Trash2 } from "lucide-react";
 import { useMemo, useState } from "react";
 

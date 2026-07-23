@@ -1,5 +1,3 @@
-import React from 'react'
-
 const About = () => {
     return (
         <section className='w-screen bg-blue-50 text-black p-12 flex flex-col gap-6'>

@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer'
 import { Link, usePage } from '@inertiajs/react'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const Index = () => {
   const { destinations }: any = usePage().props

@@ -11,6 +11,7 @@ use App\Models\PackageItinerary;
 
 class AdminPackageController extends Controller
 {
+    /* Show PMS Page */
     public function index()
     {
         $packages = Package::with([
@@ -25,6 +26,7 @@ class AdminPackageController extends Controller
             ]
         );
     }
+    /* Show single Package Details */
     public function show(Package $package)
     {
         $package->load([
@@ -48,6 +50,7 @@ class AdminPackageController extends Controller
         );
     }
 
+    /* Update Package */
     public function update(Request $request, Package $package)
     {
         $validated = $request->validate([
@@ -66,6 +69,7 @@ class AdminPackageController extends Controller
         );
     }
 
+    /* Store Pricings of Package */
     public function storePricing(Request $request, Package $package)
     {
         $validated = $request->validate([
@@ -86,6 +90,7 @@ class AdminPackageController extends Controller
         );
     }
 
+    /* Update Pricings */
     public function updatePricing(
         Request $request,
         PackagePricing $pricing
@@ -106,6 +111,7 @@ class AdminPackageController extends Controller
         );
     }
 
+    /* Delete Pricings */
     public function destroyPricing(
         PackagePricing $pricing
     ) {
