@@ -27,13 +27,14 @@ const Navbar = () => {
     }, [])
 
     return (
-        <nav className="w-full text-white h-16 flex justify-between items-center p-2 bg-gray-900 relative">
+        <nav className="w-full text-white h-20 flex justify-between items-center py-2 px-4 bg-gray-900 relative">
             {/* Logo */}
             <div className="navbar-logo p-2 font-bold text-lg"><Link href={"/"}>Heritage Junction</Link></div>
 
             {/* Hamburger button (mobile only) */}
             <button
                 ref={buttonRef}
+                aria-label='Hamburger'
                 className="md:hidden block focus:outline-none"
                 onClick={() => setIsOpen(!isOpen)}
             >
@@ -58,8 +59,8 @@ const Navbar = () => {
                 <li className="navbar-link hover:text-pink-400 hover:underline"><Link href="/">Home</Link></li>
                 <li className="navbar-link hover:text-pink-400 hover:underline"><Link href="/packages">Packages</Link></li>
                 <li className="navbar-link hover:text-pink-400 hover:underline"><Link href="/destinations">Destinations</Link></li>
-                <li className="navbar-link hover:text-pink-400 hover:underline"><Link href="/services">Services</Link></li>
-                <li className="navbar-link hover:text-pink-400 hover:underline"><Link href="/about">About Us</Link></li>
+                <li className="navbar-link hover:text-pink-400 hover:underline"><Link aria-label='Read more about our services' href="/services">Our Services</Link></li>
+                <li className="navbar-link hover:text-pink-400 hover:underline"><Link href="/#about">About Us</Link></li>
                 <li className="navbar-link hover:text-pink-400 hover:underline"><a href="/#contact">Contact Us</a></li>
                 <div className="navbar-link">
                     <Button command="Login" variant="primary" size="md" link="/login" />

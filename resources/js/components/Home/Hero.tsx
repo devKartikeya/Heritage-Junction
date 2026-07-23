@@ -117,7 +117,7 @@ const Hero = () => {
             A gateway to Uttar Pradesh’s timeless heritage, curated for modern travelers.
           </p>
 
-          <div className="mt-6 flex gap-5">
+          <div className="mt-6 flex gap-10">
             <Button command="Learn More" link="/services" />
             <Button command="Book Now" link="/packages" variant='secondary' />
             <Button command="My Dashboard" link="/dashboard" variant='danger' />

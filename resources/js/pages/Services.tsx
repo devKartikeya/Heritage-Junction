@@ -10,7 +10,7 @@ const Services = () => {
             {/* Page Header */}
             <div className="p-8 text-left">
                 <h1 className="text-4xl my-2 md:text-6xl lg:text-7xl font-bold text-purple-700">Heritage Junction <span className='text-3xl md:text-5xl text-red-500'> - Book your Journey</span></h1>
-                <p className="my-8 text-lg md:text-2xl max-w-5xl text-gray-900 font-semibold text-left">
+                <p className="my-8 text-lg md:text-xl max-w-5xl text-gray-900 font-semibold text-left">
                     At Heritage Junction, we don’t just plan trips — we craft journeys that immerse you in India’s living heritage.
                     Our mission is to connect travelers with the soul of this nation: its sacred cities, vibrant festivals, timeless traditions, and warm communities.
                     Every experience is designed to be effortless, authentic, and unforgettable.

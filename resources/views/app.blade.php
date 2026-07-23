@@ -11,6 +11,7 @@
             }
         </style>
         <meta charset="utf-8">
+        <meta name="description" content="Heritage Junction is a full-stack travel and tourism management platform featuring destination discovery, package booking, traveler verification, and a powerful administrative dashboard.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {{-- Inline script to detect system dark mode preference and apply it immediately --}}
