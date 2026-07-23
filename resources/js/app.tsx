@@ -18,13 +18,15 @@ createInertiaApp({
                 return null;
             case name.startsWith('Destinations/'):
                 return null;
+                case name.startsWith('Admin/Auth'):
+                return null;
             case name.startsWith('Packages/'):
                 return null;
             case name.startsWith('Admin/'):
                 return AdminLayout;
             case name.startsWith('Booking/'):
                 return null;
-            case name === 'NotFound' || name === 'About' || name == 'Services' || name === 'FAQS':
+            case name === 'NotFound' || name === 'About' || name == 'Services' || name === 'FAQS' || name === 'Admin/Auth/Login':
                 return null;
             case name.startsWith('auth/'):
                 return AuthLayout;

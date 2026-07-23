@@ -14,6 +14,21 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminTravelerController;
 use App\Http\Controllers\AdminPackageController;
 use App\Http\Controllers\AdminUsersController;
+use App\Http\Controllers\AdminAuthController;
+
+Route::middleware('guest:admin')->group(function () {
+
+    Route::get('/admin/login', [AdminAuthController::class, 'index'])
+        ->name('admin.login');
+
+    Route::post('/admin/login', [AdminAuthController::class, 'login']);
+});
+
+Route::middleware('auth:admin')->group(function () {
+
+    Route::post('/admin/logout', [AdminAuthController::class, 'logout'])
+        ->name('admin.logout');
+});
 
 Route::inertia('/', 'welcome')->name('home');
 
@@ -57,7 +72,11 @@ Route::get('/faqs', function () {
 });
 
 /* Admin Routes */
-Route::prefix('admin')->group(function () {
+// Route::prefix('admin')->group(function () {});
+
+Route::middleware('auth:admin')->prefix('admin')->group(function () {
+
+    // ALL ADMIN ROUTES HERE
     Route::get('/dashboard', [AdminDashboardController::class, 'index']);
     Route::get('/bookings', [AdminBookingController::class, 'index'])
         ->name('admin.bookings.index');
@@ -193,7 +212,6 @@ Route::prefix('admin')->group(function () {
         [AdminUsersController::class, 'toggle']
     );
 });
-
 
 /* Fallback Route */
 Route::fallback(function () {
