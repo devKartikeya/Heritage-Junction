@@ -1,5 +1,5 @@
 import FAQFormCard from "@/components/Admin/FAQS/FAQFormCard";
-import { useForm, Link } from "@inertiajs/react";
+import { useForm, Link, Head } from "@inertiajs/react";
 
 export default function Create() {
 
@@ -24,6 +24,7 @@ export default function Create() {
     return (
 
         <div className="min-h-screen bg-black text-white">
+            <Head title="Create FAQ"/>
 
             <div className="mx-auto max-w-5xl px-8 py-10">
 

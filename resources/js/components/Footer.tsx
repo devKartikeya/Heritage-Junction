@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="w-full bg-gray-900 text-gray-300 py-10 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10">
-        
+
         {/* Brand */}
         <div>
           <h4 className="text-2xl font-bold text-pink-500 mb-4">
@@ -95,8 +95,7 @@ const Footer = () => {
               target="_blank"
               href="https://www.kryoteksoftwares.com/"
             >
-              Kryotek Softwares Private Limited <a href="https://github.com/devKartikeya" target="_blank" className="text-pink-500">@Kartikeya Mishra</a> 
-            </a>
+              Kryotek Softwares Private Limited </a> <a href="https://github.com/devKartikeya" target="_blank" className="text-pink-500">@Kartikeya Mishra</a>
           </span>
         </p>
       </div>

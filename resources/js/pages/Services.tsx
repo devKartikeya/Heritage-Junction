@@ -1,11 +1,12 @@
 import Footer from '@/components/Footer'
 import About from '@/components/Home/About'
 import Navbar from '@/components/navbar'
-import { Link } from '@inertiajs/react'
+import { Head, Link } from '@inertiajs/react'
 
 const Services = () => {
     return (
         <div className="bg-white text-black w-full min-h-screen overflow-x-hidden">
+            <Head title='Our Services'/>
             <Navbar />
             {/* Page Header */}
             <div className="p-8 text-left">

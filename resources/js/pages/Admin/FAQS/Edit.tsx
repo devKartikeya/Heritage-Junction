@@ -1,5 +1,6 @@
 import FAQFormCard from "@/components/Admin/FAQS/FAQFormCard";
 import {
+    Head,
     Link,
     useForm,
 } from "@inertiajs/react";
@@ -33,6 +34,7 @@ export default function Edit({
     return (
 
         <div className="min-h-screen bg-black text-white">
+            <Head title="Edit FAQ"/>
 
             <div className="mx-auto max-w-5xl px-8 py-10">
 

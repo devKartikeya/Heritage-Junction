@@ -1,4 +1,4 @@
-import { Link } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import { useForm } from "@inertiajs/react";
 import BookingHeader from "@/components/Admin/Bookings/BookingHeader";
 import CustomerCard from "@/components/Admin/Bookings/CustomerCard";
@@ -59,6 +59,7 @@ export default function Booking({
     });
     return (
         <div className="min-h-screen bg-black text-white">
+            <Head title={booking.full_name}/>
             <div className="max-w-7xl mx-auto px-8 py-10">
                 <Link
                     href="/admin/bookings"

@@ -1,4 +1,4 @@
-import { Link, useForm } from "@inertiajs/react";
+import { Head, Link, useForm } from "@inertiajs/react";
 
 import PackageHeader from "@/components/Admin/Packages/PackageHeader";
 import BasicInfoCard from "@/components/Admin/Packages/BasicInfoCard";
@@ -26,6 +26,7 @@ export default function Package({
     });
     return (
         <div className="min-h-screen bg-black text-white">
+            <Head title={pkg.title}/>
             <div className="mx-auto max-w-7xl px-8 py-10">
                 {/* Back */}
                 <Link

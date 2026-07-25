@@ -1,4 +1,4 @@
-import { Link } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import { Plus, Search, Eye, Pencil, Trash2 } from "lucide-react";
 import { useMemo, useState } from "react";
 
@@ -65,6 +65,7 @@ export default function Index({
     return (
 
         <div className="min-h-screen bg-black p-8 text-white">
+            <Head title={`Package Management`}/>
 
             {/* Header */}
 

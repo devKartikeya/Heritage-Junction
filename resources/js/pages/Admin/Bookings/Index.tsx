@@ -1,4 +1,4 @@
-import { Link } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 
 type Booking = {
   id: number;
@@ -52,6 +52,7 @@ export default function Index({
 
   return (
     <div className="min-h-screen bg-black p-8 text-white">
+      <Head title="Booking Management"/>
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">

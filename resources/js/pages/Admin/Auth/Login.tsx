@@ -1,4 +1,4 @@
-import { useForm } from "@inertiajs/react";
+import { Head, useForm } from "@inertiajs/react";
 import { Lock, User, Shield } from "lucide-react";
 
 export default function Login() {
@@ -15,6 +15,7 @@ export default function Login() {
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-black via-zinc-950 to-zinc-900 px-6 py-4">
+            <Head title="Admin Login"/>
             <div className="w-full max-w-md rounded-3xl border border-zinc-800 bg-zinc-900/90 p-7 shadow-2xl backdrop-blur">
 
                 {/* Logo */}

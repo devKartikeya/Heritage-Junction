@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/navbar";
+import { Head } from "@inertiajs/react";
 export default function FAQS({
     faqs,
 }: {
@@ -38,6 +39,7 @@ export default function FAQS({
     return (
 
         <div className="min-h-screen bg-white text-black">
+            <Head title="FAQS"/>
             <Navbar />
             <div className="mx-auto max-w-5xl px-4 py-16">
                 {/* Hero */}

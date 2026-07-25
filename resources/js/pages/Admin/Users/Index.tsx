@@ -1,5 +1,6 @@
 import StatsCards from "@/components/Admin/Users/StatsCards";
 import UserTable from "@/components/Admin/Users/UserTable";
+import { Head } from "@inertiajs/react";
 
 export default function Index({
     users,
@@ -11,6 +12,7 @@ export default function Index({
 
     return (
         <div className="min-h-screen bg-black text-white">
+            <Head title="User Management"/>
             <div className="mx-auto max-w-7xl px-8 py-10">
                 <div>
                     <h1 className="text-5xl font-bold">User Management</h1>

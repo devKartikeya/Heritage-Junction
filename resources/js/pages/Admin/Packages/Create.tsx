@@ -1,4 +1,4 @@
-import { Link, useForm } from "@inertiajs/react";
+import { Head, Link, useForm } from "@inertiajs/react";
 
 import PackageBasicCard from "@/components/Admin/Packages/Create/PackageBasicCard";
 import DestinationSelectorCard from "@/components/Admin/Packages/Create/DestinationSelectorCard";
@@ -59,6 +59,7 @@ export default function Create({
     return (
 
         <div className="min-h-screen bg-black text-white">
+            <Head title="Create Package"/>
 
             <div className="mx-auto max-w-7xl px-8 py-10">
 

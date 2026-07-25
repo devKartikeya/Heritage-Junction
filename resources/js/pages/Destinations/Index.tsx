@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer'
-import { Link, usePage } from '@inertiajs/react'
+import { Head, Link, usePage } from '@inertiajs/react'
 import { useState } from 'react'
 
 const Index = () => {
@@ -34,6 +34,7 @@ const Index = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen text-black flex flex-col">
+      <Head title='Destinations'/>
       {/* Hero Section */}
       <div className="relative bg-purple-700 text-white py-16 px-6 text-center">
         <h1 className="text-4xl md:text-5xl font-bold">Explore Our Destinations</h1>

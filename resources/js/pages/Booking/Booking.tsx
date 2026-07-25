@@ -1,4 +1,4 @@
-import { usePage } from '@inertiajs/react'
+import { Head, usePage } from '@inertiajs/react'
 import Footer from "@/components/Footer";
 import { useState } from "react"
 import { useForm } from "@inertiajs/react";
@@ -52,6 +52,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
       id="booking"
       className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-black text-white"
     >
+      <Head title="Book Now"/>
       {/* Success */}
       {successMessage && (
         <div className="max-w-6xl mx-auto pt-8">

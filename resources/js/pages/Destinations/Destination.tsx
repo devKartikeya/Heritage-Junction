@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer"
-import { Link } from "@inertiajs/react"
+import { Head, Link } from "@inertiajs/react"
 
 type Destination = {
     id: number
@@ -45,11 +45,20 @@ export default function DestinationPage({
 
     return (
         <div className="bg-gray-50 text-black">
+            <Head
+                title={`${destination.name} | Heritage Junction`}
+            >
+                <meta
+                property="og:title"
+                    name="description"
+                    content={destination.full_description}
+                />
+            </Head>
             {/* Banner Section */}
             <div className="relative w-full h-96">
                 <img
                     src={destination.banner_image || destination.hero_image}
-                    alt={destination.name}
+                    alt={`View of ${destination.name}`}
                     className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center text-white px-6">
@@ -94,7 +103,7 @@ export default function DestinationPage({
                                     <div key={site.id} className="bg-white rounded-lg shadow-md overflow-hidden">
                                         <img
                                             src={site.image_path}
-                                            alt={site.name}
+                                            alt={`View of ${site.name}`}
                                             className="w-full h-48 object-cover"
                                         />
                                         <div className="p-4">
@@ -117,7 +126,7 @@ export default function DestinationPage({
                                 {foods.map((food) => (
                                     <div key={food.id} className="bg-white rounded-lg shadow-md overflow-hidden">
                                         <img
-                                            src={food.image_path}
+                                            src={`View of ${food.image_path}`}
                                             alt={food.name}
                                             className="w-full h-48 object-cover"
                                         />

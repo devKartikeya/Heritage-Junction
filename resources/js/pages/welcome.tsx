@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const Welcome = () => {
     useEffect(() => {
-       
+
         const sections = gsap.utils.toArray([
             '.hero-section',
             '.about-section',
@@ -41,7 +41,14 @@ const Welcome = () => {
 
     return (
         <div className="overflow-x-hidden bg-white">
-            <Head title="Home" />
+            <Head
+                title="Home"
+            >
+                <meta
+                    name="description"
+                    content="Heritage Junction is a full-stack travel and tourism management platform featuring destination discovery, package booking, traveler verification, and a powerful administrative dashboard."
+                />
+            </Head>
             {/* Navbar */}
             <Navbar />
             {/* Hero Section */}

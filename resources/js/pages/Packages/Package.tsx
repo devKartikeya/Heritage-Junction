@@ -1,6 +1,6 @@
 import QuickFactCard from '../../components/Packages/QuickFactCard'
-import React, {  useState } from 'react'
-import { Link } from '@inertiajs/react'
+import React, { useState } from 'react'
+import { Head, Link } from '@inertiajs/react'
 import RouteMap from '../../components/Packages/RouteMap'
 import Itinerary from '../../components/Packages/Itinerary'
 import { Plus, Minus } from 'lucide-react'
@@ -87,6 +87,11 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
     return (
         <div className="bg-gray-50 text-black">
+            <Head title={pkg.title}>
+                <meta property="og:title" content={pkg.title} />
+                <meta property="og:description" content={pkg.short_description} />
+                <meta property="og:image" content={pkg.cover_image} />
+            </Head>
             <BookNow id={pkg.id} />
             {/* Banner */}
             <div className="relative w-full h-96">

@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { router } from "@inertiajs/react";
+import { Head, router } from "@inertiajs/react";
 import { Link } from "@inertiajs/react";
 import {
   CircleHelp,
@@ -52,6 +52,7 @@ export default function FAQS({
   });
   return (
     <div className="min-h-screen bg-black text-white">
+      <Head title="FAQS Management"/>
       <div className="mx-auto max-w-7xl px-5 py-7">
         {/* Header */}
         <div className="flex items-center justify-between">

@@ -51,7 +51,7 @@ const Bookings = ({ bookings }: { bookings: Booking[] }) => {
                             <div className="relative h-40">
                                 <img
                                     src={booking.package.cover_image}
-                                    alt={booking.package.title}
+                                    alt={`View of ${booking.package.title}`}
                                     className="w-full h-full object-cover"
                                 />
                                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center">

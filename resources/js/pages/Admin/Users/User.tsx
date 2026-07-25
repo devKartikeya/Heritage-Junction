@@ -3,7 +3,7 @@ import UserInfoCard from "@/components/Admin/Users/UserInfoCard";
 import UserStatsCard from "@/components/Admin/Users/UserStatsCard";
 import UserBookingsCard from "@/components/Admin/Users/UserBookingsCard";
 import UserActions from "@/components/Admin/Users/UserActions";
-import { Link } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 
 export default function Show({
     user,
@@ -14,6 +14,7 @@ export default function Show({
     return (
 
         <div className="min-h-screen bg-black text-white">
+            <Head title={`Manage ${user.name} Account` }/>
 
             <div className="mx-auto max-w-7xl px-8 py-10">
 
