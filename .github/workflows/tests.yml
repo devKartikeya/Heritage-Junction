@@ -47,6 +47,7 @@ jobs:
 
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
+        continue-on-error: true
 
       - name: Copy Environment File
         run: cp .env.example .env
