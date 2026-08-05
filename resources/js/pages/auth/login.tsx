@@ -94,7 +94,7 @@ export default function Login({ status, canResetPassword }: Props) {
 
                         <div className="text-center text-sm text-black">
                             Don't have an account?{' '}
-                            <TextLink href={register()} tabIndex={5} className='text-pink-400 font-semibold'>
+                            <TextLink href={register()} tabIndex={5} className='text-pink-400'>
                                 Sign up
                             </TextLink>
                         </div>

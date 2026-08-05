@@ -41,15 +41,9 @@ export default function FAQS({
         <div className="min-h-screen bg-white text-black">
             <Head title="FAQS"/>
             <Navbar />
-            <div className="mx-auto max-w-5xl px-4 py-16">
+            <div className="mx-auto max-w-5xl px-4 py-10">
                 {/* Hero */}
                 <div className="text-center">
-                    <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-purple-500/20">
-                        <CircleHelp
-                            size={40}
-                            className="text-purple-400"
-                        />
-                    </div>
                     <h1 className="mt-8 text-3xl md:text-4xl lg:text-5xl text-purple-600 font-bold">
                         Frequently Asked Questions
                     </h1>
@@ -72,7 +66,7 @@ export default function FAQS({
                         onChange={(e) =>
                             setSearch(e.target.value)
                         }
-                        className="w-full rounded-2xl border border-zinc-800 bg-zinc-900 text-white py-5 pl-14 pr-5 outline-none focus:border-purple-500"
+                        className="w-full rounded-2xl border border-zinc-800 bg-white text-black py-5 pl-14 pr-5 outline-none focus:border-purple-500"
                     />
                 </div>
 
@@ -81,7 +75,7 @@ export default function FAQS({
                     {Object.entries(grouped).map(
                         ([category, items]: any) => (
                             <div key={category}>
-                                <h2 className="mb-4 text-3xl font-bold">
+                                <h2 className="mb-4 text-2xl font-bold">
                                     {category}
                                 </h2>
                                 <div className="space-y-4">
@@ -100,7 +94,7 @@ export default function FAQS({
                                                 }
                                                 className="flex w-full items-center justify-between p-4 text-left"
                                             >
-                                                <span className="text-lg font-semibold">
+                                                <span className="text-md font-semibold">
                                                     {faq.question}
                                                 </span>
                                                 {open === faq.id
@@ -121,23 +115,23 @@ export default function FAQS({
                     )}
                 </div>
                 {/* Contact */}
-                <div className="mt-20 rounded-3xl bg-gradient-to-r from-purple-600 to-indigo-600 p-10 text-center">
+                <div className="mt-20 rounded-3xl text-left text-center pb-10">
                     <h2 className="text-3xl font-bold">
                         Still have questions?
                     </h2>
-                    <p className="mt-3 text-purple-100">
+                    <p className="mt-3 text-black">
                         Our travel experts are always ready to help.
                     </p>
-                    <div className="mt-8 flex flex-wrap justify-center gap-4">
+                    <div className="mt-8 flex flex-wrap text-left gap-4">
                         <a
                             href="/#contact"
-                            className="rounded-xl bg-white px-6 py-3 font-semibold text-black"
+                            className="rounded-xl bg-red-600 px-6 py-3 font-semibold text-white hover:bg-red-700"
                         >
                             Contact Us
                         </a>
                         <a
                             href="tel:+917905358890"
-                            className="rounded-xl border border-white px-6 py-3"
+                            className="rounded-xl border border-white px-6 py-3 bg-red-600 hover:bg-bg-red-600 hover:text-black font-semibold text-white"
                         >
                             Call Now
                         </a>

@@ -106,13 +106,13 @@ export default function Register({ passwordRules }: Props) {
                             </Button>
                         </div>
 
-                        <div className="text-center text-sm  font-semibold">
+                        <div className="text-center text-sm">
                             Already have an account?{' '}
                             <TextLink href={login()} tabIndex={6} className='font-bold text-pink-400'>
                                 Log in
                             </TextLink>
                         </div>
-                        <div className="text-center text-black text-sm -mt-6 font-semibold">
+                        <div className="text-center text-black text-sm -mt-6">
                             By creating account, you agree to our <Link className='text-blue-500 hover:text-pink-400 underline font-bold'>Terms & Conditions</Link> and <Link className='text-blue-500 hover:text-pink-400 underline font-bold'>Privacy Policy</Link>
                         </div>
                     </>

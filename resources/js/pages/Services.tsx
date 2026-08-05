@@ -10,8 +10,8 @@ const Services = () => {
             <Navbar />
             {/* Page Header */}
             <div className="p-8 text-left w-2/3">
-                <h1 className="text-4xl my-2 md:text-6xl lg:text-7xl font-bold text-purple-700">Heritage Junction - <span className='text-3xl md:text-5xl text-red-500'> Book your Journey</span></h1>
-                <p className="my-8 text-lg md:text-xl max-w-5xl text-gray-900 text-left">
+                <h1 className="text-4xl my-2 md:text-6xl lg:text-7xl font-bold text-purple-700">Heritage Junction - <span className='text-3xl md:text-5xl text-black'> Book your Journey</span></h1>
+                <p className="my-8 text-md md:text-lg max-w-5xl text-gray-900 text-left">
                     At Heritage Junction, we don’t just plan trips — we craft journeys that immerse you in India’s living heritage.
                     Our mission is to connect travelers with the soul of this nation: its sacred cities, vibrant festivals, timeless traditions, and warm communities.
                     Every experience is designed to be effortless, authentic, and unforgettable.
@@ -25,7 +25,7 @@ const Services = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     {/* Guided Heritage Tours */}
-                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div className="bg-white hover:scale-105 duration-300 shadow-lg rounded-lg overflow-hidden">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtOHLjS0OupsMcgz9hT9kBmwHKrr1F_2_8G3H1Gh1QuyJxNme2ZgvtKH8l&s=10" alt="Guided Tours" className="w-full h-56 object-cover" />
                         <div className="p-6">
                             <h3 className="text-xl font-semibold text-black mb-2">Guided Heritage Tours</h3>
@@ -37,7 +37,7 @@ const Services = () => {
                     </div>
 
                     {/* Cultural Immersion */}
-                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div className="bg-white hover:scale-105 duration-300 shadow-lg rounded-lg overflow-hidden">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvjz1sRv4Y5VtlsqhyrAjKEZLpsdjKeJXFROiQmHjs7A&s=10" alt="Cultural Immersion" className="w-full h-56 object-cover" />
                         <div className="p-6">
                             <h3 className="text-xl font-bold text-black mb-2">Cultural Immersion Experiences</h3>
@@ -49,7 +49,7 @@ const Services = () => {
                     </div>
 
                     {/* Festival Packages */}
-                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div className="bg-white hover:scale-105 duration-300 shadow-lg rounded-lg overflow-hidden">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5itnnCwHxUnVYnCYTAoNVp7CHXV_-aWm1KWafBi9Jg6sZzllllSqubHk&s=10" alt="Festival Packages" className="w-full h-56 object-cover" />
                         <div className="p-6">
                             <h3 className="text-xl font-bold text-black mb-2">Festival & Event Packages</h3>
@@ -61,7 +61,7 @@ const Services = () => {
                     </div>
 
                     {/* Heritage Stays */}
-                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div className="bg-white hover:scale-105 duration-300 shadow-lg rounded-lg overflow-hidden">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-eJVUlf1DVN23KHafeqPuzqZHprtS-y5YYU0p0HN9_Q&s=10" alt="Heritage Stays" className="w-full h-56 object-cover" />
                         <div className="p-6">
                             <h3 className="text-xl font-bold text-black mb-2">Heritage Stays</h3>
@@ -73,7 +73,7 @@ const Services = () => {
                     </div>
 
                     {/* Community Engagement */}
-                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div className="bg-white hover:scale-105 duration-300 shadow-lg rounded-lg overflow-hidden">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAr5vvAkbxA5ZgM3AoQNRRw18dRu9zwg5M5BOIT_p6fES3b5kH0A0nAW58&s=10" alt="Community Engagement" className="w-full h-56 object-cover" />
                         <div className="p-6">
                             <h3 className="text-xl font-bold text-black mb-2">Community Engagement</h3>
@@ -85,7 +85,7 @@ const Services = () => {
                     </div>
 
                     {/* Customized Travel Planning */}
-                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div className="bg-white hover:scale-105 duration-300 shadow-lg rounded-lg overflow-hidden">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-eGmYKremR_2S05x4vqcggK3jjH_DMrMTzqiRPTDBsyvFV0quSKpdVtFO&s=10" alt="Customized Travel" className="w-full h-56 object-cover" />
                         <div className="p-6">
                             <h3 className="text-xl font-bold text-black mb-2">Customized Travel Planning</h3>
@@ -97,7 +97,7 @@ const Services = () => {
                     </div>
 
                     {/* Security & Comfort */}
-                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div className="bg-white hover:scale-105 duration-300 shadow-lg rounded-lg overflow-hidden">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcMvLFYmBB5W6PbMUPgl8hxFTvI3HMera1zmS4dkfc3hK6tynUoAKu5Q4&s=10" alt="Security Services" className="w-full h-56 object-cover" />
                         <div className="p-6">
                             <h3 className="text-xl font-bold text-black mb-2">Safety & Comfort</h3>
@@ -109,7 +109,7 @@ const Services = () => {
                     </div>
 
                     {/* Culinary Experiences */}
-                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div className="bg-white hover:scale-105 duration-300 shadow-lg rounded-lg overflow-hidden">
                         <img src="https://curlytales.com/wp-content/uploads/2020/09/Pahadi-dishes.jpg" alt="Culinary Experiences" className="w-full h-56 object-cover object-center" />
                         <div className="p-6">
                             <h3 className="text-xl font-bold text-black mb-2">Culinary Journeys</h3>
@@ -121,7 +121,7 @@ const Services = () => {
                     </div>
 
                     {/* Adventure & Nature Escapes */}
-                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div className="bg-white hover:scale-105 duration-300 shadow-lg rounded-lg overflow-hidden">
                         <img
                             src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
                             alt="Adventure & Nature"

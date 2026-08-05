@@ -29,7 +29,9 @@ const Navbar = () => {
     return (
         <nav className="w-full text-white h-20 flex justify-between items-center py-2 px-4 bg-gray-900 relative">
             {/* Logo */}
-            <div className="navbar-logo p-2 font-bold text-lg"><Link href={"/"}>Heritage Junction</Link></div>
+            <div className="navbar-logo p-2 font-bold text-lg">
+                <img src="/heritage-junction-logo-black.png" alt="Heritage Junction Logo" />
+            </div>
 
             {/* Hamburger button (mobile only) */}
             <button

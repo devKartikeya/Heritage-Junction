@@ -71,9 +71,9 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
           <h1 className="text-5xl mt-1 md:text-7xl font-black tracking-tight">
             Book Your Journey
           </h1>
-          <p className="mt-6 text-2xl text-purple-300 font-semibold">
+          {/* <p className="mt-6 text-2xl text-purple-300 font-semibold">
             {pkg}
-          </p>
+          </p> */}
           <p className="text-gray-400 mt-4 max-w-3xl mx-auto leading-8">
             Complete your booking in just a few minutes.
             Our travel executive will verify your booking
@@ -101,7 +101,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
             {/* Package Summary */}
             <div className="rounded-3xl  backdrop-blur-xl shadow-2xl p-5">
 
-              <h2 className="text-2xl font-bold text-purple-300">
+              <h2 className="text-xl font-bold text-purple-300">
                 Package Summary
               </h2>
               <div className="grid md:grid-cols-2 gap-8 mt-8">
@@ -109,7 +109,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                   <p className="text-sm text-gray-400">
                     Package
                   </p>
-                  <p className="text-xl font-semibold mt-2">
+                  <p className="text-lg font-semibold mt-2">
                     {pkg}
                   </p>
                 </div>
@@ -127,7 +127,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
             {/* Primary Contact */}
 
             <div className="rounded-3xl backdrop-blur-xl shadow-xl p-4">
-              <h2 className="text-xl font-bold text-purple-300 mb-8">
+              <h2 className="text-lg font-bold text-purple-300 mb-8">
                 Primary Contact
               </h2>
               <div className="space-y-3">
@@ -169,7 +169,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
 
             <div className="rounded-3xl  backdrop-blur-xl shadow-xl p-4">
 
-              <h2 className="text-xl font-bold text-purple-300 mb-8">Secondary Contact</h2>
+              <h2 className="text-lg font-bold text-purple-300 mb-8">Secondary Contact</h2>
 
               <div className="space-y-3">
                 <div>
@@ -202,7 +202,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                 <div>
                   <label className="text-sm text-gray-300"> Address</label>
                   <textarea
-                    rows={4}
+                    rows={3}
                     required
                     value={form.data.address}
                     onChange={(e) =>
@@ -216,7 +216,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
             {/* Travellers */}
 
             <div className="rounded-3xl  backdrop-blur-xl shadow-xl p-4">
-              <h2 className="text-xl font-bold text-purple-300">Travellers</h2>
+              <h2 className="text-lg font-bold text-purple-300">Travellers</h2>
               <div className="mt-8">
                 <label className="text-sm text-gray-300"> Number of Travellers
                 </label>
@@ -283,7 +283,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
             </div>
             {/* Transportation */}
             <div className="rounded-3xl  backdrop-blur-xl shadow-xl p-4">
-              <h2 className="text-xl font-bold text-purple-300 mb-8">
+              <h2 className="text-lg font-bold text-purple-300 mb-8">
                 Transportation
               </h2>
               <div className="grid gap-3">
@@ -292,7 +292,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                   return (
                     <label
                       key={pricing.id}
-                      className={`cursor-pointer rounded-2xl border p-6 transition-all duration-300 ${active
+                      className={`cursor-pointer rounded-2xl border p-4 transition-all duration-300 ${active
                         ? "border-purple-500 bg-purple-500/20 shadow-xl"
                         : "border-white/10 bg-black/20 hover:border-purple-400"
                         }`}
@@ -309,10 +309,10 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                       />
                       <div className="flex justify-between items-center">
                         <div>
-                          <h3 className="text-xl font-bold">
+                          <h3 className="text-lg font-bold">
                             {pricing.vehicle_name}
                           </h3>
-                          <p className="text-gray-400 mt-2">Minimum {pricing.minimum_persons} Travellers</p>
+                          <p className="text-gray-400 text-sm mt-2">Minimum {pricing.minimum_persons} Travellers</p>
                         </div>
                         <div className="text-right">
                           <p className="text-xl font-bold text-purple-300">
@@ -330,7 +330,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
             </div>
             {/* Trip Date */}
             <div className="rounded-3xl  backdrop-blur-xl shadow-xl p-4">
-              <h2 className="text-xl font-bold text-purple-300 mb-6">
+              <h2 className="text-lg font-bold text-purple-300 mb-6">
                 Travel Date
               </h2>
               <input
