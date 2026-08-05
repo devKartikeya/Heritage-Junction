@@ -109,7 +109,7 @@ const Services = () => {
                         backImage='https://plus.unsplash.com/premium_photo-1664368832311-7fe635e32c7c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                     /> */}
                     </div>
-                    <h2 className='text-black font-semibold text-md text-center'>To uncover our full capabilities, refer to our <Link className='hover:underline text-pink-500' href={"/services"}>Services</Link> Page !</h2>
+                    <h2 className='text-black text-md text-center'>To uncover our full capabilities, refer to our <Link className='hover:underline text-pink-500' href={"/services"}>Services</Link> Page !</h2>
                 </div>
             </section>
         </>

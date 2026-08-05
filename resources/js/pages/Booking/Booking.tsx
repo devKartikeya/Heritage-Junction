@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { useState } from "react"
 import { useForm } from "@inertiajs/react";
 import Navbar from '@/components/navbar';
+import { ArrowBigLeft } from 'lucide-react';
 
 type User = { name: string; email: string }
 type Pricing = {
@@ -53,6 +54,12 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
     >
       <Head title="Book Now"/>
       <Navbar/>
+      <div className='p-5 m-3'>
+        <a href="/packages" className="text-white hover:text-purple-500 text-xl hover:underline">
+          <ArrowBigLeft className="inline mr-2" />
+          Go Back
+        </a>
+      </div>
       {/* Success */}
       {successMessage && (
         <div className="max-w-6xl mx-auto pt-8">
@@ -66,9 +73,9 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
       )}
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 pt-13 pb-10">
+      <section className="max-w-7xl mx-auto px-6 pt-4 pb-10">
         <div className="text-center">
-          <h1 className="text-5xl mt-1 md:text-7xl font-black tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-black tracking-tight">
             Book Your Journey
           </h1>
           {/* <p className="mt-6 text-2xl text-purple-300 font-semibold">
@@ -104,7 +111,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
               <h2 className="text-xl font-bold text-purple-300">
                 Package Summary
               </h2>
-              <div className="grid md:grid-cols-2 gap-8 mt-8">
+              <div className="grid md:grid-cols-2 gap-10 mt-6">
                 <div>
                   <p className="text-sm text-gray-400">
                     Package

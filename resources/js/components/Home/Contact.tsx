@@ -2,17 +2,17 @@ import { FaEnvelope, FaPhoneAlt, FaGithub, FaLinkedin, FaFacebook, FaTwitter, Fa
 
 const Contact = () => {
     return (
-        <section id='contact' className="w-full bg-gray-100 py-16 px-6 bg-yellow-50">
+        <section id='contact' className="w-full bg-gray-100 py-12 px-3 bg-yellow-50">
             <div className="max-w-6xl mx-auto flex flex-col gap-12 ">
                 {/* Heading */}
                 <h2 className="text-5xl font-bold text-center text-purple-600">
                     Get in Touch with Us
                 </h2>
-                <div className='flex flex-col gap-4'>
+                <div className='flex flex-col gap-4 -mt-8'>
                     <p className='text-black text-center'>Ready to bring your vision to life? Contact us today, and let’s create something amazing together!</p>
                 </div>
                 <div className='flex flex-col md:flex-row gap-8 mx-auto items-center justify-center w-full'>
-                    <div className="flex w-full md:w-1/2 flex-col md:flex-col justify-center gap-8 text-center p-4">
+                    <div className="flex w-full md:w-1/2 flex-col md:flex-col justify-center gap-6 text-center p-2">
                     <h2 className='text-3xl md:text-4xl text-left font-bold text-red-500'>Quick Contact !</h2>
                         <a
                             href="mailto:yourmail@example.com"
