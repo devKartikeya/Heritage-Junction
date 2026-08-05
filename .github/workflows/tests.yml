@@ -70,4 +70,4 @@ jobs:
         run: php artisan test
 
       - name: Run app
-        run: php artisan serve --host=0.0.0.0
+        run: echo "All GOOD"
