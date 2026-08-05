@@ -167,6 +167,10 @@ Heritage-Junction/
 ├── public/
 ├── storage/
 └── config/
+└── bootstrap/
+└── .env
+└── package.json
+└── composer.json
 ```
 
 ---
@@ -199,7 +203,6 @@ The application revolves around a relational database designed specifically for 
 * destination_images
 * heritage_sites
 * foods
-* cultural_highlights
 
 ### Booking Module
 
@@ -213,7 +216,7 @@ The application revolves around a relational database designed specifically for 
 ### Clone the repository
 
 ```bash
-git clone https://github.com/<username>/Heritage-Junction.git
+git clone https://github.com/devKartikeya/Heritage-Junction.git
 ```
 
 ### Move inside project
