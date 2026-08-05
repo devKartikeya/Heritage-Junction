@@ -74,7 +74,6 @@ Heritage Junction is a modern full-stack web application designed to simplify th
 * Create FAQs
 * Edit FAQs
 * Delete FAQs
-* Sort FAQs
 * Category-based FAQs
 
 ---
