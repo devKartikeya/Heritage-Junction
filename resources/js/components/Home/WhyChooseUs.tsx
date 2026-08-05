@@ -13,7 +13,7 @@ const WhyChooseUs = () => {
         <section className="w-full bg-blue-50 text-black py-16 px-6">
             <div className="max-w-7xl mx-auto flex flex-col gap-10">
                 {/* Heading */}
-                <h2 className="font-bold text-4xl lg:text-6xl text-center text-red-500">
+                <h2 className="font-bold text-4xl lg:text-5xl text-center text-red-500">
                     Why Choose Us?
                 </h2>
 

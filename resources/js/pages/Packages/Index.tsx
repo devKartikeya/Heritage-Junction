@@ -1,4 +1,5 @@
 import Footer from '@/components/Footer'
+import Navbar from '@/components/navbar'
 // import Navbar from '@/components/navbar'
 import { Head, Link } from '@inertiajs/react'
 import { useState } from 'react'
@@ -35,6 +36,7 @@ const Index = ({ packages }: { packages: Package[] }) => {
     return (
         <div className="bg-gray-50 min-h-screen">
             <Head title='Packages'/>
+            <Navbar/>
             {/* Hero Banner */}
             <div className="relative w-full h-72 bg-gradient-to-r from-purple-700 to-indigo-600 flex items-center justify-center text-center text-white">
                 <div className="px-6">

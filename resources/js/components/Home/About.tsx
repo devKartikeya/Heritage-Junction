@@ -2,7 +2,7 @@ const About = () => {
     return (
         <section className='w-screen bg-blue-50 text-black p-12 flex flex-col gap-6' id="about">
             <h2 className='font-bold text-5xl text-red-500'>About Us</h2>
-            <div className='flex flex-col gap-6 tracking-wide font-semibold'>
+            <div className='flex flex-col gap-6 tracking-wide'>
                 <div>
                     At Heritage Junction, we don’t just plan trips—we orchestrate experiences that transform how you see the world. Born from a deep-rooted love for India’s staggering diversity, we’ve spent over a decade weaving together the threads of this nation’s soul: its snow-capped Himalayan peaks, sun-kissed coastal villages, whispering desert dunes, and bustling metropolitan hearts. We are storytellers, history buffs, and adventure architects, united by a mission to connect travelers to India’s untamed beauty and timeless traditions.
                 </div>

@@ -2,6 +2,7 @@ import { Head, usePage } from '@inertiajs/react'
 import Footer from "@/components/Footer";
 import { useState } from "react"
 import { useForm } from "@inertiajs/react";
+import Navbar from '@/components/navbar';
 
 type User = { name: string; email: string }
 type Pricing = {
@@ -23,8 +24,6 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
   const successMessage = props.flash?.success
 
   console.log(props.flash);
-
-  console.log(pkg);
 
   const form = useForm({
     packageTitle: pkg,
@@ -53,6 +52,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
       className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-black text-white"
     >
       <Head title="Book Now"/>
+      <Navbar/>
       {/* Success */}
       {successMessage && (
         <div className="max-w-6xl mx-auto pt-8">
@@ -66,10 +66,9 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
       )}
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 pt-16 pb-10">
+      <section className="max-w-7xl mx-auto px-6 pt-13 pb-10">
         <div className="text-center">
-          <h2 className='text-3xl md:text-4xl font-black tracking-tight'>Heritage Junction</h2>
-          <h1 className="text-5xl mt-5 md:text-7xl font-black tracking-tight">
+          <h1 className="text-5xl mt-1 md:text-7xl font-black tracking-tight">
             Book Your Journey
           </h1>
           <p className="mt-6 text-2xl text-purple-300 font-semibold">
@@ -97,20 +96,20 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
         >
 
           {/* LEFT */}
-          <div className="space-y-10">
+          <div className="space-y-2">
 
             {/* Package Summary */}
-            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl p-8">
+            <div className="rounded-3xl  backdrop-blur-xl shadow-2xl p-5">
 
               <h2 className="text-2xl font-bold text-purple-300">
-                📦 Package Summary
+                Package Summary
               </h2>
-              <div className="grid md:grid-cols-2 gap-6 mt-8">
+              <div className="grid md:grid-cols-2 gap-8 mt-8">
                 <div>
                   <p className="text-sm text-gray-400">
                     Package
                   </p>
-                  <p className="text-2xl font-semibold mt-2">
+                  <p className="text-xl font-semibold mt-2">
                     {pkg}
                   </p>
                 </div>
@@ -118,7 +117,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                   <p className="text-sm text-gray-400">
                     Package ID
                   </p>
-                  <p className="text-2xl font-semibold mt-2">
+                  <p className="text-xl font-semibold mt-2">
                     #{packageId}
                   </p>
                 </div>
@@ -127,31 +126,31 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
 
             {/* Primary Contact */}
 
-            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl p-8">
-              <h2 className="text-2xl font-bold text-purple-300 mb-8">
-                👤 Primary Contact
+            <div className="rounded-3xl backdrop-blur-xl shadow-xl p-4">
+              <h2 className="text-xl font-bold text-purple-300 mb-8">
+                Primary Contact
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-3">
                 <div>
-                  <label className="text-gray-300">
+                  <label className="text-sm text-gray-300">
                     Full Name
                   </label>
                   <input
                     readOnly
                     value={form.data.name}
-                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3"
+                    className="w-full mt-2 rounded-xl text-sm border border-white/10 bg-black/20 px-4 py-3"
                   />
                 </div>
                 <div>
-                  <label className="text-gray-300">Email </label>
+                  <label className="text-gray-300 text-sm">Email </label>
                   <input
                     readOnly
                     value={form.data.email}
-                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3"
+                    className="w-full mt-2 rounded-xl border text-sm border-white/10 bg-black/20 px-4 py-3"
                   />
                 </div>
                 <div>
-                  <label>  Phone Number</label>
+                  <label className="text-sm text-gray-300">  Phone Number</label>
                   <input
                     required
                     type="tel"
@@ -160,7 +159,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                       form.setData("phone", e.target.value)
                     }
                     placeholder="Enter phone number"
-                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3 focus:border-purple-500 outline-none"
+                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3 focus:border-purple-500 outline-none text-sm"
                   />
                 </div>
               </div>
@@ -168,13 +167,13 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
 
             {/* Secondary */}
 
-            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl p-8">
+            <div className="rounded-3xl  backdrop-blur-xl shadow-xl p-4">
 
-              <h2 className="text-2xl font-bold text-purple-300 mb-8">☎ Secondary Contact</h2>
+              <h2 className="text-xl font-bold text-purple-300 mb-8">Secondary Contact</h2>
 
-              <div className="space-y-6">
+              <div className="space-y-3">
                 <div>
-                  <label>
+                  <label className="text-sm text-gray-300">
                     Additional Phone
                   </label>
                   <input
@@ -183,11 +182,11 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                     onChange={(e) =>
                       form.setData("additionalPhone", e.target.value)
                     }
-                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3 focus:border-purple-500 outline-none"
+                    className="w-full mt-2 rounded-xl border text-sm border-white/10 bg-black/20 px-4 py-3 focus:border-purple-500 outline-none"
                   />
                 </div>
                 <div>
-                  <label>
+                  <label className="text-sm text-gray-300">
                     Additional Email
                   </label>
                   <input
@@ -197,11 +196,11 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                     onChange={(e) =>
                       form.setData("additionalEmail", e.target.value)
                     }
-                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3 focus:border-purple-500 outline-none"
+                    className="w-full mt-2 rounded-xl border text-sm border-white/10 bg-black/20 px-4 py-3 focus:border-purple-500 outline-none"
                   />
                 </div>
                 <div>
-                  <label> Address</label>
+                  <label className="text-sm text-gray-300"> Address</label>
                   <textarea
                     rows={4}
                     required
@@ -209,17 +208,17 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                     onChange={(e) =>
                       form.setData("address", e.target.value)
                     }
-                    className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3 resize-none focus:border-purple-500 outline-none"
+                    className="w-full mt-2 rounded-xl border text-sm border-white/10 bg-black/20 px-4 py-3 resize-none focus:border-purple-500 outline-none"
                   />
                 </div>
               </div>
             </div>
             {/* Travellers */}
 
-            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl p-8">
-              <h2 className="text-2xl font-bold text-purple-300">👥 Travellers</h2>
+            <div className="rounded-3xl  backdrop-blur-xl shadow-xl p-4">
+              <h2 className="text-xl font-bold text-purple-300">Travellers</h2>
               <div className="mt-8">
-                <label> Number of Travellers
+                <label className="text-sm text-gray-300"> Number of Travellers
                 </label>
                 <input
                   type="number"
@@ -242,7 +241,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                     )
 
                   }}
-                  className="w-full mt-2 rounded-xl border border-white/10 bg-black/20 px-4 py-3"
+                  className="w-full mt-2 rounded-xl border text-sm border-white/10 bg-black/20 px-4 py-3"
                 />
               </div>
               <div className="grid md:grid-cols-2 gap-6 mt-8">
@@ -264,7 +263,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                           e.target.value
                         )
                       }
-                      className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3"
+                      className="w-full rounded-xl border text-sm border-white/10 bg-black/20 px-4 py-3"
                     />
                     <input
                       type="file"
@@ -283,11 +282,11 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
               </div>
             </div>
             {/* Transportation */}
-            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl p-8">
-              <h2 className="text-2xl font-bold text-purple-300 mb-8">
-                🚗 Transportation
+            <div className="rounded-3xl  backdrop-blur-xl shadow-xl p-4">
+              <h2 className="text-xl font-bold text-purple-300 mb-8">
+                Transportation
               </h2>
-              <div className="grid gap-5">
+              <div className="grid gap-3">
                 {pricings.map((pricing) => {
                   const active = selectedPricing === pricing.id
                   return (
@@ -316,7 +315,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                           <p className="text-gray-400 mt-2">Minimum {pricing.minimum_persons} Travellers</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-2xl font-bold text-purple-300">
+                          <p className="text-xl font-bold text-purple-300">
                             ₹{pricing.per_person_cost}
                           </p>
                           <p className="text-gray-400 text-sm">
@@ -326,14 +325,13 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                       </div>
                     </label>
                   )
-
                 })}
               </div>
             </div>
             {/* Trip Date */}
-            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-xl p-8">
-              <h2 className="text-2xl font-bold text-purple-300 mb-6">
-                📅 Travel Date
+            <div className="rounded-3xl  backdrop-blur-xl shadow-xl p-4">
+              <h2 className="text-xl font-bold text-purple-300 mb-6">
+                Travel Date
               </h2>
               <input
                 type="date"
@@ -342,7 +340,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                 onChange={(e) =>
                   form.setData("startDate", e.target.value)
                 }
-                className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3"
+                className="w-full rounded-xl border text-sm border-white/10 bg-black/20 px-4 py-3"
               />
             </div>
           </div>
@@ -350,15 +348,15 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
           {/* RIGHT SIDEBAR */}
 
           <aside className="sticky top-8">
-            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl p-8 space-y-8">
+            <div className="rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl p-6 space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-purple-300">
+                <h2 className="text-2xl font-bold text-purple-300">
                   Booking Summary
                 </h2>
               </div>
               <div className="space-y-5">
                 <div className="flex justify-between">
-                  <span className="text-gray-400">
+                  <span className="text-gray-400 text-sm">
                     Package
                   </span>
                   <span className="font-semibold text-right">
@@ -366,7 +364,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">
+                  <span className="text-gray-400 text-sm">
                     Travellers
                   </span>
                   <span>
@@ -374,7 +372,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">
+                  <span className="text-gray-400 text-sm">
                     Vehicle
                   </span>
                   <span>
@@ -382,7 +380,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">
+                  <span className="text-gray-400 text-sm">
                     Price / Person
                   </span>
                   <span>
@@ -392,7 +390,7 @@ const Booking = ({ user, packageId, pricings, pkg }: { user: User; packageId: nu
                 <hr className="border-white/10" />
                 <div className="flex justify-between text-2xl font-bold">
                   <span>Total</span>
-                  <span className="text-green-400">
+                  <span className="text-white">
                     ₹{calculatedTotal}
                   </span>
                 </div>

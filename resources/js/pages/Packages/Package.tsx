@@ -152,7 +152,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Quick Facts */}
                 <section>
-                    <h2 className="text-3xl font-bold text-green-700 mb-8">Quick Facts</h2>
+                    <h2 className="text-3xl font-bold text-purple-700 mb-8">Quick Facts</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-gray-800">
                         {/* Duration */}
                         <QuickFactCard
@@ -210,7 +210,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Destinations Covered */}
                 <section>
-                    <h2 className="text-3xl font-bold text-blue-700 mb-6">3. Destinations Covered</h2>
+                    <h2 className="text-3xl font-bold text-purple-700 mb-6">3. Destinations Covered</h2>
                     {destinations.length === 0 ? (
                         <p className="text-gray-600">No destinations linked to this package yet.</p>
                     ) : (
@@ -240,7 +240,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Heritage Sites Covered */}
                 <section>
-                    <h2 className="text-3xl font-bold text-teal-700 mb-6">4. Heritage Sites Covered</h2>
+                    <h2 className="text-3xl font-bold text-purple-700 mb-6">4. Heritage Sites Covered</h2>
 
                     {destinations.length === 0 ? (
                         <p className="text-gray-600">No destinations linked to this package yet.</p>
@@ -294,7 +294,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Inclusions */}
                 <section>
-                    <h2 className="text-3xl font-bold text-indigo-700 mb-6">5. What’s Included</h2>
+                    <h2 className="text-3xl font-bold text-purple-700 mb-6">5. What’s Included</h2>
                     {pkg.inclusions.length === 0 ? (
                         <p className="text-gray-600">No inclusions listed for this package yet.</p>
                     ) : (
@@ -352,7 +352,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Package Pricing */}
                 <section>
-                    <h2 className="text-3xl font-bold text-orange-700 mb-6">8. Package Pricing</h2>
+                    <h2 className="text-3xl font-bold text-purple-700 mb-6">8. Package Pricing</h2>
 
                     {pkg.pricings && pkg.pricings.length > 0 ? (
                         <div className="overflow-x-auto bg-white rounded-lg shadow-lg">

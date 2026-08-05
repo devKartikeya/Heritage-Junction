@@ -59,10 +59,10 @@ const Services = () => {
         <section className="w-full bg-blue-50 py-16 px-6">
             <div className="max-w-7xl mx-auto flex flex-col gap-12">
                 {/* Heading */}
-                <h2 className="text-4xl lg:text-6xl font-bold text-center text-purple-600">Our Services</h2>
+                <h2 className="text-4xl lg:text-5xl font-bold text-center text-red-600">Our Services</h2>
 
                 {/* Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                     <ServiceCard
                         title=""
                         description="Explore iconic sites like Varanasi ghats, Lucknow’s Nawabi heritage, and Ayodhya’s spiritual landmarks with expert local guides."
@@ -75,39 +75,39 @@ const Services = () => {
                         title=""
                         description="Participate in classical music recitals, Kathak dance workshops, and traditional craft sessions led by local artisans."
                         image="https://images.unsplash.com/photo-1565970141927-d4591950032e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        backInfo='Step into the living traditions of Uttar Pradesh. Join Kathak dance workshops, learn classical ragas from maestros, and try your hand at pottery or weaving with local artisans. These immersive experiences are designed to give you not just knowledge, but a heartfelt connection to the culture, with opportunities to interact directly with artists and performers.'
+                        backInfo='Step into the living traditions of Uttar Pradesh. Join Kathak dance workshops, learn classical ragas from maestros, and try your hand at pottery or weaving with local artisans.'
                         backImage='https://images.unsplash.com/photo-1565970141927-d4591950032e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                     />
                     <ServiceCard
                         title=""
                         description="Celebrate Holi in Mathura, Diwali in Ayodhya, or the grand Kumbh Mela with curated itineraries and safe arrangements."
                         image="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        backInfo='Celebrate India’s most vibrant festivals in their authentic settings. Experience the colors of Holi in Mathura, the lights of Diwali in Ayodhya, and the spiritual grandeur of the Kumbh Mela. Our packages include priority access to rituals, curated festival trails, safe arrangements, local cuisine tastings, and photography support to capture unforgettable memories.'
+                        backInfo='Celebrate India’s most vibrant festivals in their authentic settings. Experience the colors of Holi in Mathura, the lights of Diwali in Ayodhya, and the spiritual grandeur of the Kumbh Mela. '
                         backImage='https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                     />
                     <ServiceCard
                         title=""
                         description="Stay in restored havelis, palaces, and boutique heritage hotels that blend comfort with cultural authenticity."
                         image="https://images.unsplash.com/photo-1519955045385-7cdb8e07c76f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        backInfo='Live like royalty in restored havelis, palaces, and boutique heritage hotels. Each stay blends modern comfort with historic charm, offering curated dining experiences, cultural evenings with music and dance, and guided tours of the property’s architecture. Perfect for travelers who want to indulge in luxury while staying rooted in tradition.'
+                        backInfo='Live like royalty in restored havelis, palaces, and boutique heritage hotels. Each stay blends modern comfort with historic charm, offering curated dining experiences, cultural evenings with music and dance, and guided tours of the property’s architecture.'
                         backImage='https://images.unsplash.com/photo-1519955045385-7cdb8e07c76f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                     />
                     <ServiceCard
                         title=""
                         description="Support local communities through village tours, culinary experiences, and artisan markets that sustain heritage livelihoods."
                         image="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        backInfo='Travel with purpose by engaging directly with local communities. Visit villages, join family cooking sessions, and shop at artisan markets where your purchases sustain livelihoods. These experiences allow you to connect with people, understand their traditions, and contribute to heritage preservation. Every booking supports community development initiatives.'
+                        backInfo='Travel with purpose by engaging directly with local communities. Visit villages, join family cooking sessions, and shop at artisan markets where your purchases sustain livelihoods.a'
                         backImage='https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
                     />
-                    <ServiceCard
+                    {/* <ServiceCard
                         title=""
                         description="Tailor‑made itineraries for solo travelers, families, and corporate groups — from transport to curated cultural activities."
                         image="https://plus.unsplash.com/premium_photo-1664368832311-7fe635e32c7c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         backInfo='Your journey, your way. Whether you’re a solo explorer, a family on vacation, or a corporate group, we design tailor‑made itineraries that fit your interests and schedule. From transport and accommodation to curated cultural activities, our planners provide 24/7 support and personalized recommendations to ensure a seamless and memorable experience.'
                         backImage='https://plus.unsplash.com/premium_photo-1664368832311-7fe635e32c7c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-                    />
-                    <h2 className='text-black font-semibold text-md'>To uncover our full capabilities, refer to our <Link className='hover:underline text-pink-500' href={"/services"}>Services</Link> Page !</h2>
+                    /> */}
                 </div>
+                    <h2 className='text-black font-semibold text-md text-center'>To uncover our full capabilities, refer to our <Link className='hover:underline text-pink-500' href={"/services"}>Services</Link> Page !</h2>
             </div>
         </section>
     )
