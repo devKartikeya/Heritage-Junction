@@ -101,7 +101,7 @@ const Footer = () => {
         <p className="text-sm">© 2025 Heritage Junction. All rights reserved.</p>
         <p className="text-sm mt-2">
           Website Powered by{" "}
-          <span className="text-purple-400">
+          <span className="text-white">
             <a
               className="no-underline hover:text-pink-300"
               target="_blank"

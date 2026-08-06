@@ -117,7 +117,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Route Section */}
                 <section className="flex flex-col gap-6">
-                    <h2 className="text-3xl md:text-4xl font-bold text-purple-700 mb-4">1. Route</h2>
+                    <h2 className="text-3xl md:text-4xl font-semibold text-purple-700 mb-4">1. Route</h2>
 
                     {/* Route Text */}
                     <div className="bg-white rounded-xl shadow-lg px-6 py-8 text-center">
@@ -152,7 +152,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Quick Facts */}
                 <section>
-                    <h2 className="text-3xl font-bold text-purple-700 mb-8">Quick Facts</h2>
+                    <h2 className="text-3xl font-semibold text-purple-700 mb-8">Quick Facts</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-gray-800">
                         {/* Duration */}
                         <QuickFactCard
@@ -210,7 +210,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Destinations Covered */}
                 <section>
-                    <h2 className="text-3xl font-bold text-purple-700 mb-6">3. Destinations Covered</h2>
+                    <h2 className="text-3xl font-semibold text-purple-700 mb-6">3. Destinations Covered</h2>
                     {destinations.length === 0 ? (
                         <p className="text-gray-600">No destinations linked to this package yet.</p>
                     ) : (
@@ -240,7 +240,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Heritage Sites Covered */}
                 <section>
-                    <h2 className="text-3xl font-bold text-purple-700 mb-6">4. Heritage Sites Covered</h2>
+                    <h2 className="text-3xl font-semibold text-purple-700 mb-6">4. Heritage Sites Covered</h2>
 
                     {destinations.length === 0 ? (
                         <p className="text-gray-600">No destinations linked to this package yet.</p>
@@ -294,7 +294,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Inclusions */}
                 <section>
-                    <h2 className="text-3xl font-bold text-purple-700 mb-6">5. What’s Included</h2>
+                    <h2 className="text-3xl font-semibold text-purple-700 mb-6">5. What’s Included</h2>
                     {pkg.inclusions.length === 0 ? (
                         <p className="text-gray-600">No inclusions listed for this package yet.</p>
                     ) : (
@@ -323,7 +323,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Exclusions */}
                 <section>
-                    <h2 className="text-3xl font-bold text-red-700 mb-6">6. What’s Not Included</h2>
+                    <h2 className="text-3xl font-semibold text-red-700 mb-6">6. What’s Not Included</h2>
                     {pkg.exclusions.length === 0 ? (
                         <p className="text-gray-600">No exclusions listed for this package yet.</p>
                     ) : (
@@ -352,7 +352,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Package Pricing */}
                 <section>
-                    <h2 className="text-3xl font-bold text-purple-700 mb-6">8. Package Pricing</h2>
+                    <h2 className="text-3xl font-semibold text-purple-700 mb-6">8. Package Pricing</h2>
 
                     {pkg.pricings && pkg.pricings.length > 0 ? (
                         <div className="overflow-x-auto bg-white rounded-lg shadow-lg">
@@ -387,7 +387,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                 {/* FAQs */}
                 <section className="py-8">
                     <div className="mb-8">
-                        <h2 className="text-4xl font-bold text-purple-500">
+                        <h2 className="text-4xl font-semibold text-purple-500">
                             Frequently Asked Questions
                         </h2>
 
@@ -444,7 +444,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Call to Action */}
                 <section className="text-center py-10">
-                    <h2 className="text-3xl font-bold text-purple-700 mb-4">Plan Your Journey</h2>
+                    <h2 className="text-3xl font-semibold text-purple-700 mb-4">Plan Your Journey</h2>
                     <p className="text-gray-700 max-w-2xl mx-auto mb-6">
                         Ready to explore {pkg.title}? Let Heritage Junction craft the perfect itinerary for you —
                         from guided tours and cultural immersion to comfortable stays and authentic dining.
