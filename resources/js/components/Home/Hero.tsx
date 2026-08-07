@@ -130,13 +130,15 @@ const Hero = () => {
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center max-w-2xl">
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-none">
+            {/* <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-none">
                 Her<span className="text-purple-400">i</span>tage
             </h1>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-none mt-2">
                 Junction
-            </h2>
+            </h2> */}
+
+            <img src="/heritage-junction-logo-black.png" alt="" width="700"/>
 
 
             <p className="mt-5 text-base sm:text-lg md:text-xl italic max-w-md">
@@ -173,21 +175,11 @@ const Hero = () => {
                 <Button
                     command="Book Now"
                     link="/packages"
-                    variant="secondary"
-                />
-
-                <Button
-                    command="My Dashboard"
-                    link="/dashboard"
                     variant="danger"
                 />
-
             </div>
-
         </div>
-
     </section>
-
 </main>
   )
 }

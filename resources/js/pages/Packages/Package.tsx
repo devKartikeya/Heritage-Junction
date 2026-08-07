@@ -518,39 +518,118 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     </div>
 
                 </section>
-                {/* Package Pricing */}
-                <section>
-                    <h2 className="text-3xl font-semibold text-purple-700 mb-6">8. Package Pricing</h2>
+               {/* Package Pricing */}
+<section>
+    <div className="mb-8">
+        <h2 className="text-3xl font-semibold text-purple-700">
+            8. Package Pricing
+        </h2>
+        <p className="mt-2 text-gray-600">
+            Choose the vehicle option that best suits your group.
+        </p>
+    </div>
 
-                    {pkg.pricings && pkg.pricings.length > 0 ? (
-                        <div className="overflow-x-auto bg-white rounded-lg shadow-lg">
-                            <table className="min-w-full border border-gray-200 text-gray-800">
-                                <thead className="bg-gray-100">
-                                    <tr>
-                                        <th className="px-6 py-3 text-left text-sm font-semibold">Vehicle Type</th>
-                                        <th className="px-6 py-3 text-left text-sm font-semibold">Total Cost</th>
-                                        <th className="px-6 py-3 text-left text-sm font-semibold">Per Person Cost</th>
-                                        <th className="px-6 py-3 text-left text-sm font-semibold">Minimum Persons</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {pkg.pricings
-                                        .sort((a, b) => a.visit_order - b.visit_order)
-                                        .map((pricing) => (
-                                            <tr key={pricing.id} className="border-t">
-                                                <td className="px-6 py-4">{pricing.vehicle_name}</td>
-                                                <td className="px-6 py-4">₹{pricing.total_cost}</td>
-                                                <td className="px-6 py-4">₹{pricing.per_person_cost}</td>
-                                                <td className="px-6 py-4">{pricing.minimum_persons}</td>
-                                            </tr>
-                                        ))}
-                                </tbody>
-                            </table>
+    {pkg.pricings && pkg.pricings.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {pkg.pricings
+                .sort((a, b) => a.visit_order - b.visit_order)
+                .map((pricing) => (
+                    <div
+                        key={pricing.id}
+                        className="
+                            group relative overflow-hidden
+                            rounded-2xl border border-purple-100
+                            bg-white
+                            shadow-md
+                            transition-all duration-300
+                            hover:-translate-y-2
+                            hover:shadow-xl
+                            hover:border-purple-300
+                        "
+                    >
+                        {/* Top Accent */}
+                        <div className="h-2 bg-gradient-to-r from-purple-600 to-pink-500" />
+
+                        <div className="p-6">
+                            {/* Vehicle */}
+                            <div className="flex items-center justify-between mb-6">
+                                <div>
+                                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                        Vehicle Type
+                                    </p>
+
+                                    <h3 className="mt-1 text-2xl font-bold text-gray-900">
+                                        {pricing.vehicle_name}
+                                    </h3>
+                                </div>
+
+                                <div
+                                    className="
+                                        w-12 h-12 rounded-full
+                                        bg-purple-100
+                                        flex items-center justify-center
+                                        text-2xl
+                                    "
+                                >
+                                    🚐
+                                </div>
+                            </div>
+
+                            {/* Pricing */}
+                            <div className="space-y-4">
+                                <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+                                    <span className="text-gray-600">
+                                        Total Cost
+                                    </span>
+
+                                    <span className="font-bold text-gray-900">
+                                        ₹{pricing.total_cost}
+                                    </span>
+                                </div>
+
+                                <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+                                    <span className="text-gray-600">
+                                        Per Person
+                                    </span>
+
+                                    <span className="text-xl font-bold text-purple-600">
+                                        ₹{pricing.per_person_cost}
+                                    </span>
+                                </div>
+
+                                <div className="flex items-center justify-between">
+                                    <span className="text-gray-600">
+                                        Minimum Persons
+                                    </span>
+
+                                    <span className="font-semibold text-gray-900">
+                                        {pricing.minimum_persons} Pax
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Bottom Info */}
+                            <div className="mt-6 rounded-xl bg-purple-50 p-4">
+                                <p className="text-sm text-purple-800">
+                                    Suitable for groups of{" "}
+                                    <span className="font-bold">
+                                        {pricing.minimum_persons} or more
+                                    </span>{" "}
+                                    travelers.
+                                </p>
+                            </div>
                         </div>
-                    ) : (
-                        <p className="text-gray-600">No pricing details available for this package yet.</p>
-                    )}
-                </section>
+                    </div>
+                ))}
+        </div>
+    ) : (
+        <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 text-center">
+            <p className="text-gray-600">
+                No pricing details available for this package yet.
+            </p>
+        </div>
+    )}
+</section>
 
                 {/* FAQs */}
                 <section className="py-8">

@@ -111,7 +111,7 @@ const Index = () => {
               setSelectedCategory("")
               setBudgetRange("")
             }}
-            className="w-full bg-gray-200 cursor-pointer text-gray-700 py-2 rounded hover:bg-gray-300 transition"
+            className="w-full bg-gray-200 cursor-pointer text-gray-700 py-2 rounded hover:text-gray-300 hover:bg-red-600 transition"
           >
             Clear Filters
           </button>
@@ -153,7 +153,7 @@ const Index = () => {
                     <div className="mt-4">
                       <Link
                         href={`/destinations/${destination.slug}`}
-                        className="inline-block bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition"
+                        className="inline-block bg-black text-white px-4 py-2 rounded hover:bg-red-600 transition"
                       >
                         View Details
                       </Link>
