@@ -126,7 +126,7 @@ const Index = ({ packages }: { packages: Package[] }) => {
                                     <div className="mt-auto pt-6">
                                         <Link
                                             href={`/packages/${pkg.slug}`}
-                                            className="inline-block w-full bg-purple-600 text-white text-center px-4 py-2 rounded-lg shadow hover:bg-purple-700 transition"
+                                            className="inline-block w-full bg-black text-white text-center px-4 py-2 rounded-lg shadow hover:bg-red-600 transition"
                                         >
                                             View Details
                                         </Link>

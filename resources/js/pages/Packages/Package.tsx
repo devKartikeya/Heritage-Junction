@@ -117,7 +117,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Route Section */}
                 <section className="flex flex-col gap-6">
-                    <h2 className="text-3xl md:text-4xl font-semibold text-purple-700 mb-4">1. Route</h2>
+                    <h2 className="text-3xl md:text-4xl font-semibold text-purple-700 mb-4">Route</h2>
 
                     {/* Route Text */}
                     <div className="bg-white rounded-xl shadow-lg px-6 py-8 text-center">
@@ -210,7 +210,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Destinations Covered */}
                 <section>
-                    <h2 className="text-3xl font-semibold text-purple-700 mb-6">3. Destinations Covered</h2>
+                    <h2 className="text-3xl font-semibold text-purple-700 mb-6">Destinations Covered</h2>
                     {destinations.length === 0 ? (
                         <p className="text-gray-600">No destinations linked to this package yet.</p>
                     ) : (
@@ -240,7 +240,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                 {/* Heritage Sites Covered */}
                 <section>
-                    <h2 className="text-3xl font-semibold text-purple-700 mb-6">4. Heritage Sites Covered</h2>
+                    <h2 className="text-3xl font-semibold text-purple-700 mb-6">Heritage Sites Covered</h2>
 
                     {destinations.length === 0 ? (
                         <p className="text-gray-600">No destinations linked to this package yet.</p>
@@ -292,64 +292,232 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     <Itinerary itineraries={pkg.itineraries ?? []} starting_city={pkg.starting_city} ending_city={pkg.ending_city} />
                 </section>
 
-                {/* Inclusions */}
-                <section>
-                    <h2 className="text-3xl font-semibold text-purple-700 mb-6">5. What’s Included</h2>
-                    {pkg.inclusions.length === 0 ? (
-                        <p className="text-gray-600">No inclusions listed for this package yet.</p>
-                    ) : (
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {pkg.inclusions
-                                .sort((a, b) => a.sort_order - b.sort_order)
-                                .map((item) => (
-                                    <li
-                                        key={item.id}
-                                        className="flex flex-col gap-2 bg-green-50 border border-green-200 rounded-lg p-4 shadow-sm"
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
-                                                ✓
-                                            </div>
-                                            <span className="text-gray-900 font-semibold">{item.inclusion}</span>
-                                        </div>
-                                        {item.description && (
-                                            <p className="text-gray-700 text-sm ml-9">{item.description}</p>
-                                        )}
-                                    </li>
-                                ))}
-                        </ul>
-                    )}
-                </section>
+                {/* ================= INCLUSIONS & EXCLUSIONS ================= */}
+                <section className="space-y-6">
 
-                {/* Exclusions */}
-                <section>
-                    <h2 className="text-3xl font-semibold text-red-700 mb-6">6. What’s Not Included</h2>
-                    {pkg.exclusions.length === 0 ? (
-                        <p className="text-gray-600">No exclusions listed for this package yet.</p>
-                    ) : (
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {pkg.exclusions
-                                .sort((a, b) => a.sort_order - b.sort_order)
-                                .map((item) => (
-                                    <li
-                                        key={item.id}
-                                        className="flex flex-col gap-2 bg-red-50 border border-red-200 rounded-lg p-4 shadow-sm"
-                                    >
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-6 h-6 flex items-center justify-center rounded-full bg-red-100 text-red-600">
-                                                ✗
-                                            </div>
-                                            <span className="text-gray-900 font-semibold">{item.exclusion}</span>
-                                        </div>
-                                        {item.description && (
-                                            <p className="text-gray-700 text-sm ml-9">{item.description}</p>
-                                        )}
-                                    </li>
-                                ))}
-                        </ul>
-                    )}
-                </section>
+                    <div className="text-center">
+                        <h2 className="text-3xl md:text-4xl font-bold text-red-600">
+                            What's Included & What's Not
+                        </h2>
 
+                        <p className="mt-2 text-gray-500">
+                            Everything you need to know about what's covered in your package.
+                        </p>
+                    </div>
+
+
+                    <div className="
+        grid
+        grid-cols-1
+        md:grid-cols-2
+        border
+        border-gray-200
+        rounded-2xl
+        overflow-hidden
+        shadow-sm
+        bg-white
+    ">
+
+                        {/* ================= INCLUDED ================= */}
+                        <div className="p-6 md:p-8">
+
+                            {/* Header */}
+                            <div className="
+                flex items-center gap-3
+                pb-4
+                mb-5
+                border-b border-gray-200
+            ">
+                                <div className="
+                    w-9 h-9
+                    rounded-full
+                    bg-green-100
+                    text-green-600
+                    flex items-center justify-center
+                    font-bold
+                ">
+                                    ✓
+                                </div>
+
+                                <div>
+                                    <h3 className="text-xl font-bold text-gray-900">
+                                        What's Included
+                                    </h3>
+
+                                    <p className="text-sm text-gray-500">
+                                        Covered in your package
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            {pkg.inclusions.length === 0 ? (
+
+                                <p className="text-gray-500 text-sm">
+                                    No inclusions listed for this package yet.
+                                </p>
+
+                            ) : (
+
+                                <ul className="space-y-4">
+
+                                    {pkg.inclusions
+                                        .sort((a, b) => a.sort_order - b.sort_order)
+                                        .map((item) => (
+
+                                            <li
+                                                key={item.id}
+                                                className="flex gap-3"
+                                            >
+
+                                                <span className="
+                                    flex-shrink-0
+                                    w-6 h-6
+                                    rounded-full
+                                    bg-green-100
+                                    text-green-600
+                                    flex items-center justify-center
+                                    text-sm
+                                    font-bold
+                                ">
+                                                    ✓
+                                                </span>
+
+                                                <div>
+                                                    <p className="
+                                        text-gray-900
+                                        font-semibold
+                                    ">
+                                                        {item.inclusion}
+                                                    </p>
+
+                                                    {item.description && (
+                                                        <p className="
+                                            mt-1
+                                            text-sm
+                                            text-gray-500
+                                            leading-relaxed
+                                        ">
+                                                            {item.description}
+                                                        </p>
+                                                    )}
+                                                </div>
+
+                                            </li>
+
+                                        ))}
+
+                                </ul>
+
+                            )}
+
+                        </div>
+
+
+                        {/* ================= EXCLUDED ================= */}
+                        <div className="
+            p-6 md:p-8
+            border-t
+            md:border-t-0
+            md:border-l
+            border-gray-200
+        ">
+
+                            {/* Header */}
+                            <div className="
+                flex items-center gap-3
+                pb-4
+                mb-5
+                border-b border-gray-200
+            ">
+                                <div className="
+                    w-9 h-9
+                    rounded-full
+                    bg-red-100
+                    text-red-600
+                    flex items-center justify-center
+                    font-bold
+                ">
+                                    ✕
+                                </div>
+
+                                <div>
+                                    <h3 className="text-xl font-bold text-gray-900">
+                                        What's Not Included
+                                    </h3>
+
+                                    <p className="text-sm text-gray-500">
+                                        Additional expenses to consider
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            {pkg.exclusions.length === 0 ? (
+
+                                <p className="text-gray-500 text-sm">
+                                    No exclusions listed for this package yet.
+                                </p>
+
+                            ) : (
+
+                                <ul className="space-y-4">
+
+                                    {pkg.exclusions
+                                        .sort((a, b) => a.sort_order - b.sort_order)
+                                        .map((item) => (
+
+                                            <li
+                                                key={item.id}
+                                                className="flex gap-3"
+                                            >
+
+                                                <span className="
+                                    flex-shrink-0
+                                    w-6 h-6
+                                    rounded-full
+                                    bg-red-100
+                                    text-red-600
+                                    flex items-center justify-center
+                                    text-sm
+                                    font-bold
+                                ">
+                                                    ✕
+                                                </span>
+
+                                                <div>
+                                                    <p className="
+                                        text-gray-900
+                                        font-semibold
+                                    ">
+                                                        {item.exclusion}
+                                                    </p>
+
+                                                    {item.description && (
+                                                        <p className="
+                                            mt-1
+                                            text-sm
+                                            text-gray-500
+                                            leading-relaxed
+                                        ">
+                                                            {item.description}
+                                                        </p>
+                                                    )}
+                                                </div>
+
+                                            </li>
+
+                                        ))}
+
+                                </ul>
+
+                            )}
+
+                        </div>
+
+                    </div>
+
+                </section>
                 {/* Package Pricing */}
                 <section>
                     <h2 className="text-3xl font-semibold text-purple-700 mb-6">8. Package Pricing</h2>

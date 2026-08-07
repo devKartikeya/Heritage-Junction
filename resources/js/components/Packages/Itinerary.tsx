@@ -21,7 +21,7 @@ export default function Itinerary({ itineraries }: { itineraries: Itinerary[], s
 
     return (
         <section>
-            <h2 className="text-3xl font-bold text-indigo-700 mb-8">4. Itinerary</h2>
+            <h2 className="text-3xl font-bold text-indigo-700 mb-8">Itinerary</h2>
             <div className="space-y-12">
                 {days.map((day) => {
                     const activities = grouped[Number(day)].sort((a, b) => a.sort_order - b.sort_order)

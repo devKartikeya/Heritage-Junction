@@ -46,7 +46,7 @@ const Footer = () => {
 
         {/* Packages */}
         <div>
-          <h4 className="text-md font-semibold text-white mb-4">Explore Our Packages</h4>
+          <h4 className="text-md font-semibold text-white mb-4">Explore Our Most visisted Packages</h4>
           <ul className="space-y-2 text-sm">
             <li><Link href="/packages/varanasi-spiritual-tour" className="hover:text-pink-500 transition">Varanasi Spiritual Tour</Link></li>
             <li><Link href="/packages/dudhwa-wildlife-safari" className="hover:text-pink-500 transition">Dudhwa National Park Tour</Link></li>

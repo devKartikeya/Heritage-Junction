@@ -40,8 +40,8 @@
             }
         </style>
 
-        <link rel="icon" href="/favicon.ico" sizes="any">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="icon" href="/heritage-junction-logo-black.png" sizes="any">
+        <link rel="icon" href="/heritage-junction-logo-white.png" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
         @fonts

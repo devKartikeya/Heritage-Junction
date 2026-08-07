@@ -17,11 +17,11 @@ const Welcome = () => {
     useEffect(() => {
 
         const sections = gsap.utils.toArray([
-            '.hero-section',
-            '.about-section',
-            '.why-section',
-            '.services-section',
-            '.footer-section'
+            // '.hero-section',
+            // '.about-section',
+            // '.why-section',
+            // '.services-section',
+            // '.footer-section'
         ])
 
         sections.forEach((section: any) => {
@@ -41,14 +41,16 @@ const Welcome = () => {
 
     return (
         <div className="overflow-x-hidden bg-white">
-            <Head
-                title="Home"
-            >
-                <meta
-                    name="description"
-                    content="Heritage Junction is a full-stack travel and tourism management platform featuring destination discovery, package booking, traveler verification, and a powerful administrative dashboard."
-                />
+            <Head title="Home">
+                <meta name="description" content="Heritage Junction is a full-stack travel and tourism management platform featuring destination discovery, package booking, traveler verification, and a powerful administrative dashboard." />
+
+                <link rel="preload" as="image" href="/heritage-junction-logo-black.png" />
+                <link rel="preload" as="image" href="/ram-lalla-4k-wallpaper-scaled-1.webp" />
+                <link rel="preload" as="image" href="/taj-mahal-agra-uttar-pradesh-india.webp" />
+                <link rel="preload" as="image" href="/panoramic-of-vrindavan-uttar-pradesh-india.webp" />
+                <link rel="preload" as="image" href="/sadhu-indian-holymen-siiting-in-the-temple.webp" />
             </Head>
+
             {/* Navbar */}
             <Navbar />
             {/* Hero Section */}

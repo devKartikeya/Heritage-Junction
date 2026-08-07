@@ -1,115 +1,401 @@
-import { FaEnvelope, FaPhoneAlt, FaGithub, FaLinkedin, FaFacebook, FaTwitter, FaYoutube } from 'react-icons/fa'
+import {
+    FaEnvelope,
+    FaPhoneAlt,
+    FaGithub,
+    FaLinkedin,
+    FaFacebook,
+    FaTwitter,
+    FaYoutube,
+} from 'react-icons/fa'
 
 const Contact = () => {
     return (
-        <section id='contact' className="w-full bg-gray-100 py-12 px-3 bg-yellow-50">
-            <div className="max-w-6xl mx-auto flex flex-col gap-12 ">
-                {/* Heading */}
-                <h2 className="text-5xl font-bold text-center text-purple-600">
-                    Get in Touch with Us
-                </h2>
-                <div className='flex flex-col gap-4 -mt-8'>
-                    <p className='text-black text-center'>Ready to bring your vision to life? Contact us today, and let’s create something amazing together!</p>
+        <section
+            id="contact"
+            className="w-full bg-white py-20 px-6"
+        >
+            <div className="max-w-6xl mx-auto">
+
+                {/* ================= HEADER ================= */}
+                <div className="text-center mb-14">
+
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black">
+                        Get in Touch with Us
+                    </h2>
+
+                    <p className="mt-4 text-base md:text-md font-semibold text-gray-400 max-w-2xl mx-auto">
+                        Have a question or planning your next journey?
+                        Get in touch with us and we'll be happy to help.
+                    </p>
+
                 </div>
-                <div className='flex flex-col md:flex-row gap-8 mx-auto items-center justify-center w-full'>
-                    <div className="flex w-full md:w-1/2 flex-col md:flex-col justify-center gap-6 text-center p-2">
-                    <h2 className='text-3xl md:text-4xl text-left font-bold text-red-500'>Quick Contact !</h2>
+
+
+                {/* ================= MAIN CONTENT ================= */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+
+                    {/* ================= CONTACT INFORMATION ================= */}
+                    <div className="lg:pt-4">
+
+                        <h3 className="text-2xl font-bold text-black mb-3">
+                            Quick Contact
+                        </h3>
+
+                        <p className="text-gray-500 leading-relaxed mb-8 max-w-md">
+                            Whether you have a question about our packages,
+                            destinations, bookings, or anything else,
+                            our team is here to help.
+                        </p>
+
+
+                        {/* Email */}
                         <a
-                            href="mailto:yourmail@example.com"
-                            className="flex items-center gap-3 text-gray-700 hover:text-purple-600 transition"
+                            href="mailto:info@heritagejunction.in"
+                            className="
+                                flex items-center gap-4
+                                py-4
+                                text-black
+                                hover:text-pink-500
+                                transition-colors
+                                group
+                            "
                         >
-                            <FaEnvelope className="text-2xl" /> info@heritagejunction.in
+                            <span
+                                className="
+                                    w-11 h-11
+                                    rounded-xl
+                                    border border-gray-300
+                                    flex items-center justify-center
+                                    group-hover:border-pink-400
+                                    group-hover:text-pink-500
+                                    transition-colors
+                                "
+                            >
+                                <FaEnvelope />
+                            </span>
+
+                            <div>
+                                <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider">
+                                    Email
+                                </p>
+
+                                <p className="font-semibold">
+                                    info@heritagejunction.in
+                                </p>
+                            </div>
                         </a>
-                        <a
-                            href="https://github.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-3 text-gray-700 hover:text-black transition"
-                        >
-                            <FaGithub className="text-2xl" /> GitHub
-                        </a>
-                        <a
-                            href="https://youtube.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-3 text-gray-700 hover:text-red-600 transition"
-                        >
-                            <FaYoutube className="text-2xl" /> YouTube
-                        </a>
-                        <a
-                            href="https://facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-3 text-gray-700 hover:text-blue-800 transition"
-                        >
-                            <FaFacebook className="text-2xl" /> Facebook
-                        </a>
-                        <a
-                            href="https://x.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-3 text-gray-700 hover:text-black transition"
-                        >
-                            <FaTwitter className="text-2xl" /> Twitter
-                        </a>
-                        <a
-                            href="https://linkedin.com/in/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition"
-                        >
-                            <FaLinkedin className="text-2xl" /> LinkedIn
-                        </a>
+
+
+                        {/* Phone */}
                         <a
                             href="tel:+917905358890"
-                            className="flex items-center gap-3 text-gray-700 hover:text-purple-600 transition"
+                            className="
+                                flex items-center gap-4
+                                py-4
+                                text-black
+                                hover:text-pink-500
+                                transition-colors
+                                group
+                            "
                         >
-                            <FaPhoneAlt className="text-2xl" /> +91 79053 58890
-                        </a>
-                    </div>
-                    {/* Contact Form */}
-                    <form className="bg-white shadow-lg rounded-xl p-8 flex flex-col gap-6 w-full md:w-1/2 mx-auto">
-                        <div>
-                            <label className="block text-gray-700 font-semibold mb-2">Name</label>
-                            <input
-                                required
-                                type="text"
-                                placeholder="Your Name"
-                                className="w-full border border-gray-300 text-black rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-gray-700 font-semibold mb-2">Email</label>
-                            <input
-                                required
-                                type="email"
-                                placeholder="Your Email"
-                                className="w-full border text-black border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-gray-700 font-semibold mb-2">Message</label>
-                            <textarea
-                                required
-                                rows="5"
-                                placeholder="Your Message"
-                                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
-                            ></textarea>
-                        </div>
-                        <button
-                            type="submit"
-                            className="bg-purple-600 cursor-pointer text-white font-semibold py-3 rounded-lg hover:bg-purple-400 transition"
-                        >
-                            Send Message
-                        </button>
-                    </form>
+                            <span
+                                className="
+                                    w-11 h-11
+                                    rounded-xl
+                                    border border-gray-300
+                                    flex items-center justify-center
+                                    group-hover:border-pink-400
+                                    group-hover:text-pink-500
+                                    transition-colors
+                                "
+                            >
+                                <FaPhoneAlt />
+                            </span>
 
-                    {/* Other Contact Options */}
+                            <div>
+                                <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider">
+                                    Phone
+                                </p>
+
+                                <p className="font-semibold">
+                                    +91 79053 58890
+                                </p>
+                            </div>
+                        </a>
+
+
+                        {/* Social Links */}
+                        <div className="mt-8">
+
+                            <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-4">
+                                Follow Us
+                            </p>
+
+                            <div className="flex flex-wrap gap-3">
+
+                                <a
+                                    href="#"
+                                    aria-label="GitHub"
+                                    className="
+                                        w-10 h-10
+                                        rounded-lg
+                                        border border-gray-300
+                                        flex items-center justify-center
+                                        text-gray-600
+                                        hover:text-black
+                                        hover:border-pink-400
+                                        transition-all
+                                    "
+                                >
+                                    <FaGithub />
+                                </a>
+
+                                <a
+                                    href="#"
+                                    aria-label="YouTube"
+                                    className="
+                                        w-10 h-10
+                                        rounded-lg
+                                        border border-gray-300
+                                        flex items-center justify-center
+                                        text-gray-600
+                                        hover:text-red-500
+                                        hover:border-red-400
+                                        transition-all
+                                    "
+                                >
+                                    <FaYoutube />
+                                </a>
+
+                                <a
+                                    href="#"
+                                    aria-label="Facebook"
+                                    className="
+                                        w-10 h-10
+                                        rounded-lg
+                                        border border-gray-300
+                                        flex items-center justify-center
+                                        text-gray-600
+                                        hover:text-blue-500
+                                        hover:border-blue-400
+                                        transition-all
+                                    "
+                                >
+                                    <FaFacebook />
+                                </a>
+
+                                <a
+                                    href="#"
+                                    aria-label="Twitter"
+                                    className="
+                                        w-10 h-10
+                                        rounded-lg
+                                        border border-gray-300
+                                        flex items-center justify-center
+                                        text-gray-600
+                                        hover:text-black
+                                        hover:border-black
+                                        transition-all
+                                    "
+                                >
+                                    <FaTwitter />
+                                </a>
+
+                                <a
+                                    href="#"
+                                    aria-label="LinkedIn"
+                                    className="
+                                        w-10 h-10
+                                        rounded-lg
+                                        border border-gray-300
+                                        flex items-center justify-center
+                                        text-gray-600
+                                        hover:text-blue-500
+                                        hover:border-blue-400
+                                        transition-all
+                                    "
+                                >
+                                    <FaLinkedin />
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    {/* ================= CONTACT FORM ================= */}
+                    <div>
+
+                        <form
+                            className="
+                                w-full
+                                max-w-xl
+                                mx-auto
+                                space-y-7
+                            "
+                        >
+
+                            {/* Name */}
+                            <div>
+                                <label
+                                    htmlFor="name"
+                                    className="
+                                        block
+                                        text-base
+                                        font-semibold
+                                        text-black
+                                        mb-2
+                                    "
+                                >
+                                    Name
+                                </label>
+
+                                <input
+                                    id="name"
+                                    name="name"
+                                    type="text"
+                                    placeholder="Your name"
+                                    required
+                                    className="
+                                        w-full
+                                        h-11
+                                        px-3
+                                        rounded-xl
+                                        border
+                                        border-gray-300
+                                        bg-white
+                                        text-black
+                                        placeholder:text-gray-400
+                                        outline-none
+                                        transition-all
+                                        text-sm
+                                        focus:border-black
+                                        focus:ring-2
+                                        focus:ring-gray-200
+                                    "
+                                />
+                            </div>
+
+
+                            {/* Email */}
+                            <div>
+                                <label
+                                    htmlFor="email"
+                                    className="
+                                        block
+                                        text-base
+                                        font-semibold
+                                        text-black
+                                        mb-2
+                                    "
+                                >
+                                    Email address
+                                </label>
+
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    placeholder="email@example.com"
+                                    required
+                                    className="
+                                        w-full
+                                        h-11
+                                        text-sm
+                                        px-3
+                                        rounded-xl
+                                        border
+                                        border-gray-300
+                                        bg-white
+                                        text-black
+                                        placeholder:text-gray-400
+                                        outline-none
+                                        transition-all
+                                        focus:border-black
+                                        focus:ring-2
+                                        focus:ring-gray-200
+                                    "
+                                />
+                            </div>
+
+
+                            {/* Message */}
+                            <div>
+                                <label
+                                    htmlFor="message"
+                                    className="
+                                        block
+                                        text-base
+                                        font-semibold
+                                        text-black
+                                        mb-2
+                                    "
+                                >
+                                    Message
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows={4}
+                                    placeholder="Tell us how we can help..."
+                                    required
+                                    className="
+                                        w-full
+                                        px-3
+                                        py-2
+                                        text-sm
+                                        rounded-xl
+                                        border
+                                        border-gray-300
+                                        bg-white
+                                        text-black
+                                        placeholder:text-gray-400
+                                        outline-none
+                                        resize-none
+                                        transition-all
+                                        focus:border-black
+                                        focus:ring-2
+                                        focus:ring-gray-200
+                                    "
+                                />
+                            </div>
+
+
+                            {/* Submit */}
+                            <button
+                                type="submit"
+                                className="
+                                    w-full
+                                    h-12
+                                    rounded-xl
+                                    bg-black
+                                    text-white
+                                    font-semibold
+                                    text-base
+                                    shadow-sm
+                                    transition-all
+                                    hover:bg-gray-800
+                                    cursor-pointer
+                                    hover:shadow-md
+                                    active:scale-[0.99]
+                                "
+                            >
+                                Send Message
+                            </button>
+
+                        </form>
+
+                    </div>
 
                 </div>
+
             </div>
         </section>
     )
 }
 
-export default Contact;
+export default Contact
