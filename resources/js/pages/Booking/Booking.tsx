@@ -97,14 +97,11 @@ const Booking = ({
                 <h2 className="text-lg font-bold text-green-800">
                   Booking Submitted Successfully
                 </h2>
-
                 <p className="mt-1 text-sm leading-6 text-green-700">
                   {successMessage}
                 </p>
               </div>
-
             </div>
-
           </div>
         </div>
       )}
@@ -120,7 +117,7 @@ const Booking = ({
             text-sm font-semibold
             text-gray-600
             transition
-            hover:text-pink-500
+            hover:text-red-500
           "
         >
           <ArrowBigLeft size={18} />
@@ -135,7 +132,7 @@ const Booking = ({
 
         <div className="text-center">
 
-          <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-pink-500">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-red-500">
             Heritage Junction
           </p>
 
@@ -149,7 +146,6 @@ const Booking = ({
           ">
             Book Your Journey
           </h1>
-
           <p className="
             mx-auto
             mt-5
@@ -163,15 +159,10 @@ const Booking = ({
             will verify your request and contact you shortly after
             submission to confirm the final arrangements.
           </p>
-
         </div>
-
       </section>
-
       {/* ================= MAIN ================= */}
-
       <section className="max-w-7xl mx-auto px-5 pb-20">
-
         <form
           onSubmit={(e) => {
             e.preventDefault()
@@ -190,15 +181,12 @@ const Booking = ({
             items-start
           "
         >
-
           {/* =====================================================
               LEFT SIDE
           ===================================================== */}
 
           <div className="space-y-5">
-
             {/* ================= PACKAGE ================= */}
-
             <div className="
               rounded-2xl
               border
@@ -207,9 +195,7 @@ const Booking = ({
               p-6
               shadow-sm
             ">
-
               <div className="flex items-center gap-3 mb-6">
-
                 <div className="
                   flex h-10 w-10
                   items-center justify-center
@@ -219,12 +205,10 @@ const Booking = ({
                 ">
                   <Package size={20} />
                 </div>
-
                 <div>
                   <h2 className="text-lg font-bold text-black">
                     Package Information
                   </h2>
-
                   <p className="text-xs text-gray-500">
                     Your selected travel package
                   </p>
@@ -253,13 +237,10 @@ const Booking = ({
                     #{packageId}
                   </p>
                 </div>
-
               </div>
-
             </div>
 
             {/* ================= PRIMARY CONTACT ================= */}
-
             <div className="
               rounded-2xl
               border
@@ -268,27 +249,22 @@ const Booking = ({
               p-6
               shadow-sm
             ">
-
               <SectionHeading
                 title="Primary Contact"
                 subtitle="Your registered account information"
               />
-
               <div className="space-y-5">
-
                 <InputField
                   label="Full Name"
                   value={form.data.name}
                   readOnly
                 />
-
                 <InputField
                   label="Email Address"
                   type="email"
                   value={form.data.email}
                   readOnly
                 />
-
                 <InputField
                   label="Phone Number"
                   type="tel"
@@ -299,13 +275,10 @@ const Booking = ({
                     form.setData("phone", e.target.value)
                   }
                 />
-
               </div>
-
             </div>
 
             {/* ================= SECONDARY CONTACT ================= */}
-
             <div className="
               rounded-2xl
               border
@@ -314,14 +287,11 @@ const Booking = ({
               p-6
               shadow-sm
             ">
-
               <SectionHeading
                 title="Additional Contact"
                 subtitle="Alternative contact information"
               />
-
               <div className="space-y-5">
-
                 <InputField
                   label="Additional Phone"
                   type="tel"
@@ -335,7 +305,6 @@ const Booking = ({
                     )
                   }
                 />
-
                 <InputField
                   label="Additional Email"
                   type="email"
@@ -351,11 +320,9 @@ const Booking = ({
                 />
 
                 <div>
-
                   <label className="text-sm font-semibold text-gray-800">
                     Address
                   </label>
-
                   <textarea
                     rows={4}
                     required
@@ -384,15 +351,11 @@ const Booking = ({
                       focus:ring-pink-100
                     "
                   />
-
                 </div>
-
               </div>
-
             </div>
 
             {/* ================= TRAVELERS ================= */}
-
             <div className="
               rounded-2xl
               border
@@ -401,7 +364,6 @@ const Booking = ({
               p-6
               shadow-sm
             ">
-
               <SectionHeading
                 title="Travellers"
                 subtitle="Add details of everyone travelling"
@@ -412,18 +374,14 @@ const Booking = ({
                 <label className="text-sm font-semibold text-gray-800">
                   Number of Travellers
                 </label>
-
                 <input
                   type="number"
                   value={travelers}
                   min={0}
                   onChange={(e) => {
-
                     const val =
                       parseInt(e.target.value) || 0
-
                     setTravelers(val)
-
                     form.setData(
                       "travelers",
                       Array.from(
@@ -457,12 +415,9 @@ const Booking = ({
                 />
 
               </div>
-
               <div className="grid sm:grid-cols-2 gap-5">
-
                 {Array.from({ length: travelers }).map(
                   (_, index) => (
-
                     <div
                       key={index}
                       className="
@@ -490,19 +445,15 @@ const Booking = ({
                         ">
                           {index + 1}
                         </div>
-
                         <div>
                           <h3 className="font-bold text-gray-900">
                             Traveller {index + 1}
                           </h3>
-
                           <p className="text-xs text-gray-500">
                             Aadhar document required
                           </p>
                         </div>
-
                       </div>
-
                       <input
                         placeholder="Traveller Name"
                         onChange={(e) =>
@@ -544,7 +495,6 @@ const Booking = ({
                           w-full
                           text-xs
                           text-gray-500
-
                           file:mr-4
                           file:rounded-lg
                           file:border-0
@@ -561,16 +511,12 @@ const Booking = ({
                       />
 
                     </div>
-
                   )
                 )}
-
               </div>
-
             </div>
 
             {/* ================= TRANSPORTATION ================= */}
-
             <div className="
               rounded-2xl
               border
@@ -586,14 +532,10 @@ const Booking = ({
               />
 
               <div className="space-y-3">
-
                 {pricings.map((pricing) => {
-
                   const active =
                     selectedPricing === pricing.id
-
                   return (
-
                     <label
                       key={pricing.id}
                       className={`
@@ -611,13 +553,11 @@ const Booking = ({
                         }
                       `}
                     >
-
                       <input
                         type="radio"
                         className="hidden"
                         checked={active}
                         onChange={() => {
-
                           setSelectedPricing(
                             pricing.id
                           )
@@ -626,7 +566,6 @@ const Booking = ({
                             "transport",
                             pricing.id as any
                           )
-
                         }}
                       />
 
@@ -638,9 +577,7 @@ const Booking = ({
                         sm:justify-between
                         gap-4
                       ">
-
                         <div className="flex items-center gap-4">
-
                           <div className={`
                             flex h-10 w-10
                             items-center justify-center
@@ -652,47 +589,30 @@ const Booking = ({
                           `}>
                             <Car size={19} />
                           </div>
-
                           <div>
-
                             <h3 className="font-bold text-gray-900">
                               {pricing.vehicle_name}
                             </h3>
-
                             <p className="mt-1 text-xs text-gray-500">
                               Minimum {pricing.minimum_persons} travellers
                             </p>
-
                           </div>
-
                         </div>
-
                         <div className="sm:text-right">
-
                           <p className="text-lg font-black text-black">
                             ₹{pricing.per_person_cost}
                           </p>
-
                           <p className="text-xs text-gray-500">
                             per person
                           </p>
-
                         </div>
-
                       </div>
-
                     </label>
-
                   )
-
                 })}
-
               </div>
-
             </div>
-
             {/* ================= TRAVEL DATE ================= */}
-
             <div className="
               rounded-2xl
               border
@@ -701,7 +621,6 @@ const Booking = ({
               p-6
               shadow-sm
             ">
-
               <SectionHeading
                 title="Travel Date"
                 subtitle="When would you like to start your journey?"
@@ -719,7 +638,6 @@ const Booking = ({
                     text-pink-500
                   "
                 />
-
                 <input
                   type="date"
                   required
@@ -760,7 +678,6 @@ const Booking = ({
           ===================================================== */}
 
           <aside className="lg:sticky lg:top-6">
-
             <div className="
               rounded-3xl
               border
@@ -771,11 +688,8 @@ const Booking = ({
             ">
 
               {/* Header */}
-
               <div className="border-b border-gray-100 pb-5">
-
                 <div className="flex items-center gap-3">
-
                   <div className="
                     flex h-11 w-11
                     items-center justify-center
@@ -785,21 +699,11 @@ const Booking = ({
                   ">
                     <Package size={20} />
                   </div>
-
                   <div>
-
-                    <h2 className="text-xl font-black text-black">
-                      Booking Summary
-                    </h2>
-
-                    <p className="text-xs text-gray-500">
-                      Review your journey
-                    </p>
-
+                    <h2 className="text-xl font-black text-black">Booking Summary</h2>
+                    <p className="text-xs text-gray-500">Review your journey</p>
                   </div>
-
                 </div>
-
               </div>
 
               {/* Summary */}
@@ -829,19 +733,14 @@ const Booking = ({
                 />
 
                 <div className="border-t border-gray-100 pt-5">
-
                   <div className="flex items-center justify-between">
-
                     <span className="font-semibold text-gray-700">
                       Total
                     </span>
-
                     <span className="text-2xl font-black text-black">
                       ₹{calculatedTotal}
                     </span>
-
                   </div>
-
                 </div>
 
                 {/* Minimum requirement */}
@@ -868,13 +767,10 @@ const Booking = ({
                         {chosen?.vehicle_name}
                       </strong>.
                     </div>
-
                   )}
 
               </div>
-
               {/* Submit */}
-
               <button
                 type="submit"
                 disabled={!meetsRequirement}
@@ -891,9 +787,9 @@ const Booking = ({
                     ? `
                       bg-black
                       text-white
-                      hover:bg-pink-500
+                      hover:bg-red-500
                       hover:shadow-lg
-                      hover:shadow-pink-200
+                      hover:shadow-red-200
                     `
                     : `
                       cursor-not-allowed
@@ -910,7 +806,6 @@ const Booking = ({
               </button>
 
               {/* Trust */}
-
               <div className="
                 mt-5
                 flex
@@ -920,31 +815,22 @@ const Booking = ({
                 bg-gray-50
                 p-4
               ">
-
                 <ShieldCheck
                   size={19}
                   className="mt-0.5 shrink-0 text-pink-500"
                 />
-
                 <p className="text-xs leading-5 text-gray-500">
                   Your booking request will be reviewed by
                   our travel executive. Final arrangements
                   and payment will be confirmed with you
                   after verification.
                 </p>
-
               </div>
-
             </div>
-
           </aside>
-
         </form>
-
       </section>
-
       <Footer />
-
     </div>
   )
 }
@@ -963,9 +849,7 @@ const SectionHeading = ({
 }) => {
 
   return (
-
     <div className="mb-7">
-
       <h2 className="
         text-lg
         font-black
@@ -973,7 +857,6 @@ const SectionHeading = ({
       ">
         {title}
       </h2>
-
       <p className="
         mt-1
         text-xs
@@ -981,7 +864,6 @@ const SectionHeading = ({
       ">
         {subtitle}
       </p>
-
       <div className="
         mt-4
         h-px
@@ -993,7 +875,6 @@ const SectionHeading = ({
 
   )
 }
-
 
 /* ============================================================
    INPUT
@@ -1008,15 +889,11 @@ const InputField = ({
   placeholder,
   onChange
 }: any) => {
-
   return (
-
     <div>
-
       <label className="text-sm font-semibold text-gray-800">
         {label}
       </label>
-
       <input
         type={type}
         value={value}
@@ -1048,12 +925,9 @@ const InputField = ({
           focus:ring-pink-100
         `}
       />
-
     </div>
-
   )
 }
-
 
 /* ============================================================
    SUMMARY ROW
@@ -1070,17 +944,13 @@ const SummaryRow = ({
 }) => {
 
   return (
-
     <div className="flex items-start justify-between gap-5">
-
       <div className="flex items-center gap-2 text-gray-500">
-
         {icon && (
           <span className="text-pink-500">
             {icon}
           </span>
         )}
-
         <span className="text-xs font-medium">
           {label}
         </span>
@@ -1096,9 +966,7 @@ const SummaryRow = ({
       ">
         {value}
       </span>
-
     </div>
-
   )
 }
 
