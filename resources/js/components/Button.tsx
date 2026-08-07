@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/react'
 
 interface ButtonProps {
     command: string
-    variant?: 'primary' | 'secondary' | 'danger'
+    variant?: 'primary' | 'secondary' | 'danger' | 'peace'
     size?: 'md' | 'lg'
     icon?: React.ReactNode
     onClick?: () => void,
@@ -13,7 +13,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({
     command,
-    variant = 'primary',
+    variant = 'peace',
     size = 'md',
     icon,
     link,
@@ -26,6 +26,7 @@ const Button: React.FC<ButtonProps> = ({
         primary: 'bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500 cursor-pointer',
         secondary: 'bg-blue-500 text-white hover:bg-blue-400 focus:ring-blue-400 cursor-pointer',
         danger: 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-400 cursor-pointer',
+        peace: 'bg-white text-purple-600 hover:bg-gray-200 focus:ring-purple-600 cursor-pointer',
     }
 
     const sizeStyles = {

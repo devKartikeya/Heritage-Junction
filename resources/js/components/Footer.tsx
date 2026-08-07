@@ -2,8 +2,8 @@ import { Link } from "@inertiajs/react"
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gray-900 text-gray-300 py-10 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-10 p-4">
+    <footer className="w-full bg-gray-900 text-gray-300 py-16 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-10 p-2">
 
         {/* Brand */}
         <div>

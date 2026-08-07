@@ -68,7 +68,7 @@ const ServiceCard = ({
                             font-semibold
                             uppercase
                             tracking-[0.2em]
-                            text-pink-300
+                            text-white
                         ">
                             Heritage Junction
                         </span>

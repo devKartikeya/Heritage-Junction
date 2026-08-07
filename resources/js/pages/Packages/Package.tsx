@@ -114,7 +114,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     <p className="text-gray-800 leading-relaxed text-lg">{pkg.full_description}</p>
                 </section>
 
-
                 {/* Route Section */}
                 <section className="flex flex-col gap-6">
                     <h2 className="text-3xl md:text-4xl font-semibold text-purple-700 mb-4">Route</h2>
@@ -151,60 +150,299 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                 </section>
 
                 {/* Quick Facts */}
-                <section>
-                    <h2 className="text-3xl font-semibold text-purple-700 mb-8">Quick Facts</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-gray-800">
-                        {/* Duration */}
-                        <QuickFactCard
-                            icon={
-                                <div className="bg-green-100 text-green-600 rounded-full w-12 h-12 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </div>
-                            }
-                            title="Duration"
-                            value={`${pkg.duration_days} Days / ${pkg.duration_nights} Nights`}
-                        />
+                <section className="mt-16">
+                    <div className="mb-8">
+                        <h2 className="text-3xl md:text-4xl font-bold text-purple-700">Quick Facts</h2>
 
-                        {/* Departure */}
-                        <QuickFactCard
-                            icon={
-                                <div className="bg-blue-100 text-blue-600 rounded-full w-12 h-12 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M12 5l7 7-7 7" />
-                                    </svg>
-                                </div>
-                            }
-                            title="Departure"
-                            value={pkg.starting_city}
-                        />
+                        <p className="mt-2 text-gray-600">
+                            Everything you need to know at a glance before starting your journey.
+                        </p>
+                    </div>
 
-                        {/* Destination */}
-                        <QuickFactCard
-                            icon={
-                                <div className="bg-purple-100 text-purple-600 rounded-full w-12 h-12 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l-7-7 7-7m0 14l7-7-7-7" />
-                                    </svg>
-                                </div>
-                            }
-                            title="Destination"
-                            value={pkg.ending_city}
-                        />
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-                        {/* Price */}
-                        <QuickFactCard
-                            icon={
-                                <div className="bg-yellow-100 text-yellow-600 rounded-full w-12 h-12 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 1.343-3 3h6c0-1.657-1.343-3-3-3zM12 14c1.657 0 3-1.343 3-3H9c0 1.657 1.343 3 3 3z" />
-                                    </svg>
+                        {/* LEFT — Quick Facts Card */}
+                        <div className="rounded-3xl bg-white border border-gray-200 shadow-lg p-6 md:p-6
+        ">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+                                {/* Duration */}
+                                <div className="
+                    rounded-2xl
+                    border border-purple-100
+                    bg-purple-50/50
+                    p-5
+                    transition-all duration-300
+                    hover:-translate-y-1
+                    hover:shadow-md
+                ">
+                                    <div className="flex items-start gap-4">
+
+                                        <div className="
+                            bg-purple-100
+                            text-purple-600
+                            rounded-xl
+                            w-20 h-20
+                            flex-shrink-0
+                            flex items-center justify-center
+                        ">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                className="h-6 w-6"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                />
+                                            </svg>
+                                        </div>
+
+                                        <div>
+                                            <p className="text-sm text-gray-500 font-medium">Duration
+                                            </p>
+                                            <p className="mt-1 font-bold text-gray-900">
+                                                {pkg.duration_days} Days
+                                            </p>
+                                            <p className="text-sm text-gray-600">
+                                                {pkg.duration_nights} Nights
+                                            </p>
+                                        </div>
+
+                                    </div>
                                 </div>
-                            }
-                            title="Starting Price"
-                            value={`₹${pkg.starting_price} / person`}
-                        />
+
+
+                                {/* Departure */}
+                                <div className="
+                    rounded-2xl
+                    border border-blue-100
+                    bg-blue-50/50
+                    p-5
+                    transition-all duration-300
+                    hover:-translate-y-1
+                    hover:shadow-md
+                ">
+                                    <div className="flex items-start gap-4">
+
+                                        <div className="
+                            bg-blue-100
+                            text-blue-600
+                            rounded-xl
+                            w-20 h-20
+                            flex-shrink-0
+                            flex items-center justify-center
+                        ">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                className="h-6 w-6"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M5 12h14M12 5l7 7-7 7"
+                                                />
+                                            </svg>
+                                        </div>
+
+                                        <div>
+                                            <p className="text-sm text-gray-500 font-medium">
+                                                Departure
+                                            </p>
+
+                                            <p className="mt-1 text-lg font-bold text-gray-900">
+                                                {pkg.starting_city}
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                {/* Destination */}
+                                <div className="
+                    rounded-2xl
+                    border border-indigo-100
+                    bg-indigo-50/50
+                    p-5
+                    transition-all duration-300
+                    hover:-translate-y-1
+                    hover:shadow-md
+                ">
+                                    <div className="flex items-start gap-4">
+
+                                        <div className="
+                            bg-indigo-100
+                            text-indigo-600
+                            rounded-xl
+                            w-20 h-20
+                            flex-shrink-0
+                            flex items-center justify-center
+                        ">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                className="h-6 w-6"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M12 19l-7-7 7-7m0 14l7-7-7-7"
+                                                />
+                                            </svg>
+                                        </div>
+
+                                        <div>
+                                            <p className="text-sm text-gray-500 font-medium">Destination
+                                            </p>
+
+                                            <p className="mt-1 text-lg font-bold text-gray-900">
+                                                {pkg.ending_city}
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                {/* Price */}
+                                <div className="
+                    rounded-2xl
+                    border border-yellow-100
+                    bg-yellow-50/60
+                    p-5
+                    transition-all duration-300
+                    hover:-translate-y-1
+                    hover:shadow-md
+                ">
+                                    <div className="flex items-start gap-4">
+
+                                        <div className="
+                            bg-yellow-100
+                            text-yellow-600
+                            rounded-xl
+                            w-20 h-20
+                            flex-shrink-0
+                            flex items-center justify-center
+                        ">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                className="h-6 w-6"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M12 8c-1.657 0-3 1.343-3 3h6c0-1.657-1.343-3-3-3zM12 14c1.657 0 3-1.343 3-3H9c0 1.657 1.343 3 3 3z"
+                                                />
+                                            </svg>
+                                        </div>
+
+                                        <div>
+                                            <p className="text-sm text-gray-500 font-medium">Starting Price
+                                            </p>
+
+                                            <p className="mt-1 text-xl font-bold text-purple-700">₹{pkg.starting_price}
+                                            </p>
+
+                                            <p className="text-sm text-gray-500">per person
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        {/* RIGHT — Image Card */}
+                        <div className="
+            relative
+            min-h-[320px]
+            lg:min-h-[360px]
+            rounded-3xl
+            overflow-hidden
+            shadow-lg
+            group
+        ">
+
+                            <img
+                                src="https://img.magnific.com/free-photo/gloomy-landscape_1398-1182.jpg?semt=ais_test_b&w=740&q=80"
+                                alt={`${pkg.title} travel experience`}
+                                className="
+                    absolute inset-0
+                    w-full h-full
+                    object-cover
+                    transition-transform
+                    duration-700
+                    group-hover:scale-105
+                "
+                            />
+
+                            {/* Image Overlay */}
+                            <div className="
+                absolute inset-0
+                bg-gradient-to-t
+                from-black/70
+                via-black/20
+                to-transparent
+            " />
+
+                            {/* Image Content */}
+                            <div className="
+                absolute
+                bottom-0
+                left-0
+                right-0
+                p-6 md:p-8
+                text-white
+            ">
+                                <p className="
+                    text-sm
+                    uppercase
+                    tracking-[0.2em]
+                    text-purple-200
+                    font-semibold
+                ">
+                                    Your Journey Awaits
+                                </p>
+
+                                <h3 className="
+                    mt-2
+                    text-2xl md:text-3xl
+                    font-bold
+                ">
+                                    {pkg.title}
+                                </h3>
+
+                                <p className="
+                    mt-2
+                    text-sm md:text-base
+                    text-gray-200
+                    max-w-lg
+                ">
+                                    Discover unforgettable places, timeless heritage,
+                                    and experiences crafted specially for you.
+                                </p>
+                            </div>
+
+                        </div>
+
                     </div>
                 </section>
 
@@ -311,7 +549,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
         grid-cols-1
         md:grid-cols-2
         border
-        border-gray-200
+        border-gray-900
         rounded-2xl
         overflow-hidden
         shadow-sm
@@ -326,7 +564,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                 flex items-center gap-3
                 pb-4
                 mb-5
-                border-b border-gray-200
+                border-b border-gray-900
             ">
                                 <div className="
                     w-9 h-9
@@ -420,7 +658,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
             border-t
             md:border-t-0
             md:border-l
-            border-gray-200
+            border-gray-900
         ">
 
                             {/* Header */}
@@ -428,7 +666,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                 flex items-center gap-3
                 pb-4
                 mb-5
-                border-b border-gray-200
+                border-b border-gray-900
             ">
                                 <div className="
                     w-9 h-9
@@ -518,25 +756,25 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     </div>
 
                 </section>
-               {/* Package Pricing */}
-<section>
-    <div className="mb-8">
-        <h2 className="text-3xl font-semibold text-purple-700">
-            8. Package Pricing
-        </h2>
-        <p className="mt-2 text-gray-600">
-            Choose the vehicle option that best suits your group.
-        </p>
-    </div>
+                {/* Package Pricing */}
+                <section>
+                    <div className="mb-8">
+                        <h2 className="text-3xl font-semibold text-purple-700">
+                            8. Package Pricing
+                        </h2>
+                        <p className="mt-2 text-gray-600">
+                            Choose the vehicle option that best suits your group.
+                        </p>
+                    </div>
 
-    {pkg.pricings && pkg.pricings.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {pkg.pricings
-                .sort((a, b) => a.visit_order - b.visit_order)
-                .map((pricing) => (
-                    <div
-                        key={pricing.id}
-                        className="
+                    {pkg.pricings && pkg.pricings.length > 0 ? (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {pkg.pricings
+                                .sort((a, b) => a.visit_order - b.visit_order)
+                                .map((pricing) => (
+                                    <div
+                                        key={pricing.id}
+                                        className="
                             group relative overflow-hidden
                             rounded-2xl border border-purple-100
                             bg-white
@@ -546,90 +784,90 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                             hover:shadow-xl
                             hover:border-purple-300
                         "
-                    >
-                        {/* Top Accent */}
-                        <div className="h-2 bg-gradient-to-r from-purple-600 to-pink-500" />
+                                    >
+                                        {/* Top Accent */}
+                                        <div className="h-2 bg-gradient-to-r from-purple-600 to-pink-500" />
 
-                        <div className="p-6">
-                            {/* Vehicle */}
-                            <div className="flex items-center justify-between mb-6">
-                                <div>
-                                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">
-                                        Vehicle Type
-                                    </p>
+                                        <div className="p-6">
+                                            {/* Vehicle */}
+                                            <div className="flex items-center justify-between mb-6">
+                                                <div>
+                                                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+                                                        Vehicle Type
+                                                    </p>
 
-                                    <h3 className="mt-1 text-2xl font-bold text-gray-900">
-                                        {pricing.vehicle_name}
-                                    </h3>
-                                </div>
+                                                    <h3 className="mt-1 text-2xl font-bold text-gray-900">
+                                                        {pricing.vehicle_name}
+                                                    </h3>
+                                                </div>
 
-                                <div
-                                    className="
+                                                <div
+                                                    className="
                                         w-12 h-12 rounded-full
                                         bg-purple-100
                                         flex items-center justify-center
                                         text-2xl
                                     "
-                                >
-                                    🚐
-                                </div>
-                            </div>
+                                                >
+                                                    🚐
+                                                </div>
+                                            </div>
 
-                            {/* Pricing */}
-                            <div className="space-y-4">
-                                <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-                                    <span className="text-gray-600">
-                                        Total Cost
-                                    </span>
+                                            {/* Pricing */}
+                                            <div className="space-y-4">
+                                                <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+                                                    <span className="text-gray-600">
+                                                        Total Cost
+                                                    </span>
 
-                                    <span className="font-bold text-gray-900">
-                                        ₹{pricing.total_cost}
-                                    </span>
-                                </div>
+                                                    <span className="font-bold text-gray-900">
+                                                        ₹{pricing.total_cost}
+                                                    </span>
+                                                </div>
 
-                                <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-                                    <span className="text-gray-600">
-                                        Per Person
-                                    </span>
+                                                <div className="flex items-center justify-between border-b border-gray-100 pb-3">
+                                                    <span className="text-gray-600">
+                                                        Per Person
+                                                    </span>
 
-                                    <span className="text-xl font-bold text-purple-600">
-                                        ₹{pricing.per_person_cost}
-                                    </span>
-                                </div>
+                                                    <span className="text-xl font-bold text-purple-600">
+                                                        ₹{pricing.per_person_cost}
+                                                    </span>
+                                                </div>
 
-                                <div className="flex items-center justify-between">
-                                    <span className="text-gray-600">
-                                        Minimum Persons
-                                    </span>
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-gray-600">
+                                                        Minimum Persons
+                                                    </span>
 
-                                    <span className="font-semibold text-gray-900">
-                                        {pricing.minimum_persons} Pax
-                                    </span>
-                                </div>
-                            </div>
+                                                    <span className="font-semibold text-gray-900">
+                                                        {pricing.minimum_persons} Pax
+                                                    </span>
+                                                </div>
+                                            </div>
 
-                            {/* Bottom Info */}
-                            <div className="mt-6 rounded-xl bg-purple-50 p-4">
-                                <p className="text-sm text-purple-800">
-                                    Suitable for groups of{" "}
-                                    <span className="font-bold">
-                                        {pricing.minimum_persons} or more
-                                    </span>{" "}
-                                    travelers.
-                                </p>
-                            </div>
+                                            {/* Bottom Info */}
+                                            <div className="mt-6 rounded-xl bg-purple-50 p-4">
+                                                <p className="text-sm text-purple-800">
+                                                    Suitable for groups of{" "}
+                                                    <span className="font-bold">
+                                                        {pricing.minimum_persons} or more
+                                                    </span>{" "}
+                                                    travelers.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                         </div>
-                    </div>
-                ))}
-        </div>
-    ) : (
-        <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 text-center">
-            <p className="text-gray-600">
-                No pricing details available for this package yet.
-            </p>
-        </div>
-    )}
-</section>
+                    ) : (
+                        <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 text-center">
+                            <p className="text-gray-600">
+                                No pricing details available for this package yet.
+                            </p>
+                        </div>
+                    )}
+                </section>
 
                 {/* FAQs */}
                 <section className="py-8">

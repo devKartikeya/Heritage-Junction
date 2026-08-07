@@ -247,8 +247,9 @@ const Navbar = () => {
                         size="md"
                         link="/login"
                     />
+                   
                 </li>
-
+                   
                 <li>
                     <Button
                         command="Register"
