@@ -16,12 +16,9 @@ export default function Login() {
     return (
         <>
             <Head title="Admin Login" />
-
             <div className="min-h-screen bg-white flex items-center justify-center px-4 py-6">
-
                 {/* Main Container */}
                 <div className="w-full max-w-5xl min-h-[600px] grid md:grid-cols-2 rounded-3xl overflow-hidden border border-gray-200 shadow-2xl bg-white">
-
                     {/* =====================================================
                         LEFT — BRANDING / VISUAL
                     ====================================================== */}
@@ -48,7 +45,6 @@ export default function Login() {
                                         className="text-purple-400"
                                     />
                                 </div>
-
                                 <div>
                                     <h2 className="text-xl font-bold tracking-wide">
                                         Heritage Junction
@@ -66,21 +62,18 @@ export default function Login() {
                             <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-purple-400">
                                 Secure Access
                             </p>
-
                             <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
                                 Manage your
                                 <span className="block text-purple-400">
                                     Heritage Journey.
                                 </span>
                             </h1>
-
                             <p className="mt-5 text-gray-400 leading-relaxed">
                                 Access your administrative dashboard to manage
                                 packages, bookings, destinations and traveler
                                 information.
                             </p>
                         </div>
-
                         {/* Bottom */}
                         <div className="relative z-10">
                             <div className="h-px w-full bg-gray-800 mb-4" />
@@ -90,15 +83,11 @@ export default function Login() {
                             </p>
                         </div>
                     </div>
-
-
                     {/* =====================================================
                         RIGHT — LOGIN FORM
                     ====================================================== */}
                     <div className="flex items-center justify-center p-7 sm:p-10 lg:p-10">
-
                         <div className="w-full max-w-md">
-
                             {/* Mobile Logo */}
                             <div className="flex md:hidden justify-center mb-7">
                                 <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-purple-50 border border-purple-100">
@@ -108,7 +97,6 @@ export default function Login() {
                                     />
                                 </div>
                             </div>
-
                             {/* Heading */}
                             <div className="text-center md:text-left">
                                 <p className="text-sm font-semibold uppercase tracking-widest text-purple-600">
@@ -124,14 +112,11 @@ export default function Login() {
                                     administration panel.
                                 </p>
                             </div>
-
-
                             {/* Form */}
                             <form
                                 onSubmit={submit}
                                 className="mt-9 space-y-6"
                             >
-
                                 {/* Username */}
                                 <div>
                                     <label
@@ -160,7 +145,6 @@ export default function Login() {
                                             size={19}
                                             className="text-gray-400 shrink-0"
                                         />
-
                                         <input
                                             id="username"
                                             type="text"
@@ -177,8 +161,6 @@ export default function Login() {
                                         />
                                     </div>
                                 </div>
-
-
                                 {/* Password */}
                                 <div>
                                     <label
@@ -193,7 +175,6 @@ export default function Login() {
                                             size={19}
                                             className="text-gray-400 shrink-0"
                                         />
-
                                         <input
                                             id="password"
                                             type="password"
@@ -210,8 +191,6 @@ export default function Login() {
                                         />
                                     </div>
                                 </div>
-
-
                                 {/* Error */}
                                 {form.errors.username && (
                                     <div className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
@@ -222,8 +201,6 @@ export default function Login() {
                                         </span>
                                     </div>
                                 )}
-
-
                                 {/* Remember */}
                                 <label className="flex items-center gap-3 cursor-pointer select-none">
 
@@ -281,10 +258,7 @@ export default function Login() {
                                         </>
                                     )}
                                 </button>
-
                             </form>
-
-
                             {/* Footer */}
                             <div className="mt-8 border-t border-gray-100 pt-6 text-center">
                                 <p className="text-xs text-gray-400">
@@ -295,10 +269,8 @@ export default function Login() {
                                     Authorized access only
                                 </p>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </>

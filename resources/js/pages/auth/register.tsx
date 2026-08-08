@@ -26,7 +26,7 @@ export default function Register({ passwordRules }: Props) {
             >
                 {({ processing, errors }) => (
                     <>
-                        <div className="grid gap-6">
+                        <div className="grid gap-4 sm:gap-4 md:gap-6">
                             <div className="grid gap-2">
                                 <Label htmlFor="name">Name</Label>
                                 <Input
@@ -106,7 +106,7 @@ export default function Register({ passwordRules }: Props) {
                             </Button>
                         </div>
 
-                        <div className="text-center text-sm">
+                        <div className="text-center text-sm -mt-2">
                             Already have an account?{' '}
                             <TextLink href={login()} tabIndex={6} className='font-bold text-pink-400'>
                                 Log in

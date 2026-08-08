@@ -82,7 +82,7 @@ export default function Login({ status, canResetPassword }: Props) {
 
                             <Button
                                 type="submit"
-                                className="mt-4 w-full cursor-pointer font-semibold bg-black text-white hover:bg-black hover:text-white"
+                                className="mt-1 md:mt-4 w-full cursor-pointer font-semibold bg-black text-white hover:bg-black hover:text-white"
                                 tabIndex={4}
                                 disabled={processing}
                                 data-test="login-button"
@@ -92,7 +92,7 @@ export default function Login({ status, canResetPassword }: Props) {
                             </Button>
                         </div>
 
-                        <div className="text-center text-sm text-black">
+                        <div className="text-center text-sm text-black md:text-black -mt-2">
                             Don't have an account?{' '}
                             <TextLink href={register()} tabIndex={5} className='text-pink-400'>
                                 Sign up

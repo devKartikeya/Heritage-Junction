@@ -1,4 +1,3 @@
-import QuickFactCard from '../../components/Packages/QuickFactCard'
 import React, { useState } from 'react'
 import { Head, Link } from '@inertiajs/react'
 import RouteMap from '../../components/Packages/RouteMap'
