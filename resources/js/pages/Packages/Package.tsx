@@ -201,7 +201,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                                 />
                                             </svg>
                                         </div>
-
                                         <div>
                                             <p className="text-sm text-gray-500 font-medium">Duration
                                             </p>
@@ -314,8 +313,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                                     </div>
                                 </div>
-
-
                                 {/* Price */}
                                 <div className="
                     rounded-2xl
@@ -351,25 +348,18 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                                 />
                                             </svg>
                                         </div>
-
                                         <div>
                                             <p className="text-sm text-gray-500 font-medium">Starting Price
                                             </p>
-
                                             <p className="mt-1 text-xl font-bold text-purple-700">₹{pkg.starting_price}
                                             </p>
-
                                             <p className="text-sm text-gray-500">per person
                                             </p>
                                         </div>
-
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
-
                         {/* RIGHT — Image Card */}
                         <div className="
             relative
@@ -380,7 +370,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
             shadow-lg
             group
         ">
-
                             <img
                                 src="https://img.magnific.com/free-photo/gloomy-landscape_1398-1182.jpg?semt=ais_test_b&w=740&q=80"
                                 alt={`${pkg.title} travel experience`}
@@ -640,18 +629,11 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                                         </p>
                                                     )}
                                                 </div>
-
                                             </li>
-
                                         ))}
-
                                 </ul>
-
                             )}
-
                         </div>
-
-
                         {/* ================= EXCLUDED ================= */}
                         <div className="
             p-6 md:p-8
@@ -660,7 +642,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
             md:border-l
             border-gray-900
         ">
-
                             {/* Header */}
                             <div className="
                 flex items-center gap-3
@@ -698,7 +679,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                 </p>
 
                             ) : (
-
                                 <ul className="space-y-4">
 
                                     {pkg.exclusions
@@ -742,19 +722,12 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                                         </p>
                                                     )}
                                                 </div>
-
                                             </li>
-
                                         ))}
-
                                 </ul>
-
                             )}
-
                         </div>
-
                     </div>
-
                 </section>
                 {/* Package Pricing */}
                 <section>

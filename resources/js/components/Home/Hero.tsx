@@ -28,24 +28,6 @@ const Hero = () => {
       link: "/prayagraj",
       description: "“Famed for the sacred Sangam — the confluence of the Ganga, Yamuna, and mythical Saraswati — Prayagraj is a city of immense spiritual significance. It hosts the grand Kumbh Mela, drawing millions of devotees. The city blends spirituality with history, offering forts, temples, and cultural vibrancy.”"
     },
-    // {
-    //   image: "/panoramic-of-vrindavan-uttar-pradesh-india.webp",
-    //   title: "Vrindavan",
-    //   link: "/vrindavan",
-    //   description: "“The Kumbh Mela, held in Prayagraj and other sacred sites, is the largest spiritual gathering on Earth. Millions of pilgrims, saints, and seekers come together to bathe in holy rivers, participate in rituals, and celebrate faith. It is a spectacle of devotion, unity, and timeless tradition.”"
-    // },
-    // {
-    //   image: "/m_Shri_Kashi_Vishwanath_Temple_Varanasi_3_p_728_640.webp",
-    //   title: "Mathura",
-    //   link: "/mathura",
-    //   description: "“Mathura, the birthplace of Krishna, is steeped in mythology and celebration. The city is famous for its Holi festivities, temples, and sacred ghats. Mathura offers a lively blend of spirituality, culture, and joy, making it a heartland of devotion and festivity in Uttar Pradesh.”"
-    // },
-    // {
-    //   image: "/images.jpg",
-    //   title: "Jhansi",
-    //   link: "/jhansi",
-    //   description: "“Jhansi is remembered for its valiant queen, Rani Lakshmibai, who became a symbol of resistance during India’s First War of Independence. The city’s fort stands as a proud reminder of its heroic past. Jhansi combines history, courage, and heritage, offering a glimpse into India’s struggle for freedom.”"
-    // },
     {
       image: "/little-girl-observing-how-sadhu-doing-his-makeup.webp",
       title: "Lucknow",
@@ -185,7 +167,3 @@ const Hero = () => {
 }
 
 export default Hero
-
-// https://imgs.search.brave.com/fqDQ7PegrsS0btIe8JzO7w8ukJvFQVTPwJ_M__1-IQQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI2/NDEzMDU2Ni9waG90/by9wYW5vcmFtaWMt/b2YtdnJpbmRhdmFu/LXV0dGFyLXByYWRl/c2gtaW5kaWEuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPU83/UldhY1E3RE5VYzhJ/dzRrQWR2elRhMTdu/RlY2WF9rU3duaEF0/eDZXbnc9
-
-// flex flex-col gap-2 p-5 bg-gray-50/20 rounded-xl backdrop-blur-md

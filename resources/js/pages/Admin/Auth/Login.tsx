@@ -17,7 +17,7 @@ export default function Login() {
         <>
             <Head title="Admin Login" />
 
-            <div className="min-h-screen bg-white flex items-center justify-center px-5 py-10">
+            <div className="min-h-screen bg-white flex items-center justify-center px-4 py-6">
 
                 {/* Main Container */}
                 <div className="w-full max-w-5xl min-h-[600px] grid md:grid-cols-2 rounded-3xl overflow-hidden border border-gray-200 shadow-2xl bg-white">
@@ -25,7 +25,7 @@ export default function Login() {
                     {/* =====================================================
                         LEFT — BRANDING / VISUAL
                     ====================================================== */}
-                    <div className="relative hidden md:flex flex-col justify-between overflow-hidden bg-black p-10 text-white">
+                    <div className="relative hidden md:flex flex-col justify-between overflow-hidden bg-black p-8 text-white">
 
                         {/* Background glow */}
                         <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-purple-600/30 blur-3xl" />
@@ -95,7 +95,7 @@ export default function Login() {
                     {/* =====================================================
                         RIGHT — LOGIN FORM
                     ====================================================== */}
-                    <div className="flex items-center justify-center p-7 sm:p-10 lg:p-14">
+                    <div className="flex items-center justify-center p-7 sm:p-10 lg:p-10">
 
                         <div className="w-full max-w-md">
 
@@ -171,7 +171,7 @@ export default function Login() {
                                                     e.target.value
                                                 )
                                             }
-                                            className="w-full bg-transparent px-3 py-3.5 text-gray-900 outline-none placeholder:text-gray-400"
+                                            className="w-full bg-transparent px-3 py-2 text-gray-900 outline-none placeholder:text-gray-400"
                                             placeholder="Enter username"
                                             autoComplete="username"
                                         />
@@ -204,7 +204,7 @@ export default function Login() {
                                                     e.target.value
                                                 )
                                             }
-                                            className="w-full bg-transparent px-3 py-3.5 text-gray-900 outline-none placeholder:text-gray-400"
+                                            className="w-full bg-transparent px-3 py-2 text-gray-900 outline-none placeholder:text-gray-400"
                                             placeholder="Enter your password"
                                             autoComplete="current-password"
                                         />

@@ -218,17 +218,11 @@ const Contact = () => {
                                 >
                                     <FaLinkedin />
                                 </a>
-
                             </div>
-
                         </div>
-
                     </div>
-
-
                     {/* ================= CONTACT FORM ================= */}
                     <div>
-
                         <form
                             className="
                                 w-full
@@ -237,7 +231,6 @@ const Contact = () => {
                                 space-y-7
                             "
                         >
-
                             {/* Name */}
                             <div>
                                 <label
@@ -386,13 +379,9 @@ const Contact = () => {
                             >
                                 Send Message
                             </button>
-
                         </form>
-
                     </div>
-
                 </div>
-
             </div>
         </section>
     )
