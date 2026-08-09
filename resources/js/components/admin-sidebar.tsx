@@ -33,6 +33,11 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
+        title: 'Destinations',
+        href: '/admin/destinations',
+        icon: LayoutGrid,
+    },
+    {
         title: 'Users',
         href: '/admin/users',
         icon: LayoutGrid,

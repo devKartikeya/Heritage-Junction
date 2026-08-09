@@ -51,7 +51,7 @@ const Footer = () => {
             <li><Link href="/packages/varanasi-spiritual-tour" className="hover:text-pink-500 transition">Varanasi Spiritual Tour</Link></li>
             <li><Link href="/packages/dudhwa-wildlife-safari" className="hover:text-pink-500 transition">Dudhwa National Park Tour</Link></li>
             <li><Link href="/packages/ayodhya-spiritual-tour" className="hover:text-pink-500 transition">Ayodhya Spiritual Tour</Link></li>
-            <li><Link href="/packages/naimisharanya-tour" className="hover:text-pink-500 transition">Naimisharanya Tour</Link></li>
+            <li><Link href="/packages/naimisharanya-spiritual-tour" className="hover:text-pink-500 transition">Naimisharanya Spiritual Tour</Link></li>
             <li><Link href="/packages/heritage-point-fatehpur-sikri-agra" className="hover:text-pink-500 transition">Fatehpur Sikri Tour</Link></li>
           </ul>
         </div>

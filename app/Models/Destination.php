@@ -17,6 +17,11 @@ class Destination extends Model
         'category',
         'best_time',
         'average_budget',
+        'short_description',
+        'full_description',
+        'banner_image',
+        'lat',
+        'lng',
         'is_active',
     ];
 

@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminTravelerController;
 use App\Http\Controllers\AdminPackageController;
 use App\Http\Controllers\AdminUsersController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminDestinationController;
 
 Route::middleware('guest:admin')->group(function () {
 
@@ -75,6 +76,9 @@ Route::get('/faqs', function () {
 // Route::prefix('admin')->group(function () {});
 
 Route::middleware('auth:admin')->prefix('admin')->group(function () {
+
+    Route::get('/destinations/create', [AdminDestinationController::class, 'create'])
+        ->name('admin.destinations.create');
 
     // ALL ADMIN ROUTES HERE
     Route::get('/dashboard', [AdminDashboardController::class, 'index']);
@@ -210,6 +214,80 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
     Route::patch(
         '/users/{user}/toggle',
         [AdminUsersController::class, 'toggle']
+    );
+
+    /* Destination Management */
+
+    Route::get(
+        '/destinations',
+        [AdminDestinationController::class, 'index']
+    )->name('admin.destinations.index');
+
+    Route::get(
+        '/destinations/{destination}',
+        [AdminDestinationController::class, 'show']
+    )->name('admin.destinations.show');
+
+    // Route::get(
+    //     '/destinations/create',
+    //     [AdminDestinationController::class, 'create']
+    // )->name('admin.destinations.create');
+
+
+    Route::post(
+        '/destinations',
+        [AdminDestinationController::class, 'store']
+    )->name('admin.destinations.store');
+
+    // Route::post(
+    //     '/destinations',
+    //     [AdminDestinationController::class, 'store']
+    // )->name('admin.destinations.store');
+
+    Route::get(
+        '/destinations/{destination}/edit',
+        [AdminDestinationController::class, 'edit']
+    )->name('admin.destinations.edit');
+
+    Route::put(
+        '/destinations/{destination}',
+        [AdminDestinationController::class, 'update']
+    )->name('admin.destinations.update');
+
+    Route::patch(
+        '/destinations/{destination}/toggle-status',
+        [AdminDestinationController::class, 'toggleStatus']
+    )->name('admin.destinations.toggle-status');
+
+    Route::delete(
+        '/destinations/{destination}',
+        [AdminDestinationController::class, 'destroy']
+    )->name('admin.destinations.destroy');
+
+    Route::post(
+        '/destinations/{destination}/heritage-sites',
+        [AdminDestinationController::class, 'storeHeritageSite']
+    )->name('admin.destinations.heritage-sites.store');
+
+    Route::put(
+        '/heritage-sites/{heritageSite}',
+        [AdminDestinationController::class, 'updateHeritageSite']
+    )->name('admin.heritage-sites.update');
+
+    Route::delete(
+        '/heritage-sites/{heritageSite}',
+        [AdminDestinationController::class, 'destroyHeritageSite']
+    )->name('admin.heritage-sites.destroy');
+
+
+    Route::post(
+        '/destinations/{destination}/foods',
+        [AdminDestinationController::class, 'storeFood']
+    );
+
+    Route::delete(
+        '/foods/{food}',
+        [AdminDestinationController::class, 'destroyFood']
     );
 });
 
