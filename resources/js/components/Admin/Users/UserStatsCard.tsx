@@ -11,7 +11,6 @@ export default function UserStatsCard({
 }: {
     user: any;
 }) {
-
     const totalBookings = user.bookings.length;
 
     const confirmed = user.bookings.filter(
@@ -33,35 +32,30 @@ export default function UserStatsCard({
     );
 
     const stats = [
-
         {
             title: "Total Bookings",
             value: totalBookings,
             icon: PlaneTakeoff,
             color: "purple",
         },
-
         {
             title: "Confirmed",
             value: confirmed,
             icon: CalendarCheck,
             color: "green",
         },
-
         {
             title: "Pending",
             value: pending,
             icon: Clock3,
             color: "yellow",
         },
-
         {
             title: "Cancelled",
             value: cancelled,
             icon: CircleX,
             color: "red",
         },
-
         {
             title: "Total Spent",
             value: `₹${totalSpent.toLocaleString()}`,
@@ -69,107 +63,105 @@ export default function UserStatsCard({
             color: "cyan",
             wide: true,
         },
-
     ];
 
     const colors: any = {
-
         purple: {
-            bg: "bg-purple-500/20",
-            text: "text-purple-400",
+            iconBg: "bg-purple-500/10",
+            icon: "text-purple-400",
+            glow: "group-hover:bg-purple-500/5",
         },
-
         green: {
-            bg: "bg-green-500/20",
-            text: "text-green-400",
+            iconBg: "bg-emerald-500/10",
+            icon: "text-emerald-400",
+            glow: "group-hover:bg-emerald-500/5",
         },
-
         yellow: {
-            bg: "bg-yellow-500/20",
-            text: "text-yellow-400",
+            iconBg: "bg-amber-500/10",
+            icon: "text-amber-400",
+            glow: "group-hover:bg-amber-500/5",
         },
-
         red: {
-            bg: "bg-red-500/20",
-            text: "text-red-400",
+            iconBg: "bg-red-500/10",
+            icon: "text-red-400",
+            glow: "group-hover:bg-red-500/5",
         },
-
         cyan: {
-            bg: "bg-cyan-500/20",
-            text: "text-cyan-400",
+            iconBg: "bg-cyan-500/10",
+            icon: "text-cyan-400",
+            glow: "group-hover:bg-cyan-500/5",
         },
-
     };
 
     return (
+        <div className="rounded-3xl border border-zinc-800 bg-zinc-900/80 p-7 shadow-xl shadow-black/20">
 
-        <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8">
+            {/* Header */}
+            <div className="mb-7">
+                <div className="flex items-center justify-between">
+                    <div>
+                        <h2 className="text-2xl font-bold tracking-tight">
+                            Statistics
+                        </h2>
 
-            <div className="mb-8">
-
-                <h2 className="text-3xl font-bold">
-
-                    Statistics
-
-                </h2>
-
-                <p className="mt-2 text-zinc-500">
-
-                    Booking summary of this user.
-
-                </p>
-
-            </div>
-
-            <div className="grid gap-5 sm:grid-cols-2">
-
-                {stats.map((stat: any) => (
-
-                    <div
-                        key={stat.title}
-                        className={`rounded-2xl border border-zinc-800 bg-zinc-950 p-6 ${stat.wide ? "sm:col-span-2" : ""
-                            }`}
-                    >
-
-                        <div className="flex items-center justify-between">
-
-                            <div>
-
-                                <p className="text-sm text-zinc-500">
-
-                                    {stat.title}
-
-                                </p>
-
-                                <h3 className="mt-3 text-3xl font-bold">
-
-                                    {stat.value}
-
-                                </h3>
-
-                            </div>
-
-                            <div
-                                className={`rounded-2xl p-4 ${colors[stat.color].bg}`}
-                            >
-
-                                <stat.icon
-                                    size={28}
-                                    className={colors[stat.color].text}
-                                />
-
-                            </div>
-
-                        </div>
-
+                        <p className="mt-1.5 text-sm text-zinc-500">
+                            Booking activity and spending overview.
+                        </p>
                     </div>
 
-                ))}
-
+                    <div className="hidden rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 sm:block">
+                        <span className="text-xs font-medium uppercase tracking-wider text-zinc-600">
+                            Overview
+                        </span>
+                    </div>
+                </div>
             </div>
 
+            {/* Stats */}
+            <div className="grid gap-3 sm:grid-cols-2">
+
+                {stats.map((stat: any) => {
+                    const color = colors[stat.color];
+
+                    return (
+                        <div
+                            key={stat.title}
+                            className={`group relative overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-950/70 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-700 ${
+                                stat.wide ? "sm:col-span-2" : ""
+                            }`}
+                        >
+                            {/* Subtle background glow */}
+                            <div
+                                className={`absolute -right-10 -top-10 h-28 w-28 rounded-full blur-3xl transition ${color.glow}`}
+                            />
+
+                            <div className="relative flex items-center justify-between">
+
+                                <div>
+                                    <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">
+                                        {stat.title}
+                                    </p>
+
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-zinc-100">
+                                        {stat.value}
+                                    </p>
+                                </div>
+
+                                <div
+                                    className={`flex h-11 w-11 items-center justify-center rounded-xl ${color.iconBg}`}
+                                >
+                                    <stat.icon
+                                        size={21}
+                                        strokeWidth={2}
+                                        className={color.icon}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })}
+
+            </div>
         </div>
-
     );
-
 }
