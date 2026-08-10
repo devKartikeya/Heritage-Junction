@@ -1,5 +1,5 @@
-import { Head, Link } from "@inertiajs/react";
-import { useForm } from "@inertiajs/react";
+import { Head, Link, useForm } from "@inertiajs/react";
+
 import BookingHeader from "@/components/Admin/Bookings/BookingHeader";
 import CustomerCard from "@/components/Admin/Bookings/CustomerCard";
 import PackageCard from "@/components/Admin/Bookings/PackageCard";
@@ -28,23 +28,26 @@ type Booking = {
     total_cost: string;
     status: string;
     created_at: string;
+
     package: {
         id: number;
         title: string;
     };
+
     pricing: {
         id: number;
         vehicle_name: string;
     } | null;
+
     travelers: Traveler[];
 };
 
 export default function Booking({
     booking,
-    pricings
+    pricings,
 }: {
     booking: Booking;
-    pricings: any
+    pricings: any;
 }) {
     const form = useForm({
         full_name: booking.full_name,
@@ -57,53 +60,114 @@ export default function Booking({
         pricing_id: booking.pricing?.id ?? "",
         status: booking.status,
     });
-    return (
-        <div className="min-h-screen bg-black text-white">
-            <Head title={booking.full_name}/>
-            <div className="max-w-7xl mx-auto px-8 py-10">
-                <Link
-                    href="/admin/bookings"
-                    className="inline-flex items-center gap-2 text-zinc-400 hover:text-purple-400 transition"
-                >
-                    ← Back to Bookings
-                </Link>
-                <BookingHeader booking={booking} />
-                <div className="grid lg:grid-cols-2 gap-8 mt-10">
-                    <CustomerCard form={form} booking={booking.id} />
-                    <PackageCard
-                        booking={booking}
-                        form={form}
-                        pricings={pricings}
-                    />
-                </div>
-                <TravelersSection
-                    travelers={booking.travelers}
-                />
-                <PaymentSummary booking={booking} />
-                <BookingTimeline booking={booking} />
-                <BookingActions booking={booking} />
-                <div className="mt-12 flex justify-end gap-4">
 
+    return (
+        <div className="min-h-screen bg-[#050505] text-white">
+            <Head title={`Booking #${booking.id}`} />
+
+            <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 lg:px-10">
+
+                {/* -------------------------------------------------- */}
+                {/* Top Navigation */}
+                {/* -------------------------------------------------- */}
+
+                <div className="mb-8">
                     <Link
                         href="/admin/bookings"
-                        className="rounded-xl border border-zinc-700 px-6 py-3 hover:bg-zinc-800"
+                        className="group inline-flex items-center gap-2 text-sm font-medium text-zinc-500 transition hover:text-white"
                     >
-                        Cancel
-                    </Link>
+                        <span className="transition-transform group-hover:-translate-x-1">
+                            ←
+                        </span>
 
-                    <button
-                        onClick={() =>
-                            form.put(`/admin/bookings/${booking.id}`)
-                        }
-                        disabled={form.processing}
-                        className="rounded-xl bg-purple-600 px-8 py-3 font-semibold hover:bg-purple-700 disabled:opacity-50"
-                    >
-                        {form.processing
-                            ? "Saving..."
-                            : "Save Changes"}
-                    </button>
+                        Back to Bookings
+                    </Link>
+                </div>
+
+                {/* -------------------------------------------------- */}
+                {/* Booking Header */}
+                {/* -------------------------------------------------- */}
+
+                <BookingHeader booking={booking} />
+
+                {/* -------------------------------------------------- */}
+                {/* Main Content */}
+                {/* -------------------------------------------------- */}
+
+                <div className="mt-8 grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+
+                    {/* ================= LEFT ================= */}
+
+                    <div className="min-w-0 space-y-6">
+
+                        {/* Customer */}
+
+                        {/* <div className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-1 shadow-2xl shadow-black/20"> */}
+                            <CustomerCard form={form} booking={booking.id}/>
+                        {/* </div> */}
+
+                        {/* Package */}
+                            <PackageCard
+                                booking={booking}
+                                pricings={pricings}
+                                form={form}
+                            />
+
+                        {/* Travelers */}
+                            <TravelersSection travelers={booking.travelers}/>
+
+                    </div>
+
+                    {/* ================= RIGHT ================= */}
 
                 </div>
+
+                {/* -------------------------------------------------- */}
+                {/* Booking Actions */}
+                {/* -------------------------------------------------- */}
+
+                    <BookingActions
+                        booking={booking}
+                    />
+
+                {/* -------------------------------------------------- */}
+                {/* Edit Booking */}
+                {/* -------------------------------------------------- */}
+
+                <div className="mt-6 overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.025] shadow-2xl shadow-black/20">
+
+                    {/* Section Header */}
+
+                    {/* Form */}
+                    {/* Footer Actions */}
+
+                    <div className="flex flex-col-reverse gap-3 border-t border-white/[0.07] bg-black/20 px-6 py-5 sm:flex-row sm:items-center sm:justify-end sm:px-8">
+
+                        <Link
+                            href="/admin/bookings"
+                            className="inline-flex items-center justify-center rounded-xl border border-white/[0.09] px-5 py-2.5 text-sm font-medium text-zinc-400 transition hover:border-white/[0.15] hover:bg-white/[0.04] hover:text-white"
+                        >
+                            Cancel
+                        </Link>
+
+                        <button
+                            onClick={() =>
+                                form.put(
+                                    `/admin/bookings/${booking.id}`
+                                )
+                            }
+                            disabled={form.processing}
+                            className="inline-flex items-center justify-center rounded-xl bg-purple-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-purple-600/10 transition hover:bg-purple-500 disabled:cursor-not-allowed disabled:opacity-50"
+                        >
+                            {form.processing
+                                ? "Saving..."
+                                : "Save Changes"}
+                        </button>
+
+                    </div>
+
+                </div>
+
             </div>
         </div>
     );
