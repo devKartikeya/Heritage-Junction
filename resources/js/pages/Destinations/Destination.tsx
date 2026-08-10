@@ -126,7 +126,7 @@ export default function DestinationPage({
                                 {foods.map((food) => (
                                     <div key={food.id} className="bg-white rounded-lg shadow-md overflow-hidden">
                                         <img
-                                            src={`View of ${food.image_path}`}
+                                            src={`${food.image_path}`}
                                             alt={food.name}
                                             className="w-full h-48 object-cover"
                                         />

@@ -181,6 +181,7 @@ class AdminDestinationController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'image_path' => 'nullable|string',
             'sort_order' => 'required|integer|min:0',
         ]);
 

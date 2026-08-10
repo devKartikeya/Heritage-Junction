@@ -55,7 +55,11 @@ export default function Create() {
                             </h1>
 
                             <p className="mt-1 text-sm text-zinc-500">
-                                Add a new destination to Heritage Junction.
+                                Add a new destination to Heritage Junction. 
+                            </p>
+
+                             <p className="mt-1 text-xs text-zinc-500">
+                                To add heritage sites and food items, you can do so after creating the destination.
                             </p>
                         </div>
 
@@ -454,7 +458,11 @@ export default function Create() {
                                 : "Create Destination"}
                         </button>
 
+
                     </div>
+                        <p className="text-right text-sm text-gray-600">
+                            To add heritage sites and food items, you can do so after creating the destination.
+                        </p>
 
                 </form>
 

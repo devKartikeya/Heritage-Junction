@@ -1,94 +1,139 @@
 import { router } from "@inertiajs/react";
 import {
-  Eye,
-  Copy,
-  Power,
-  Trash2,
-  Map
+    Eye,
+    Copy,
+    Power,
+    Trash2,
+    Map,
 } from "lucide-react";
 
 export default function PackageActions({
-  pkg,
+    pkg,
 }: {
-  pkg: any;
+    pkg: any;
 }) {
-  return (
-    <div className="mt-8 rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
-      <div>
-        <h2 className="text-2xl font-bold">Package Actions
-        </h2>
-        <p className="mt-2 text-zinc-500">Manage this travel package.</p>
-      </div>
-      <div className="mt-8 grid gap-7 md:grid-cols-2 xl:grid-cols-4">
-        {/* Preview */}
-        <button
-          onClick={() =>
-            window.open(
-              `/packages/${pkg.slug}`,
-              "_blank"
-            )
-          }
-          className="flex items-center justify-center gap-3 rounded-xl bg-cyan-600 p-4 cursor-pointer font-semibold transition hover:bg-cyan-700"
-        >
-          <Eye size={20} />Preview</button>
+    return (
+        <div className="mt-8 rounded-3xl border border-zinc-800 bg-zinc-900 p-6 sm:p-8">
+
+            {/* Header */}
+            <div className="flex flex-col gap-1">
+
+                <h2 className="text-xl font-bold text-white">
+                    Package Actions
+                </h2>
+
+                <p className="text-sm text-zinc-500">
+                    Manage this travel package.
+                </p>
+
+            </div>
 
 
-        {/* Add Destination */}
-        <button className="flex items-center justify-center gap-3 rounded-xl bg-emerald-600 cursor-pointer p-3 font-semibold transition hover:bg-emerald-700">
-          <Map size={20} />Add Destination
-        </button>
-        {/* Duplicate */}
-        <button
-          onClick={() => {
-            router.post(`/admin/packages/${pkg.id}/duplicate`);
-          }}
-          className="flex items-center justify-center gap-3 rounded-xl bg-indigo-600 p-3 cursor-pointer font-semibold transition hover:bg-indigo-700">
-          <Copy size={20} />Copy
-        </button>
-        {/* Activate / Deactivate */}
-        <button
-          onClick={() => {
-            if (
-              confirm(
-                `Are you sure you want to ${pkg.is_active
-                  ? "deactivate"
-                  : "activate"
-                } this package?`
-              )
-            ) {
-              router.patch(
-                `/admin/packages/${pkg.id}/toggle-status`
-              );
-            }
-          }}
-          className={`flex items-center justify-center gap-3 rounded-xl cursor-pointer p-4 font-semibold transition ${pkg.is_active
-            ? "bg-red-600 hover:bg-red-700"
-            : "bg-green-600 hover:bg-green-700"
-            }`}
-        >
-          <Power size={20} />
+            {/* Actions */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
 
-          {pkg.is_active
-            ? "Deactivate Package"
-            : "Activate Package"}
-        </button>
-        {/* Delete */}
-        <button
-          onClick={() => {
-            if (
-              confirm(
-                "Delete this package permanently?"
-              )
-            ) {
-              router.delete(
-                `/admin/packages/${pkg.id}`
-              );
-            }
-          }}
-          className="flex items-center justify-center cursor-pointer gap-3 rounded-xl bg-zinc-800 p-4 font-semibold transition hover:bg-red-700"
-        >
-          <Trash2 size={20} />Delete</button>
-      </div>
-    </div>
-  );
+                {/* Preview */}
+                <button
+                    type="button"
+                    onClick={() =>
+                        window.open(
+                            `/packages/${pkg.slug}`,
+                            "_blank"
+                        )
+                    }
+                    className="group inline-flex h-10 items-center gap-2 rounded-xl border border-cyan-500/20 bg-cyan-500/10 px-4 text-sm font-medium text-cyan-400 transition-all hover:border-cyan-500/40 hover:bg-cyan-500/15"
+                >
+                    <Eye
+                        size={17}
+                        className="transition-transform group-hover:scale-110"
+                    />
+
+                    Preview
+                </button>
+                {/* Duplicate */}
+                <button
+                    type="button"
+                    onClick={() => {
+                        router.post(
+                            `/admin/packages/${pkg.id}/duplicate`
+                        );
+                    }}
+                    className="group inline-flex h-10 items-center gap-2 rounded-xl border border-indigo-500/20 bg-indigo-500/10 px-4 text-sm font-medium text-indigo-400 transition-all hover:border-indigo-500/40 hover:bg-indigo-500/15"
+                >
+                    <Copy
+                        size={17}
+                        className="transition-transform group-hover:scale-110"
+                    />
+
+                    Duplicate
+                </button>
+
+
+                {/* Spacer */}
+                <div className="hidden h-7 w-px bg-zinc-800 sm:block" />
+
+
+                {/* Activate / Deactivate */}
+                <button
+                    type="button"
+                    onClick={() => {
+                        if (
+                            confirm(
+                                `Are you sure you want to ${
+                                    pkg.is_active
+                                        ? "deactivate"
+                                        : "activate"
+                                } this package?`
+                            )
+                        ) {
+                            router.patch(
+                                `/admin/packages/${pkg.id}/toggle-status`
+                            );
+                        }
+                    }}
+                    className={`group inline-flex h-10 items-center gap-2 rounded-xl border px-4 text-sm font-medium transition-all ${
+                        pkg.is_active
+                            ? "border-red-500/20 bg-red-500/10 text-red-400 hover:border-red-500/40 hover:bg-red-500/15"
+                            : "border-green-500/20 bg-green-500/10 text-green-400 hover:border-green-500/40 hover:bg-green-500/15"
+                    }`}
+                >
+                    <Power
+                        size={17}
+                        className="transition-transform group-hover:scale-110"
+                    />
+
+                    {pkg.is_active
+                        ? "Deactivate"
+                        : "Activate"}
+                </button>
+
+
+                {/* Delete */}
+                <button
+                    type="button"
+                    onClick={() => {
+                        if (
+                            confirm(
+                                "Delete this package permanently?"
+                            )
+                        ) {
+                            router.delete(
+                                `/admin/packages/${pkg.id}`
+                            );
+                        }
+                    }}
+                    className="group inline-flex h-10 items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-950 px-4 text-sm font-medium text-zinc-400 transition-all hover:border-red-500/40 hover:bg-red-500/10 hover:text-red-400"
+                >
+                    <Trash2
+                        size={17}
+                        className="transition-transform group-hover:scale-110"
+                    />
+
+                    Delete
+                </button>
+
+            </div>
+
+        </div>
+    );
 }

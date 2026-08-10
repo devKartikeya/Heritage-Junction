@@ -269,15 +269,6 @@ export default function Destination({
                                 Manage heritage attractions associated with this destination.
                             </p>
                         </div>
-
-                        <button
-                            type="button"
-                            className="inline-flex items-center justify-center gap-2 rounded-xl bg-purple-600 px-4 py-2.5 text-sm font-semibold transition hover:bg-purple-700"
-                        >
-                            <Plus size={17} />
-                            Add Heritage Site
-                        </button>
-
                     </div>
 
 
@@ -383,15 +374,6 @@ export default function Destination({
                                 Manage food and culinary experiences associated with this destination.
                             </p>
                         </div>
-
-                        <button
-                            type="button"
-                            className="inline-flex items-center justify-center gap-2 rounded-xl bg-orange-600 px-4 py-2.5 text-sm font-semibold transition hover:bg-orange-700"
-                        >
-                            <Plus size={17} />
-                            Add Food
-                        </button>
-
                     </div>
 
 
@@ -437,27 +419,6 @@ export default function Destination({
                                         <p className="mt-2 line-clamp-3 text-sm leading-6 text-zinc-400">
                                             {food.description}
                                         </p>
-
-
-                                        <div className="mt-5 flex gap-2">
-
-                                            <button
-                                                type="button"
-                                                className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-zinc-700 py-2.5 text-sm font-semibold transition hover:bg-zinc-800"
-                                            >
-                                                <Pencil size={15} />
-                                                Edit
-                                            </button>
-
-                                            <button
-                                                type="button"
-                                                className="flex items-center justify-center rounded-xl border border-red-900/50 px-4 text-red-400 transition hover:bg-red-500/10"
-                                            >
-                                                <Trash2 size={16} />
-                                            </button>
-
-                                        </div>
-
                                     </div>
 
                                 ))}

@@ -14,6 +14,7 @@ type Food = {
     id: number;
     name: string;
     description: string | null;
+    image_path: string | null;
     sort_order: number;
 };
 
@@ -89,6 +90,7 @@ export default function Edit({
     const foodForm = useForm({
         name: "",
         description: "",
+        image_path: "",
         sort_order: 0,
     });
 
@@ -914,9 +916,7 @@ export default function Edit({
 
                             <button
                                 type="button"
-                                onClick={() =>
-                                    setShowFoodForm(!showFoodForm)
-                                }
+                                onClick={() => setShowFoodForm(!showFoodForm)}
                                 className="flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-purple-700"
                             >
                                 <Plus size={18} />
@@ -928,17 +928,17 @@ export default function Edit({
 
                         {/* Add Food Form */}
 
+                        {/* Add Food Form */}
                         {showFoodForm && (
                             <div className="mb-6 rounded-2xl border border-zinc-800 bg-zinc-950/70 p-5">
 
                                 <h3 className="mb-5 text-lg font-semibold text-white">
-                                    Add Local Food
+                                    Add Food
                                 </h3>
 
                                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
 
-                                    {/* Food Name */}
-
+                                    {/* Name */}
                                     <div>
                                         <label className="mb-2 block text-sm text-zinc-400">
                                             Food Name
@@ -948,10 +948,7 @@ export default function Edit({
                                             type="text"
                                             value={foodForm.data.name}
                                             onChange={(e) =>
-                                                foodForm.setData(
-                                                    "name",
-                                                    e.target.value
-                                                )
+                                                foodForm.setData("name", e.target.value)
                                             }
                                             placeholder="e.g. Awadhi Biryani"
                                             className="w-full rounded-xl border border-zinc-700 bg-zinc-800 p-3 text-white outline-none transition focus:border-purple-500"
@@ -962,12 +959,10 @@ export default function Edit({
                                                 {foodForm.errors.name}
                                             </p>
                                         )}
-
                                     </div>
 
 
                                     {/* Sort Order */}
-
                                     <div>
                                         <label className="mb-2 block text-sm text-zinc-400">
                                             Sort Order
@@ -991,12 +986,39 @@ export default function Edit({
                                                 {foodForm.errors.sort_order}
                                             </p>
                                         )}
+                                    </div>
+
+
+                                    {/* Image URL */}
+                                    <div className="md:col-span-2">
+
+                                        <label className="mb-2 block text-sm text-zinc-400">
+                                            Food Image URL
+                                        </label>
+
+                                        <input
+                                            type="url"
+                                            value={foodForm.data.image_path}
+                                            onChange={(e) =>
+                                                foodForm.setData(
+                                                    "image_path",
+                                                    e.target.value
+                                                )
+                                            }
+                                            placeholder="https://example.com/food.jpg"
+                                            className="w-full rounded-xl border border-zinc-700 bg-zinc-800 p-3 text-white outline-none transition focus:border-purple-500"
+                                        />
+
+                                        {foodForm.errors.image_path && (
+                                            <p className="mt-1 text-sm text-red-400">
+                                                {foodForm.errors.image_path}
+                                            </p>
+                                        )}
 
                                     </div>
 
 
                                     {/* Description */}
-
                                     <div className="md:col-span-2">
 
                                         <label className="mb-2 block text-sm text-zinc-400">
@@ -1012,7 +1034,7 @@ export default function Edit({
                                                     e.target.value
                                                 )
                                             }
-                                            placeholder="Describe this local food..."
+                                            placeholder="Describe this food..."
                                             className="w-full resize-none rounded-xl border border-zinc-700 bg-zinc-800 p-3 text-white outline-none transition focus:border-purple-500"
                                         />
 
@@ -1028,7 +1050,6 @@ export default function Edit({
 
 
                                 {/* Actions */}
-
                                 <div className="mt-5 flex justify-end gap-3">
 
                                     <button
@@ -1050,7 +1071,6 @@ export default function Edit({
                                                 `/admin/destinations/${destination.id}/foods`,
                                                 {
                                                     preserveScroll: true,
-
                                                     onSuccess: () => {
                                                         foodForm.reset();
                                                         setShowFoodForm(false);
@@ -1079,31 +1099,71 @@ export default function Edit({
 
                                 destination.foods
                                     .slice()
-                                    .sort(
-                                        (a, b) =>
-                                            a.sort_order -
-                                            b.sort_order
-                                    )
+                                    .sort((a, b) => a.sort_order - b.sort_order)
                                     .map((food) => (
 
                                         <div
                                             key={food.id}
-                                            className="flex items-start justify-between gap-5 rounded-2xl border border-zinc-800 bg-zinc-950/60 p-5"
+                                            className="flex flex-col gap-5 rounded-2xl border border-zinc-800 bg-zinc-950/60 p-4 sm:flex-row"
                                         >
 
+                                            {/* Image */}
+                                            <div className="h-32 w-full shrink-0 overflow-hidden rounded-xl sm:w-44">
+
+                                                {food.image_path ? (
+                                                    <img
+                                                        src={food.image_path}
+                                                        alt={food.name}
+                                                        className="h-full w-full object-cover"
+                                                    />
+                                                ) : (
+                                                    <div className="flex h-full items-center justify-center bg-zinc-800 text-sm text-zinc-500">
+                                                        No Image
+                                                    </div>
+                                                )}
+
+                                            </div>
+
+
                                             {/* Content */}
+                                            <div className="flex flex-1 flex-col">
 
-                                            <div className="flex-1">
+                                                <div className="flex items-start justify-between gap-4">
 
-                                                <div className="flex flex-wrap items-center gap-3">
+                                                    <div>
 
-                                                    <h3 className="text-lg font-semibold text-white">
-                                                        {food.name}
-                                                    </h3>
+                                                        <h3 className="text-lg font-semibold text-white">
+                                                            {food.name}
+                                                        </h3>
 
-                                                    <span className="text-xs text-zinc-600">
-                                                        Order: {food.sort_order}
-                                                    </span>
+                                                        <span className="mt-1 inline-block text-xs text-zinc-500">
+                                                            Order: {food.sort_order}
+                                                        </span>
+
+                                                    </div>
+
+
+                                                    {/* Delete only */}
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => {
+                                                            if (
+                                                                confirm(
+                                                                    `Delete "${food.name}"?`
+                                                                )
+                                                            ) {
+                                                                router.delete(
+                                                                    `/admin/foods/${food.id}`,
+                                                                    {
+                                                                        preserveScroll: true,
+                                                                    }
+                                                                );
+                                                            }
+                                                        }}
+                                                        className="rounded-lg border border-zinc-700 p-2 text-zinc-400 transition hover:border-red-500 hover:text-red-400"
+                                                    >
+                                                        <Trash2 size={16} />
+                                                    </button>
 
                                                 </div>
 
@@ -1116,19 +1176,6 @@ export default function Edit({
 
                                             </div>
 
-
-                                            {/* DELETE */}
-
-                                            <button
-                                                type="button"
-                                                onClick={() =>
-                                                    deleteFood(food)
-                                                }
-                                                className="shrink-0 rounded-lg border border-zinc-700 p-2 text-zinc-400 transition hover:border-red-500 hover:text-red-400"
-                                            >
-                                                <Trash2 size={16} />
-                                            </button>
-
                                         </div>
 
                                     ))
@@ -1136,11 +1183,9 @@ export default function Edit({
                             ) : (
 
                                 <div className="rounded-xl border border-dashed border-zinc-700 py-10 text-center">
-
                                     <p className="text-sm text-zinc-500">
-                                        No local foods have been added yet.
+                                        No foods have been added yet.
                                     </p>
-
                                 </div>
 
                             )}
