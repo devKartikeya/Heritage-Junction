@@ -10,6 +10,7 @@ import Contact from '@/components/Home/Contact'
 import Services from '@/components/Home/Services'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import WhyChooseUs from '@/components/Home/WhyChooseUs'
+import FeaturedDestinations from '@/components/Home/FeaturedDestinations'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -64,6 +65,10 @@ const Welcome = () => {
             {/* Why Choose Us */}
             <div className="why-section">
                 <WhyChooseUs />
+            </div>
+            {/* Featured Destinations */}
+            <div className="featured-destinations">
+                <FeaturedDestinations />
             </div>
             {/* Services */}
             <div className="services-section">

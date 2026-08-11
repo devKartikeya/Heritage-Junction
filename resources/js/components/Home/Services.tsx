@@ -322,7 +322,7 @@ const Services = () => {
                             className="
                                 text-4xl
                                 font-bold
-                                -tracking-normal
+                                tracking-normal
                                 text-zinc-950
                                 sm:text-5xl
                                 lg:text-6xl
@@ -342,7 +342,7 @@ const Services = () => {
                                 text-base
                                 leading-7
                                 text-zinc-500
-                                sm:text-lg
+                                sm:text-md
                             "
                         >
                             From heritage explorations to immersive
