@@ -92,11 +92,8 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                 <meta property="og:image" content={pkg.cover_image} />
             </Head>
             <BookNow id={pkg.id} />
-
-            {/* Banner */}
             {/* ================= HERO ================= */}
             <section className="relative isolate min-h-[620px] overflow-hidden bg-black">
-
                 <img
                     src={pkg.cover_image}
                     alt={pkg.title}
@@ -107,7 +104,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
             scale-[1.02]
         "
                 />
-
                 {/* Cinematic overlay */}
                 <div className="
         absolute inset-0
@@ -116,7 +112,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
         via-black/45
         to-black/20
     " />
-
                 <div className="
         absolute inset-0
         bg-gradient-to-t
@@ -124,7 +119,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
         via-transparent
         to-black/20
     " />
-
                 <div className="
         relative z-10
         mx-auto flex min-h-[620px]
@@ -132,9 +126,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
         px-6 pb-16 pt-32
         lg:px-8
     ">
-
                     <div className="max-w-4xl text-white">
-
                         {/* Eyebrow */}
                         <div className="
                 mb-5
@@ -157,7 +149,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
             ">
                             {pkg.title}
                         </h1>
-
                         {/* Description */}
                         <p className="
                 mt-6
@@ -168,14 +159,12 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
             ">
                             {pkg.short_description}
                         </p>
-
                         {/* Package snapshot */}
                         <div className="
                 mt-8
                 flex flex-wrap
                 items-center gap-3
             ">
-
                             {/* Duration */}
                             <div className="
                     rounded-xl
@@ -209,7 +198,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                     {pkg.starting_city} → {pkg.ending_city}
                                 </p>
                             </div>
-
                             {/* Price */}
                             <div className="
                     rounded-xl
@@ -229,12 +217,9 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                     </span>
                                 </p>
                             </div>
-
                         </div>
-
                         {/* CTA */}
                         <div className="mt-8 flex flex-wrap gap-3">
-
                             <Link
                                 href={`/booking/${pkg.id}`}
                                 className="
@@ -257,7 +242,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                 Book This Journey
                                 <span className="ml-2">→</span>
                             </Link>
-
                             <a
                                 href="#itinerary"
                                 className="
@@ -274,9 +258,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                             >
                                 View Itinerary
                             </a>
-
                         </div>
-
                     </div>
                 </div>
             </section>
@@ -312,7 +294,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                         </div>
 
                         <div className="max-w-3xl">
-
                             <p className="
                 text-sm leading-8
                 text-gray-700
@@ -320,19 +301,16 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
             ">
                                 {pkg.full_description}
                             </p>
-
                             <div className="
                 mt-8
                 h-px w-full
                 bg-gray-200
             " />
-
                             <div className="
                 mt-6
                 flex flex-wrap gap-x-10 gap-y-4
                 text-sm
             ">
-
                                 <div>
                                     <p className="text-gray-500">Departure</p>
                                     <p className="mt-1 font-semibold text-gray-900">
@@ -353,12 +331,9 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                         {pkg.duration_days} Days
                                     </p>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
-
                 </section>
 
                 {/* Route Section */}
@@ -372,16 +347,10 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
         ">
                             Your Journey
                         </span>
-
-                        <h2 className="
-            mt-2 text-3xl font-bold
-            tracking-tight text-gray-950
-            sm:text-4xl
-        ">
+                        <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
                             The Route
                         </h2>
                     </div>
-
                     <div className="
         overflow-hidden
         rounded-3xl
@@ -390,14 +359,8 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
         shadow-sm
     ">
 
-                        <div className="
-            flex flex-wrap
-            items-center
-            gap-y-5
-            px-6 py-7
-            md:px-10
+                        <div className=" flex flex-wrap items-centergap-y-5 px-6 py-7 md:px-10
         ">
-
                             <div className="flex items-center gap-3">
                                 <span className="
                     flex h-10 w-10
@@ -407,24 +370,19 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                 ">
                                     01
                                 </span>
-
                                 <span className="font-semibold text-gray-900">
                                     {pkg.starting_city}
                                 </span>
                             </div>
-
                             {destinations.map((dest, index) => (
                                 <React.Fragment key={dest.id}>
-
                                     <div className="
                         mx-3 hidden h-px
                         w-8 bg-gray-300
                         sm:block
                         lg:w-12
                     " />
-
                                     <div className="flex items-center gap-3">
-
                                         <span className="
                             flex h-10 w-10
                             items-center justify-center
@@ -444,16 +402,13 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                                 </React.Fragment>
                             ))}
-
                             <div className="
                 mx-3 hidden h-px
                 w-8 bg-gray-300
                 sm:block
                 lg:w-12
             " />
-
                             <div className="flex items-center gap-3">
-
                                 <span className="
                     flex h-10 w-10
                     items-center justify-center
@@ -464,15 +419,11 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                 ">
                                     {String(destinations.length + 2).padStart(2, '0')}
                                 </span>
-
                                 <span className="font-semibold text-gray-900">
                                     {pkg.ending_city}
                                 </span>
-
                             </div>
-
                         </div>
-
                         {points.length > 0 && (
                             <div className="
                 h-[420px]
@@ -481,28 +432,22 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                 <RouteMap points={points} />
                             </div>
                         )}
-
                     </div>
-
                 </section>
 
                 {/* Quick Facts */}
                 <section className="mt-16">
                     <div className="mb-8">
                         <h2 className="text-3xl md:text-4xl font-bold text-purple-700">Quick Facts</h2>
-
                         <p className="mt-2 text-gray-600">
                             Everything you need to know at a glance before starting your journey.
                         </p>
                     </div>
-
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
                         {/* LEFT — Quick Facts Card */}
                         <div className="rounded-3xl bg-white border border-gray-200 shadow-lg p-6 md:p-6
         ">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-
                                 {/* Duration */}
                                 <div className="
     rounded-2xl
@@ -516,17 +461,13 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                     <p className="text-sm text-gray-500">
                                         Duration
                                     </p>
-
                                     <p className="mt-2 text-2xl font-bold text-gray-950">
                                         {pkg.duration_days} Days
                                     </p>
-
                                     <p className="mt-1 text-sm text-gray-500">
                                         {pkg.duration_nights} Nights
                                     </p>
                                 </div>
-
-
                                 {/* Departure */}
                                 <div className="
     rounded-2xl
@@ -545,7 +486,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                         {pkg.starting_city}
                                     </p>
                                 </div>
-
 
                                 {/* Destination */}
                                 <div className="
@@ -610,7 +550,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     group-hover:scale-105
                 "
                             />
-
                             {/* Image Overlay */}
                             <div className="
                 absolute inset-0
@@ -657,12 +596,9 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                     and experiences crafted specially for you.
                                 </p>
                             </div>
-
                         </div>
-
                     </div>
                 </section>
-
                 {/* Destinations Covered */}
                 <section>
                     <h2 className="text-3xl font-semibold text-purple-700 mb-6">Destinations Covered</h2>
@@ -790,7 +726,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                                         <h4 className="text-lg font-semibold text-gray-900">
                                                             {site.name}
                                                         </h4>
-                                                        <p className="text-gray-700 text-sm mt-2">
+                                                        <p className="text-gray-700 text-sm mt-2 leading-6">
                                                             {site.description}
                                                         </p>
                                                     </div>
@@ -926,7 +862,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                         group
                                     "
                                                 >
-
                                                     {/* Check */}
                                                     <span className="
                                         flex-shrink-0
@@ -976,20 +911,13 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                                                 {item.description}
                                                             </p>
                                                         )}
-
                                                     </div>
-
                                                 </li>
-
                                             ))}
-
                                     </ul>
-
                                 )}
-
                             </div>
                         </div>
-
 
                         {/* ================= EXCLUDED ================= */}
                         <div className="
@@ -1044,27 +972,19 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                             Additional expenses to keep in mind
                                         </p>
                                     </div>
-
                                 </div>
-
-
                                 {/* Items */}
                                 {pkg.exclusions.length === 0 ? (
-
                                     <div className="py-8 text-center">
                                         <p className="text-sm text-gray-500">
                                             No exclusions listed for this package yet.
                                         </p>
                                     </div>
-
                                 ) : (
-
                                     <ul className="mt-6 space-y-5">
-
                                         {pkg.exclusions
                                             .sort((a, b) => a.sort_order - b.sort_order)
                                             .map((item) => (
-
                                                 <li
                                                     key={item.id}
                                                     className="
@@ -1072,7 +992,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                         group
                                     "
                                                 >
-
                                                     {/* Cross */}
                                                     <span className="
                                         flex-shrink-0
@@ -1111,7 +1030,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                         ">
                                                             {item.exclusion}
                                                         </p>
-
                                                         {item.description && (
                                                             <p className="
                                                 mt-1.5
@@ -1122,22 +1040,14 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                                                 {item.description}
                                                             </p>
                                                         )}
-
                                                     </div>
-
                                                 </li>
-
                                             ))}
-
                                     </ul>
-
                                 )}
-
                             </div>
                         </div>
-
                     </div>
-
 
                     {/* Small reassurance */}
                     <div className="
@@ -1340,8 +1250,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                                 </p>
 
                                             </div>
-
-
                                             {/* ================= PRICE DETAILS ================= */}
                                             <div className="
                                 rounded-2xl
@@ -1349,7 +1257,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                 bg-gray-50
                                 divide-y divide-gray-100
                             ">
-
                                                 {/* Total */}
                                                 <div className="
                                     flex
@@ -1358,7 +1265,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                     gap-4
                                     px-4 py-4
                                 ">
-
                                                     <div>
                                                         <p className="text-sm font-medium text-gray-600">
                                                             Total Package Cost
@@ -1368,17 +1274,13 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                                             Minimum group size
                                                         </p>
                                                     </div>
-
                                                     <span className="
                                         font-bold
                                         text-gray-900
                                     ">
                                                         ₹{pricing.total_cost}
                                                     </span>
-
                                                 </div>
-
-
                                                 {/* Minimum Persons */}
                                                 <div className="
                                     flex
@@ -1387,11 +1289,9 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                     gap-4
                                     px-4 py-4
                                 ">
-
                                                     <span className="text-sm font-medium text-gray-600">
                                                         Minimum Travelers
                                                     </span>
-
                                                     <span className="
                                         inline-flex
                                         items-center
@@ -1421,7 +1321,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                 bg-red-50
                                 px-4 py-4
                             ">
-
                                                 <div className="
                                     flex-shrink-0
                                     w-8 h-8
@@ -1441,7 +1340,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                     ">
                                                         Ideal for groups
                                                     </p>
-
                                                     <p className="
                                         mt-0.5
                                         text-xs
@@ -1477,7 +1375,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
             text-center
             shadow-sm
         ">
-
                             <div className="
                 mx-auto
                 w-12 h-12
@@ -1489,7 +1386,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
             ">
                                 ₹
                             </div>
-
                             <h3 className="
                 mt-4
                 text-lg
@@ -1498,7 +1394,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
             ">
                                 Pricing information unavailable
                             </h3>
-
                             <p className="
                 mt-2
                 text-sm
@@ -1515,8 +1410,6 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     )}
 
                 </section>
-
-                {/* FAQs */}
                 {/* ================= FAQs ================= */}
                 <section className="relative py-10 md:py-16">
 
@@ -1635,9 +1528,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                                 <Plus size={18} strokeWidth={2} />
                                             )}
                                         </div>
-
                                     </button>
-
                                     {/* Answer */}
                                     <div
                                         className={`
@@ -1649,9 +1540,8 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                         `}
                                     >
                                         <div className="overflow-hidden">
-
                                             <div className="mx-5 md:mx-7 border-t border-gray-100">
-                                                <div className="py-5 md:py-6 pl-0 sm:pl-12">
+                                                <div className="py-2 md:py-4 pl-0 sm:pl-10">
 
                                                     <p className="
                                         text-sm md:text-base
@@ -1664,15 +1554,12 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
-
                                 </div>
                             )
                         })}
                     </div>
-
                     {/* Bottom Help */}
                     <div className="
         mt-10
@@ -1687,17 +1574,14 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
         sm:justify-between
         gap-4
     ">
-
                         <div>
                             <p className="font-semibold text-gray-900">
                                 Still have questions?
                             </p>
-
                             <p className="mt-1 text-sm text-gray-500">
                                 Our travel team can help you plan your journey.
                             </p>
                         </div>
-
                         <Link
                             href="/contact"
                             className="
@@ -1719,27 +1603,23 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                                 →
                             </span>
                         </Link>
-
                     </div>
-
                 </section>
 
-           {/* ================= FINAL CTA ================= */}
-<section className="relative overflow-hidden rounded-[2rem] bg-gray-950">
+                {/* ================= FINAL CTA ================= */}
+                <section className="relative overflow-hidden rounded-[2rem] bg-gray-950">
+                    {/* Background Image */}
+                    <div className="absolute inset-0">
+                        <img
+                            src={pkg.cover_image}
+                            alt=""
+                            className="h-full w-full object-cover opacity-30"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/90 to-gray-950/70" />
+                    </div>
 
-    {/* Background Image */}
-    <div className="absolute inset-0">
-        <img
-            src={pkg.cover_image}
-            alt=""
-            className="h-full w-full object-cover opacity-30"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/90 to-gray-950/70" />
-    </div>
-
-    {/* Decorative Elements */}
-    <div className="
+                    {/* Decorative Elements */}
+                    <div className="
         absolute
         -right-32
         -top-32
@@ -1747,8 +1627,7 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
         rounded-full
         border border-white/10
     " />
-
-    <div className="
+                    <div className="
         absolute
         -right-20
         -top-20
@@ -1756,16 +1635,14 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
         rounded-full
         border border-white/5
     " />
-
-    {/* Content */}
-    <div className="
+                    {/* Content */}
+                    <div className="
         relative
         px-6 py-14
         sm:px-10 sm:py-16
         lg:px-16 lg:py-20
     ">
-
-        <div className="
+                        <div className="
             flex
             flex-col
             gap-10
@@ -1773,34 +1650,27 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
             lg:items-center
             lg:justify-between
         ">
-
-            {/* LEFT */}
-            <div className="max-w-2xl">
-
-                {/* Eyebrow */}
-                <div className="flex items-center gap-3">
-
-                    <span className="
+                            {/* LEFT */}
+                            <div className="max-w-2xl">
+                                {/* Eyebrow */}
+                                <div className="flex items-center gap-3">
+                                    <span className="
                         h-px
                         w-10
                         bg-red-500
                     " />
-
-                    <span className="
+                                    <span className="
                         text-xs
                         font-semibold
                         uppercase
                         tracking-[0.25em]
                         text-red-400
                     ">
-                        Ready when you are
-                    </span>
-
-                </div>
-
-
-                {/* Heading */}
-                <h2 className="
+                                        Ready when you are
+                                    </span>
+                                </div>
+                                {/* Heading */}
+                                <h2 className="
                     mt-5
                     text-3xl
                     font-bold
@@ -1810,16 +1680,14 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     sm:text-4xl
                     lg:text-5xl
                 ">
-                    Your journey to{" "}
-                    <span className="text-red-400">
-                        {pkg.title}
-                    </span>{" "}
-                    starts here.
-                </h2>
-
-
-                {/* Description */}
-                <p className="
+                                    Your journey to{" "}
+                                    <span className="text-red-400">
+                                        {pkg.title}
+                                    </span>{" "}
+                                    starts here.
+                                </h2>
+                                {/* Description */}
+                                <p className="
                     mt-5
                     max-w-xl
                     text-base
@@ -1827,14 +1695,12 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     text-gray-400
                     sm:text-lg
                 ">
-                    Everything is planned.
-                    All that's left is to choose your dates
-                    and start the journey.
-                </p>
-
-
-                {/* Quick Info */}
-                <div className="
+                                    Everything is planned.
+                                    All that's left is to choose your dates
+                                    and start the journey.
+                                </p>
+                                {/* Quick Info */}
+                                <div className="
                     mt-7
                     flex
                     flex-wrap
@@ -1843,37 +1709,30 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     text-sm
                     text-gray-400
                 ">
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-red-400">●</span>
+                                        {pkg.duration_days} Days / {pkg.duration_nights} Nights
+                                    </div>
 
-                    <div className="flex items-center gap-2">
-                        <span className="text-red-400">●</span>
-                        {pkg.duration_days} Days / {pkg.duration_nights} Nights
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                        <span className="text-red-400">●</span>
-                        {pkg.starting_city} → {pkg.ending_city}
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                        <span className="text-red-400">●</span>
-                        From ₹{pkg.starting_price} / person
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            {/* RIGHT — ACTION */}
-            <div className="
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-red-400">●</span>
+                                        {pkg.starting_city} → {pkg.ending_city}
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-red-400">●</span>
+                                        From ₹{pkg.starting_price} / person
+                                    </div>
+                                </div>
+                            </div>
+                            {/* RIGHT — ACTION */}
+                            <div className="
                 flex
                 shrink-0
                 flex-col
                 items-start
                 lg:items-end
             ">
-
-                <p className="
+                                <p className="
                     mb-3
                     text-xs
                     font-medium
@@ -1881,12 +1740,11 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     tracking-wider
                     text-gray-500
                 ">
-                    Start planning your trip
-                </p>
-
-                <Link
-                    href={`/booking/${pkg.id}`}
-                    className="
+                                    Start planning your trip
+                                </p>
+                                <Link
+                                    href={`/booking/${pkg.id}`}
+                                    className="
                         group
                         inline-flex
                         items-center
@@ -1912,38 +1770,29 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                         focus:ring-offset-2
                         focus:ring-offset-gray-950
                     "
-                >
-
-                    <span>
-                        Book This Journey
-                    </span>
-
-                    <span className="
+                                >
+                                    <span>Book This Journey
+                                    </span>
+                                    <span className="
                         text-lg
                         transition-transform
                         duration-300
                         group-hover:translate-x-1
                     ">
-                        →
-                    </span>
-
-                </Link>
-
-                <p className="
+                                        →
+                                    </span>
+                                </Link>
+                                <p className="
                     mt-3
                     text-xs
                     text-gray-500
                 ">
-                    Secure your experience with Heritage Junction
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+                                    Secure your experience with Heritage Junction
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
             <Footer />
         </div>

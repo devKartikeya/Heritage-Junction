@@ -261,13 +261,9 @@ export default function DestinationPage({
                             ">
                                 ₹{destination.average_budget}
                             </p>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </section>
 
 
@@ -377,13 +373,9 @@ export default function DestinationPage({
                                         {destination.best_time}
                                     </p>
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </section>
 
 
@@ -392,11 +384,8 @@ export default function DestinationPage({
                 ===================================================== */}
 
                 <section className="pb-24 md:pb-32">
-
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-
                         <div>
-
                             <span className="
                                 text-xs
                                 uppercase
@@ -416,9 +405,7 @@ export default function DestinationPage({
                             ">
                                 Heritage & Culture
                             </h2>
-
                         </div>
-
                         <p className="
                             max-w-md
                             text-gray-500
@@ -427,12 +414,8 @@ export default function DestinationPage({
                             Discover the places, architecture and stories
                             that give {destination.name} its identity.
                         </p>
-
                     </div>
-
-
                     {heritageSites.length === 0 ? (
-
                         <div className="
                             rounded-3xl
                             border
@@ -444,9 +427,7 @@ export default function DestinationPage({
                         ">
                             No heritage sites listed for this destination.
                         </div>
-
                     ) : (
-
                         <div className="
                             grid
                             grid-cols-1
@@ -454,9 +435,7 @@ export default function DestinationPage({
                             lg:grid-cols-3
                             gap-7
                         ">
-
                             {heritageSites.map((site) => (
-
                                 <article
                                     key={site.id}
                                     className="
@@ -473,9 +452,7 @@ export default function DestinationPage({
                                         duration-500
                                     "
                                 >
-
                                     <div className="relative h-64 overflow-hidden">
-
                                         <img
                                             src={site.image_path}
                                             alt={`View of ${site.name}`}
@@ -488,7 +465,6 @@ export default function DestinationPage({
                                                 group-hover:scale-105
                                             "
                                         />
-
                                         <div className="
                                             absolute
                                             inset-0
@@ -496,11 +472,8 @@ export default function DestinationPage({
                                             from-black/50
                                             to-transparent
                                         " />
-
                                     </div>
-
                                     <div className="p-7">
-
                                         <h3 className="
                                             text-xl
                                             font-bold
@@ -508,7 +481,6 @@ export default function DestinationPage({
                                         ">
                                             {site.name}
                                         </h3>
-
                                         <p className="
                                             mt-3
                                             text-sm
@@ -517,24 +489,15 @@ export default function DestinationPage({
                                         ">
                                             {site.description}
                                         </p>
-
                                     </div>
-
                                 </article>
-
                             ))}
-
                         </div>
-
                     )}
-
                 </section>
-
-
                 {/* =====================================================
                     FOOD
                 ===================================================== */}
-
                 <section className="pb-24 md:pb-32">
 
                     <div className="
@@ -545,7 +508,6 @@ export default function DestinationPage({
                         md:px-12
                         md:py-20
                     ">
-
                         <div className="
                             flex
                             flex-col
@@ -555,9 +517,7 @@ export default function DestinationPage({
                             gap-8
                             mb-12
                         ">
-
                             <div>
-
                                 <span className="
                                     text-xs
                                     uppercase
@@ -567,7 +527,6 @@ export default function DestinationPage({
                                 ">
                                     Taste the Destination
                                 </span>
-
                                 <h2 className="
                                     mt-3
                                     text-4xl
@@ -577,9 +536,7 @@ export default function DestinationPage({
                                 ">
                                     Local Flavours
                                 </h2>
-
                             </div>
-
                             <p className="
                                 max-w-md
                                 text-gray-400
@@ -588,12 +545,8 @@ export default function DestinationPage({
                                 No journey is complete without tasting
                                 the flavours that tell a destination's story.
                             </p>
-
                         </div>
-
-
                         {foods.length === 0 ? (
-
                             <div className="
                                 rounded-3xl
                                 border
@@ -604,9 +557,7 @@ export default function DestinationPage({
                             ">
                                 No local foods listed for this destination.
                             </div>
-
                         ) : (
-
                             <div className="
                                 grid
                                 grid-cols-1
@@ -614,9 +565,7 @@ export default function DestinationPage({
                                 lg:grid-cols-3
                                 gap-7
                             ">
-
                                 {foods.map((food) => (
-
                                     <article
                                         key={food.id}
                                         className="
@@ -631,13 +580,11 @@ export default function DestinationPage({
                                             duration-500
                                         "
                                     >
-
                                         <div className="
                                             relative
                                             h-60
                                             overflow-hidden
                                         ">
-
                                             <img
                                                 src={food.image_path}
                                                 alt={food.name}
@@ -650,11 +597,8 @@ export default function DestinationPage({
                                                     group-hover:scale-105
                                                 "
                                             />
-
                                         </div>
-
                                         <div className="p-7">
-
                                             <h3 className="
                                                 text-xl
                                                 font-bold
@@ -662,7 +606,6 @@ export default function DestinationPage({
                                             ">
                                                 {food.name}
                                             </h3>
-
                                             <p className="
                                                 mt-3
                                                 text-sm
@@ -671,138 +614,177 @@ export default function DestinationPage({
                                             ">
                                                 {food.description}
                                             </p>
-
                                         </div>
-
                                     </article>
-
                                 ))}
-
                             </div>
-
                         )}
-
                     </div>
-
                 </section>
-
-
                 {/* =====================================================
-                    CTA
-                ===================================================== */}
-
+    CTA — PLAN YOUR JOURNEY
+===================================================== */}
                 <section className="pb-24 md:pb-32">
 
                     <div className="
-                        relative
-                        overflow-hidden
-                        rounded-[2.5rem]
-                        bg-gradient-to-br
-                        from-purple-700
-                        via-purple-600
-                        to-red-500
-                        px-6
-                        py-16
-                        md:px-16
-                        md:py-20
-                        text-center
-                        text-white
+        relative
+        overflow-hidden
+        rounded-[2rem]
+        border border-gray-200
+        bg-white
+        shadow-[0_20px_60px_-20px_rgba(0,0,0,0.15)]
+    ">
+                        {/* Subtle background accent */}
+                        <div className="
+            absolute
+            -right-32
+            -top-32
+            h-80
+            w-80
+            rounded-full
+            bg-purple-100/70
+            blur-3xl
+        " />
+                        <div className="
+            absolute
+            -left-32
+            -bottom-32
+            h-80
+            w-80
+            rounded-full
+            bg-red-100/60
+            blur-3xl
+        " />
+                        <div className="
+            relative
+            z-10
+            px-6
+            py-14
+            sm:px-10
+            sm:py-16
+            md:px-16
+            md:py-20
+            lg:px-20
+        ">
+                            <div className="
+                flex
+                flex-col
+                gap-10
+                lg:flex-row
+                lg:items-center
+                lg:justify-between
+            ">
+                                {/* ================= LEFT CONTENT ================= */}
+                                <div className="max-w-2xl">
+                                    {/* Eyebrow */}
+                                    <div className="
+                        mb-4
+                        flex
+                        items-center
+                        gap-3
                     ">
-
-                        {/* Decorative circles */}
-
-                        <div className="
-                            absolute
-                            -top-24
-                            -right-24
-                            w-64
-                            h-64
-                            rounded-full
-                            bg-white/10"
-                        />
-
-                        <div className="
-                            absolute
-                            -bottom-32
-                            -left-20
-                            w-72
-                            h-72
-                            rounded-full
-                            bg-black/10"
-                        />
-
-
-                        <div className="relative z-10 max-w-3xl mx-auto">
-
-                            <span className="
-                                text-xs
-                                uppercase
-                                tracking-[0.3em]
-                                font-semibold
-                                text-white/70
-                            ">
-                                Your Journey Awaits
-                            </span>
-
-                            <h2 className="
-                                mt-4
-                                text-4xl
-                                md:text-5xl
-                                font-bold
-                                tracking-tight
-                            ">
-                                Ready to experience {destination.name}?
-                            </h2>
-
-                            <p className="
-                                mt-5
-                                text-base
-                                md:text-lg
-                                text-white/80
-                                leading-relaxed
-                            ">
-                                Let Heritage Junction craft a memorable
-                                journey through the culture, history,
-                                flavours and stories of this destination.
-                            </p>
-
-                            <Link
-                                href="/packages"
-                                className="
-                                    inline-flex
-                                    items-center
-                                    gap-3
-                                    mt-8
-                                    rounded-xl
-                                    bg-white
-                                    px-7
-                                    py-4
-                                    font-semibold
-                                    text-purple-700
-                                    shadow-lg
-                                    hover:bg-gray-100
-                                    hover:-translate-y-0.5
-                                    transition-all
-                                    duration-300
-                                "
-                            >
-                                Explore Travel Packages
-                                <span className="text-lg">
-                                    →
-                                </span>
-                            </Link>
-
+                                        <span className="
+                            h-px
+                            w-8
+                            bg-red-500
+                        " />
+                                        <span className="
+                            text-xs
+                            font-semibold
+                            uppercase
+                            tracking-[0.25em]
+                            text-red-500
+                        ">
+                                            Plan Your Journey
+                                        </span>
+                                    </div>
+                                    {/* Heading */}
+                                    <h2 className="
+                        text-3xl
+                        font-bold
+                        tracking-tight
+                        text-gray-950
+                        sm:text-4xl
+                        lg:text-5xl
+                        lg:leading-[1.1]
+                    ">
+                                        Ready to explore{" "}
+                                        <span className="text-purple-600">
+                                            {destination.name}
+                                        </span>
+                                        ?
+                                    </h2>
+                                    {/* Description */}
+                                    <p className="
+                        mt-5
+                        max-w-xl
+                        text-base
+                        leading-7
+                        text-gray-600
+                        sm:text-lg
+                    ">
+                                        Turn your visit into a memorable experience.
+                                        Explore our carefully designed travel packages
+                                        and discover the best of {destination.name}.
+                                    </p>
+                                </div>
+                                {/* ================= RIGHT ACTION ================= */}
+                                <div className="
+                    flex
+                    flex-col
+                    items-start
+                    lg:items-end
+                ">
+                                    <Link
+                                        href="/packages"
+                                        className="
+                            group
+                            inline-flex
+                            items-center
+                            gap-3
+                            rounded-xl
+                            bg-gray-950
+                            px-6
+                            py-3.5
+                            text-sm
+                            font-semibold
+                            text-white
+                            shadow-lg
+                            shadow-gray-950/10
+                            transition-all
+                            duration-300
+                            hover:-translate-y-1
+                            hover:bg-purple-600
+                            hover:shadow-xl
+                            hover:shadow-purple-600/20
+                            sm:px-7
+                            sm:py-4
+                        "
+                                    >
+                                        Explore Travel Packages
+                                        <span className="
+                            text-lg
+                            transition-transform
+                            duration-300
+                            group-hover:translate-x-1
+                        ">
+                                            →
+                                        </span>
+                                    </Link>
+                                    <span className="
+                        mt-3
+                        text-xs
+                        text-gray-400
+                    ">
+                                        Discover journeys curated by Heritage Junction
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
-
                 </section>
-
             </main>
-
-
             <Footer />
-
         </div>
     )
 }
