@@ -92,60 +92,398 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                 <meta property="og:image" content={pkg.cover_image} />
             </Head>
             <BookNow id={pkg.id} />
+
             {/* Banner */}
-            <div className="relative w-full h-96">
+            {/* ================= HERO ================= */}
+            <section className="relative isolate min-h-[620px] overflow-hidden bg-black">
+
                 <img
                     src={pkg.cover_image}
                     alt={pkg.title}
-                    className="w-full h-full object-cover"
+                    className="
+            absolute inset-0
+            h-full w-full
+            object-cover
+            scale-[1.02]
+        "
                 />
-                <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center text-white px-6">
-                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold">{pkg.title}</h1>
-                    <p className="mt-4 max-w-2xl text-lg md:text-xl">{pkg.short_description}</p>
+
+                {/* Cinematic overlay */}
+                <div className="
+        absolute inset-0
+        bg-gradient-to-r
+        from-black/80
+        via-black/45
+        to-black/20
+    " />
+
+                <div className="
+        absolute inset-0
+        bg-gradient-to-t
+        from-black/70
+        via-transparent
+        to-black/20
+    " />
+
+                <div className="
+        relative z-10
+        mx-auto flex min-h-[620px]
+        max-w-7xl items-end
+        px-6 pb-16 pt-32
+        lg:px-8
+    ">
+
+                    <div className="max-w-4xl text-white">
+
+                        {/* Eyebrow */}
+                        <div className="
+                mb-5
+                flex items-center gap-3
+                text-sm font-semibold
+                uppercase tracking-[0.25em]
+                text-white/80
+            ">
+                            <span className="h-px w-10 bg-red-500" />
+                            Heritage Junction
+                        </div>
+
+                        {/* Title */}
+                        <h1 className="
+                max-w-4xl
+                text-4xl font-bold tracking-tight
+                sm:text-5xl
+                lg:text-7xl
+                leading-[1.05]
+            ">
+                            {pkg.title}
+                        </h1>
+
+                        {/* Description */}
+                        <p className="
+                mt-6
+                max-w-2xl
+                text-base leading-7
+                text-white/80
+                sm:text-lg
+            ">
+                            {pkg.short_description}
+                        </p>
+
+                        {/* Package snapshot */}
+                        <div className="
+                mt-8
+                flex flex-wrap
+                items-center gap-3
+            ">
+
+                            {/* Duration */}
+                            <div className="
+                    rounded-xl
+                    border border-white/15
+                    bg-white/10
+                    px-4 py-3
+                    backdrop-blur-md
+                ">
+                                <p className="text-xs uppercase tracking-wider text-white/60">
+                                    Duration
+                                </p>
+
+                                <p className="mt-1 font-semibold">
+                                    {pkg.duration_days} Days / {pkg.duration_nights} Nights
+                                </p>
+                            </div>
+
+                            {/* Route */}
+                            <div className="
+                    rounded-xl
+                    border border-white/15
+                    bg-white/10
+                    px-4 py-3
+                    backdrop-blur-md
+                ">
+                                <p className="text-xs uppercase tracking-wider text-white/60">
+                                    Route
+                                </p>
+
+                                <p className="mt-1 font-semibold">
+                                    {pkg.starting_city} → {pkg.ending_city}
+                                </p>
+                            </div>
+
+                            {/* Price */}
+                            <div className="
+                    rounded-xl
+                    border border-white/15
+                    bg-white/10
+                    px-4 py-3
+                    backdrop-blur-md
+                ">
+                                <p className="text-xs uppercase tracking-wider text-white/60">
+                                    Starting From
+                                </p>
+
+                                <p className="mt-1 font-semibold text-white">
+                                    ₹{pkg.starting_price}
+                                    <span className="ml-1 text-sm font-normal text-white/60">
+                                        / person
+                                    </span>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        {/* CTA */}
+                        <div className="mt-8 flex flex-wrap gap-3">
+
+                            <Link
+                                href={`/booking/${pkg.id}`}
+                                className="
+                        inline-flex items-center justify-center
+                        rounded-xl
+                        bg-red-600
+                        px-6 py-3.5
+                        font-semibold text-white
+                        shadow-lg shadow-black/20
+                        transition-all duration-300
+                        hover:-translate-y-0.5
+                        hover:bg-red-700
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-red-500
+                        focus:ring-offset-2
+                        focus:ring-offset-black
+                    "
+                            >
+                                Book This Journey
+                                <span className="ml-2">→</span>
+                            </Link>
+
+                            <a
+                                href="#itinerary"
+                                className="
+                        inline-flex items-center justify-center
+                        rounded-xl
+                        border border-white/25
+                        bg-white/10
+                        px-6 py-3.5
+                        font-semibold text-white
+                        backdrop-blur-md
+                        transition-all duration-300
+                        hover:bg-white/20
+                    "
+                            >
+                                View Itinerary
+                            </a>
+
+                        </div>
+
+                    </div>
                 </div>
-            </div>
+            </section>
 
             {/* Main Content */}
             <div className="max-w-7xl mx-auto px-6 py-12 space-y-16">
                 {/* About */}
-                <section>
-                    <h2 className="text-3xl md:text-5xl font-bold text-red-600 mb-6">About This Package</h2>
-                    <p className="text-gray-800 leading-relaxed text-lg">{pkg.full_description}</p>
+                <section className="py-4">
+
+                    <div className="grid gap-10 lg:grid-cols-[0.8fr_1.5fr] lg:gap-20">
+
+                        <div>
+                            <span className="
+                text-sm font-semibold
+                uppercase tracking-[0.25em]
+                text-red-600
+            ">
+                                The Journey
+                            </span>
+
+                            <h2 className="
+                mt-3
+                text-3xl font-bold tracking-tight
+                text-gray-950
+                sm:text-4xl lg:text-5xl
+            ">
+                                More than a trip.
+                                <br />
+                                <span className="text-red-600">
+                                    A story to experience.
+                                </span>
+                            </h2>
+                        </div>
+
+                        <div className="max-w-3xl">
+
+                            <p className="
+                text-sm leading-8
+                text-gray-700
+                sm:text-md
+            ">
+                                {pkg.full_description}
+                            </p>
+
+                            <div className="
+                mt-8
+                h-px w-full
+                bg-gray-200
+            " />
+
+                            <div className="
+                mt-6
+                flex flex-wrap gap-x-10 gap-y-4
+                text-sm
+            ">
+
+                                <div>
+                                    <p className="text-gray-500">Departure</p>
+                                    <p className="mt-1 font-semibold text-gray-900">
+                                        {pkg.starting_city}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <p className="text-gray-500">Arrival</p>
+                                    <p className="mt-1 font-semibold text-gray-900">
+                                        {pkg.ending_city}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <p className="text-gray-500">Duration</p>
+                                    <p className="mt-1 font-semibold text-gray-900">
+                                        {pkg.duration_days} Days
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
                 </section>
 
                 {/* Route Section */}
-                <section className="flex flex-col gap-6">
-                    <h2 className="text-3xl md:text-4xl font-semibold text-purple-700 mb-4">Route</h2>
+                <section>
 
-                    {/* Route Text */}
-                    <div className="bg-white rounded-xl shadow-lg px-6 py-8 text-center">
-                        <div className="flex flex-wrap items-center justify-center gap-6 text-lg sm:text-xl md:text-2xl font-bold text-gray-700">
-                            {/* Starting City */}
-                            <span className="text-red-600">{pkg.starting_city}</span>
-                            <span className="text-purple-600">→</span>
+                    <div className="mb-8">
+                        <span className="
+            text-sm font-semibold
+            uppercase tracking-[0.25em]
+            text-red-600
+        ">
+                            Your Journey
+                        </span>
 
-                            {/* Destinations */}
-                            {destinations.map((dest, idx) => (
+                        <h2 className="
+            mt-2 text-3xl font-bold
+            tracking-tight text-gray-950
+            sm:text-4xl
+        ">
+                            The Route
+                        </h2>
+                    </div>
+
+                    <div className="
+        overflow-hidden
+        rounded-3xl
+        border border-gray-200
+        bg-white
+        shadow-sm
+    ">
+
+                        <div className="
+            flex flex-wrap
+            items-center
+            gap-y-5
+            px-6 py-7
+            md:px-10
+        ">
+
+                            <div className="flex items-center gap-3">
+                                <span className="
+                    flex h-10 w-10
+                    items-center justify-center
+                    rounded-full bg-red-100
+                    text-sm font-bold text-red-600
+                ">
+                                    01
+                                </span>
+
+                                <span className="font-semibold text-gray-900">
+                                    {pkg.starting_city}
+                                </span>
+                            </div>
+
+                            {destinations.map((dest, index) => (
                                 <React.Fragment key={dest.id}>
-                                    <span className="hover:text-red-700 transition">{dest.name}</span>
-                                    {idx < destinations.length - 1 && (
-                                        <span className="text-purple-600">→</span>
-                                    )}
+
+                                    <div className="
+                        mx-3 hidden h-px
+                        w-8 bg-gray-300
+                        sm:block
+                        lg:w-12
+                    " />
+
+                                    <div className="flex items-center gap-3">
+
+                                        <span className="
+                            flex h-10 w-10
+                            items-center justify-center
+                            rounded-full
+                            bg-gray-100
+                            text-sm font-bold
+                            text-gray-500
+                        ">
+                                            {String(index + 2).padStart(2, '0')}
+                                        </span>
+
+                                        <span className="font-semibold text-gray-900">
+                                            {dest.name}
+                                        </span>
+
+                                    </div>
+
                                 </React.Fragment>
                             ))}
 
-                            {/* Ending City */}
-                            <span className="text-purple-600">→</span>
-                            <span className="text-red-600">{pkg.ending_city}</span>
+                            <div className="
+                mx-3 hidden h-px
+                w-8 bg-gray-300
+                sm:block
+                lg:w-12
+            " />
+
+                            <div className="flex items-center gap-3">
+
+                                <span className="
+                    flex h-10 w-10
+                    items-center justify-center
+                    rounded-full
+                    bg-red-100
+                    text-sm font-bold
+                    text-red-600
+                ">
+                                    {String(destinations.length + 2).padStart(2, '0')}
+                                </span>
+
+                                <span className="font-semibold text-gray-900">
+                                    {pkg.ending_city}
+                                </span>
+
+                            </div>
+
                         </div>
+
+                        {points.length > 0 && (
+                            <div className="
+                h-[420px]
+                border-t border-gray-100
+            ">
+                                <RouteMap points={points} />
+                            </div>
+                        )}
+
                     </div>
 
-                    {/* Route Map */}
-                    {points.length > 0 && (
-                        <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
-                            <RouteMap points={points} />
-                        </div>
-                    )}
                 </section>
 
                 {/* Quick Facts */}
@@ -167,195 +505,86 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
                                 {/* Duration */}
                                 <div className="
-                    rounded-2xl
-                    border border-purple-100
-                    bg-purple-50/50
-                    p-5
-                    transition-all duration-300
-                    hover:-translate-y-1
-                    hover:shadow-md
-                ">
-                                    <div className="flex items-start gap-4">
+    rounded-2xl
+    border border-gray-200
+    bg-white
+    p-5
+    transition-all duration-300
+    hover:-translate-y-1
+    hover:shadow-lg
+">
+                                    <p className="text-sm text-gray-500">
+                                        Duration
+                                    </p>
 
-                                        <div className="
-                            bg-purple-100
-                            text-purple-600
-                            rounded-xl
-                            w-20 h-20
-                            flex-shrink-0
-                            flex items-center justify-center
-                        ">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-6 w-6"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={2}
-                                                    d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                                />
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <p className="text-sm text-gray-500 font-medium">Duration
-                                            </p>
-                                            <p className="mt-1 font-bold text-gray-900">
-                                                {pkg.duration_days} Days
-                                            </p>
-                                            <p className="text-sm text-gray-600">
-                                                {pkg.duration_nights} Nights
-                                            </p>
-                                        </div>
+                                    <p className="mt-2 text-2xl font-bold text-gray-950">
+                                        {pkg.duration_days} Days
+                                    </p>
 
-                                    </div>
+                                    <p className="mt-1 text-sm text-gray-500">
+                                        {pkg.duration_nights} Nights
+                                    </p>
                                 </div>
 
 
                                 {/* Departure */}
                                 <div className="
-                    rounded-2xl
-                    border border-blue-100
-                    bg-blue-50/50
-                    p-5
-                    transition-all duration-300
-                    hover:-translate-y-1
-                    hover:shadow-md
-                ">
-                                    <div className="flex items-start gap-4">
+    rounded-2xl
+    border border-gray-200
+    bg-white
+    p-5
+    transition-all duration-300
+    hover:-translate-y-1
+    hover:shadow-lg
+">
+                                    <p className="text-sm text-gray-500">
+                                        Departure
+                                    </p>
 
-                                        <div className="
-                            bg-blue-100
-                            text-blue-600
-                            rounded-xl
-                            w-20 h-20
-                            flex-shrink-0
-                            flex items-center justify-center
-                        ">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-6 w-6"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={2}
-                                                    d="M5 12h14M12 5l7 7-7 7"
-                                                />
-                                            </svg>
-                                        </div>
-
-                                        <div>
-                                            <p className="text-sm text-gray-500 font-medium">
-                                                Departure
-                                            </p>
-
-                                            <p className="mt-1 text-lg font-bold text-gray-900">
-                                                {pkg.starting_city}
-                                            </p>
-                                        </div>
-
-                                    </div>
+                                    <p className="mt-2 text-2xl font-bold text-gray-950">
+                                        {pkg.starting_city}
+                                    </p>
                                 </div>
 
 
                                 {/* Destination */}
                                 <div className="
-                    rounded-2xl
-                    border border-indigo-100
-                    bg-indigo-50/50
-                    p-5
-                    transition-all duration-300
-                    hover:-translate-y-1
-                    hover:shadow-md
-                ">
-                                    <div className="flex items-start gap-4">
+                                        rounded-2xl
+                                        border border-gray-200
+                                        bg-white
+                                        p-5
+                                        transition-all duration-300
+                                        hover:-translate-y-1
+                                        hover:shadow-lg
+                                    ">
+                                    <p className="text-sm text-gray-500">
+                                        Destination
+                                    </p>
 
-                                        <div className="
-                            bg-indigo-100
-                            text-indigo-600
-                            rounded-xl
-                            w-20 h-20
-                            flex-shrink-0
-                            flex items-center justify-center
-                        ">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-6 w-6"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={2}
-                                                    d="M12 19l-7-7 7-7m0 14l7-7-7-7"
-                                                />
-                                            </svg>
-                                        </div>
-
-                                        <div>
-                                            <p className="text-sm text-gray-500 font-medium">Destination
-                                            </p>
-
-                                            <p className="mt-1 text-lg font-bold text-gray-900">
-                                                {pkg.ending_city}
-                                            </p>
-                                        </div>
-
-                                    </div>
+                                    <p className="mt-2 text-2xl font-bold text-gray-950">
+                                        {pkg.ending_city}
+                                    </p>
                                 </div>
                                 {/* Price */}
                                 <div className="
-                    rounded-2xl
-                    border border-yellow-100
-                    bg-yellow-50/60
-                    p-5
-                    transition-all duration-300
-                    hover:-translate-y-1
-                    hover:shadow-md
-                ">
-                                    <div className="flex items-start gap-4">
+                                        rounded-2xl
+                                        border border-gray-200
+                                        bg-white
+                                        p-5
+                                        transition-all duration-300
+                                        hover:-translate-y-1
+                                        hover:shadow-lg
+                                    ">
+                                    <p className="text-sm text-gray-500">
+                                        Starting Price
+                                    </p>
 
-                                        <div className="
-                            bg-yellow-100
-                            text-yellow-600
-                            rounded-xl
-                            w-20 h-20
-                            flex-shrink-0
-                            flex items-center justify-center
-                        ">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-6 w-6"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={2}
-                                                    d="M12 8c-1.657 0-3 1.343-3 3h6c0-1.657-1.343-3-3-3zM12 14c1.657 0 3-1.343 3-3H9c0 1.657 1.343 3 3 3z"
-                                                />
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <p className="text-sm text-gray-500 font-medium">Starting Price
-                                            </p>
-                                            <p className="mt-1 text-xl font-bold text-purple-700">₹{pkg.starting_price}
-                                            </p>
-                                            <p className="text-sm text-gray-500">per person
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <p className="mt-2 text-2xl font-bold text-gray-950">
+                                        {pkg.starting_price}
+                                    </p>
+                                    <p className="text-xs text-gray-600">
+                                        per person
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -442,21 +671,88 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
                     ) : (
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                             {destinations.map((dest) => (
-                                <div key={dest.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                                    <img
-                                        src={dest.hero_image}
-                                        alt={dest.name}
-                                        className="w-full h-48 object-cover"
-                                    />
-                                    <div className="p-4">
-                                        <h4 className="text-lg font-semibold text-gray-900">{dest.name}</h4>
-                                        <p className="text-gray-700 text-sm mt-2">{dest.short_description}</p>
+                                <div
+                                    key={dest.id}
+                                    className="
+        group
+        overflow-hidden
+        rounded-2xl
+        border border-gray-200
+        bg-white
+        transition-all duration-300
+        hover:-translate-y-1
+        hover:shadow-xl
+    "
+                                >
+                                    <div className="relative h-60 overflow-hidden">
+
+                                        <img
+                                            src={dest.hero_image}
+                                            alt={dest.name}
+                                            className="
+                h-full w-full
+                object-cover
+                transition-transform duration-700
+                group-hover:scale-105
+            "
+                                        />
+
+                                        <div className="
+            absolute inset-0
+            bg-gradient-to-t
+            from-black/60
+            via-transparent
+            to-transparent
+        " />
+
+                                        <div className="
+            absolute bottom-4 left-5
+            text-white
+        ">
+                                            <p className="
+                text-xs font-semibold
+                uppercase tracking-[0.2em]
+                text-white/70
+            ">
+                                                Destination
+                                            </p>
+
+                                            <h3 className="
+                mt-1 text-2xl font-bold
+            ">
+                                                {dest.name}
+                                            </h3>
+                                        </div>
+
+                                    </div>
+
+                                    <div className="p-5">
+
+                                        <p className="
+            line-clamp-3
+            text-sm leading-6
+            text-gray-600
+        ">
+                                            {dest.short_description}
+                                        </p>
+
                                         <Link
                                             href={`/destinations/${dest.slug}`}
-                                            className="inline-block mt-3 text-purple-600 hover:underline text-sm font-medium"
+                                            className="
+                mt-5 inline-flex
+                items-center gap-2
+                text-sm font-semibold
+                text-red-600
+                transition
+                hover:text-red-700
+            "
                                         >
-                                            View Destination
+                                            Explore destination
+                                            <span className="transition-transform group-hover:translate-x-1">
+                                                →
+                                            </span>
                                         </Link>
+
                                     </div>
                                 </div>
                             ))}
@@ -514,405 +810,1140 @@ export default function PackagePage({ pkg, booking_faqs, packages_faqs }: { pkg:
 
 
                 {/* Itinerary */}
-                <section>
-                    <Itinerary itineraries={pkg.itineraries ?? []} starting_city={pkg.starting_city} ending_city={pkg.ending_city} />
+                <section id="itinerary">
+                    <Itinerary
+                        itineraries={pkg.itineraries ?? []}
+                        starting_city={pkg.starting_city}
+                        ending_city={pkg.ending_city}
+                    />
                 </section>
 
                 {/* ================= INCLUSIONS & EXCLUSIONS ================= */}
-                <section className="space-y-6">
+                <section className="relative py-10 md:py-16">
 
-                    <div className="text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-red-600">
+                    {/* Section Header */}
+                    <div className="max-w-3xl mb-10 md:mb-12">
+                        <div className="flex items-center gap-3 mb-4">
+                            <span className="h-px w-10 bg-red-500" />
+
+                            <span className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-red-500">
+                                Package Details
+                            </span>
+                        </div>
+
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
                             What's Included & What's Not
                         </h2>
 
-                        <p className="mt-2 text-gray-500">
-                            Everything you need to know about what's covered in your package.
+                        <p className="mt-4 text-base md:text-lg leading-7 text-gray-600 max-w-2xl">
+                            Know exactly what your package covers before you begin your journey.
+                            No surprises — just a clear understanding of what's included.
                         </p>
                     </div>
 
 
-                    <div className="
-        grid
-        grid-cols-1
-        md:grid-cols-2
-        border
-        border-gray-900
-        rounded-2xl
-        overflow-hidden
-        shadow-sm
-        bg-white
-    ">
+                    {/* Inclusion / Exclusion Cards */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
 
                         {/* ================= INCLUDED ================= */}
-                        <div className="p-6 md:p-8">
+                        <div className="
+            relative
+            overflow-hidden
+            rounded-3xl
+            border border-emerald-100
+            bg-white
+            shadow-sm
+            transition-all duration-300
+            hover:shadow-lg
+        ">
 
-                            {/* Header */}
-                            <div className="
-                flex items-center gap-3
-                pb-4
-                mb-5
-                border-b border-gray-900
-            ">
-                                <div className="
-                    w-9 h-9
-                    rounded-full
-                    bg-green-100
-                    text-green-600
-                    flex items-center justify-center
-                    font-bold
-                ">
-                                    ✓
+                            {/* Top Accent */}
+                            <div className="h-1.5 bg-emerald-500" />
+
+                            <div className="p-6 md:p-8">
+
+                                {/* Header */}
+                                <div className="flex items-start gap-4 pb-6 border-b border-gray-100">
+
+                                    <div className="
+                        flex-shrink-0
+                        w-12 h-12
+                        rounded-2xl
+                        bg-emerald-50
+                        text-emerald-600
+                        flex items-center justify-center
+                    ">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="w-6 h-6"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            strokeWidth={2}
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                d="M5 13l4 4L19 7"
+                                            />
+                                        </svg>
+                                    </div>
+
+                                    <div>
+                                        <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+                                            What's Included
+                                        </h3>
+
+                                        <p className="mt-1 text-sm text-gray-500">
+                                            Everything covered by your package
+                                        </p>
+                                    </div>
+
                                 </div>
 
-                                <div>
-                                    <h3 className="text-xl font-bold text-gray-900">
-                                        What's Included
-                                    </h3>
 
-                                    <p className="text-sm text-gray-500">
-                                        Covered in your package
-                                    </p>
-                                </div>
-                            </div>
+                                {/* Items */}
+                                {pkg.inclusions.length === 0 ? (
 
+                                    <div className="py-8 text-center">
+                                        <p className="text-sm text-gray-500">
+                                            No inclusions listed for this package yet.
+                                        </p>
+                                    </div>
 
-                            {pkg.inclusions.length === 0 ? (
+                                ) : (
 
-                                <p className="text-gray-500 text-sm">
-                                    No inclusions listed for this package yet.
-                                </p>
+                                    <ul className="mt-6 space-y-5">
 
-                            ) : (
+                                        {pkg.inclusions
+                                            .sort((a, b) => a.sort_order - b.sort_order)
+                                            .map((item) => (
 
-                                <ul className="space-y-4">
+                                                <li
+                                                    key={item.id}
+                                                    className="
+                                        flex items-start gap-4
+                                        group
+                                    "
+                                                >
 
-                                    {pkg.inclusions
-                                        .sort((a, b) => a.sort_order - b.sort_order)
-                                        .map((item) => (
-
-                                            <li
-                                                key={item.id}
-                                                className="flex gap-3"
-                                            >
-
-                                                <span className="
-                                    flex-shrink-0
-                                    w-6 h-6
-                                    rounded-full
-                                    bg-green-100
-                                    text-green-600
-                                    flex items-center justify-center
-                                    text-sm
-                                    font-bold
-                                ">
-                                                    ✓
-                                                </span>
-
-                                                <div>
-                                                    <p className="
-                                        text-gray-900
-                                        font-semibold
+                                                    {/* Check */}
+                                                    <span className="
+                                        flex-shrink-0
+                                        mt-0.5
+                                        w-7 h-7
+                                        rounded-full
+                                        bg-emerald-50
+                                        text-emerald-600
+                                        flex items-center justify-center
+                                        transition-all duration-300
+                                        group-hover:bg-emerald-500
+                                        group-hover:text-white
                                     ">
-                                                        {item.inclusion}
-                                                    </p>
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            className="w-4 h-4"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            stroke="currentColor"
+                                                            strokeWidth={2.5}
+                                                        >
+                                                            <path
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                d="M5 13l4 4L19 7"
+                                                            />
+                                                        </svg>
+                                                    </span>
 
-                                                    {item.description && (
+                                                    <div className="min-w-0">
+
                                                         <p className="
-                                            mt-1
-                                            text-sm
-                                            text-gray-500
-                                            leading-relaxed
+                                            font-semibold
+                                            text-gray-900
+                                            leading-6
                                         ">
-                                                            {item.description}
+                                                            {item.inclusion}
                                                         </p>
-                                                    )}
-                                                </div>
-                                            </li>
-                                        ))}
-                                </ul>
-                            )}
+
+                                                        {item.description && (
+                                                            <p className="
+                                                mt-1.5
+                                                text-sm
+                                                leading-6
+                                                text-gray-500
+                                            ">
+                                                                {item.description}
+                                                            </p>
+                                                        )}
+
+                                                    </div>
+
+                                                </li>
+
+                                            ))}
+
+                                    </ul>
+
+                                )}
+
+                            </div>
                         </div>
+
+
                         {/* ================= EXCLUDED ================= */}
                         <div className="
-            p-6 md:p-8
-            border-t
-            md:border-t-0
-            md:border-l
-            border-gray-900
+            relative
+            overflow-hidden
+            rounded-3xl
+            border border-red-100
+            bg-white
+            shadow-sm
+            transition-all duration-300
+            hover:shadow-lg
         ">
-                            {/* Header */}
-                            <div className="
-                flex items-center gap-3
-                pb-4
-                mb-5
-                border-b border-gray-900
-            ">
-                                <div className="
-                    w-9 h-9
-                    rounded-full
-                    bg-red-100
-                    text-red-600
-                    flex items-center justify-center
-                    font-bold
-                ">
-                                    ✕
+
+                            {/* Top Accent */}
+                            <div className="h-1.5 bg-red-500" />
+
+                            <div className="p-6 md:p-8">
+
+                                {/* Header */}
+                                <div className="flex items-start gap-4 pb-6 border-b border-gray-100">
+
+                                    <div className="
+                        flex-shrink-0
+                        w-12 h-12
+                        rounded-2xl
+                        bg-red-50
+                        text-red-500
+                        flex items-center justify-center
+                    ">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="w-6 h-6"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            strokeWidth={2}
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                d="M6 18L18 6M6 6l12 12"
+                                            />
+                                        </svg>
+                                    </div>
+
+                                    <div>
+                                        <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+                                            What's Not Included
+                                        </h3>
+
+                                        <p className="mt-1 text-sm text-gray-500">
+                                            Additional expenses to keep in mind
+                                        </p>
+                                    </div>
+
                                 </div>
 
-                                <div>
-                                    <h3 className="text-xl font-bold text-gray-900">
-                                        What's Not Included
-                                    </h3>
 
-                                    <p className="text-sm text-gray-500">
-                                        Additional expenses to consider
-                                    </p>
-                                </div>
-                            </div>
+                                {/* Items */}
+                                {pkg.exclusions.length === 0 ? (
 
+                                    <div className="py-8 text-center">
+                                        <p className="text-sm text-gray-500">
+                                            No exclusions listed for this package yet.
+                                        </p>
+                                    </div>
 
-                            {pkg.exclusions.length === 0 ? (
+                                ) : (
 
-                                <p className="text-gray-500 text-sm">
-                                    No exclusions listed for this package yet.
-                                </p>
+                                    <ul className="mt-6 space-y-5">
 
-                            ) : (
-                                <ul className="space-y-4">
+                                        {pkg.exclusions
+                                            .sort((a, b) => a.sort_order - b.sort_order)
+                                            .map((item) => (
 
-                                    {pkg.exclusions
-                                        .sort((a, b) => a.sort_order - b.sort_order)
-                                        .map((item) => (
+                                                <li
+                                                    key={item.id}
+                                                    className="
+                                        flex items-start gap-4
+                                        group
+                                    "
+                                                >
 
-                                            <li
-                                                key={item.id}
-                                                className="flex gap-3"
-                                            >
-
-                                                <span className="
-                                    flex-shrink-0
-                                    w-6 h-6
-                                    rounded-full
-                                    bg-red-100
-                                    text-red-600
-                                    flex items-center justify-center
-                                    text-sm
-                                    font-bold
-                                ">
-                                                    ✕
-                                                </span>
-
-                                                <div>
-                                                    <p className="
-                                        text-gray-900
-                                        font-semibold
+                                                    {/* Cross */}
+                                                    <span className="
+                                        flex-shrink-0
+                                        mt-0.5
+                                        w-7 h-7
+                                        rounded-full
+                                        bg-red-50
+                                        text-red-500
+                                        flex items-center justify-center
+                                        transition-all duration-300
+                                        group-hover:bg-red-500
+                                        group-hover:text-white
                                     ">
-                                                        {item.exclusion}
-                                                    </p>
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            className="w-4 h-4"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            stroke="currentColor"
+                                                            strokeWidth={2}
+                                                        >
+                                                            <path
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                d="M6 18L18 6M6 6l12 12"
+                                                            />
+                                                        </svg>
+                                                    </span>
 
-                                                    {item.description && (
+                                                    <div className="min-w-0">
+
                                                         <p className="
-                                            mt-1
-                                            text-sm
-                                            text-gray-500
-                                            leading-relaxed
+                                            font-semibold
+                                            text-gray-900
+                                            leading-6
                                         ">
-                                                            {item.description}
+                                                            {item.exclusion}
                                                         </p>
-                                                    )}
-                                                </div>
-                                            </li>
-                                        ))}
-                                </ul>
-                            )}
+
+                                                        {item.description && (
+                                                            <p className="
+                                                mt-1.5
+                                                text-sm
+                                                leading-6
+                                                text-gray-500
+                                            ">
+                                                                {item.description}
+                                                            </p>
+                                                        )}
+
+                                                    </div>
+
+                                                </li>
+
+                                            ))}
+
+                                    </ul>
+
+                                )}
+
+                            </div>
                         </div>
+
                     </div>
-                </section>
-                {/* Package Pricing */}
-                <section>
-                    <div className="mb-8">
-                        <h2 className="text-3xl font-semibold text-purple-700">
-                            8. Package Pricing
-                        </h2>
-                        <p className="mt-2 text-gray-600">
-                            Choose the vehicle option that best suits your group.
+
+
+                    {/* Small reassurance */}
+                    <div className="
+        mt-6
+        flex items-start gap-3
+        rounded-2xl
+        border border-gray-200
+        bg-gray-50
+        px-5 py-4
+        text-sm text-gray-600
+    ">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="mt-0.5 w-5 h-5 flex-shrink-0 text-gray-500"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M13 16h-1v-4h-1m1-4h.01M12 21a9 9 0 100-18 9 9 0 000 18z"
+                            />
+                        </svg>
+
+                        <p className="leading-6">
+                            Package inclusions and exclusions may vary depending on the
+                            selected itinerary, vehicle, accommodation, or travel requirements.
                         </p>
                     </div>
 
+                </section>
+                {/* ================= PACKAGE PRICING ================= */}
+                <section className="relative py-10 md:py-16">
+
+                    {/* Section Header */}
+                    <div className="max-w-3xl mb-10 md:mb-12">
+
+                        <div className="flex items-center gap-3 mb-4">
+                            <span className="h-px w-10 bg-red-500" />
+
+                            <span className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-red-500">
+                                Choose Your Ride
+                            </span>
+                        </div>
+
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
+                            Package Pricing
+                        </h2>
+
+                        <p className="mt-4 text-base md:text-lg leading-7 text-gray-600 max-w-2xl">
+                            Select the vehicle option that best fits your group.
+                            Pricing is calculated per person based on the minimum group size.
+                        </p>
+
+                    </div>
+
+
+                    {/* Pricing Cards */}
                     {pkg.pricings && pkg.pricings.length > 0 ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                        <div className="
+            grid
+            grid-cols-1
+            md:grid-cols-2
+            lg:grid-cols-3
+            gap-6
+            lg:gap-7
+        ">
+
                             {pkg.pricings
                                 .sort((a, b) => a.visit_order - b.visit_order)
                                 .map((pricing) => (
+
                                     <div
                                         key={pricing.id}
                                         className="
-                            group relative overflow-hidden
-                            rounded-2xl border border-purple-100
+                            group
+                            relative
+                            overflow-hidden
+                            rounded-3xl
+                            border border-gray-200
                             bg-white
-                            shadow-md
+                            shadow-sm
                             transition-all duration-300
-                            hover:-translate-y-2
+                            hover:-translate-y-1.5
+                            hover:border-red-200
                             hover:shadow-xl
-                            hover:border-purple-300
                         "
                                     >
-                                        {/* Top Accent */}
-                                        <div className="h-2 bg-gradient-to-r from-purple-600 to-pink-500" />
 
-                                        <div className="p-6">
-                                            {/* Vehicle */}
-                                            <div className="flex items-center justify-between mb-6">
-                                                <div>
-                                                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">
-                                                        Vehicle Type
+                                        {/* Top Accent */}
+                                        <div className="
+                            h-1.5
+                            bg-gradient-to-r
+                            from-red-500
+                            via-red-400
+                            to-orange-400
+                        " />
+
+
+                                        <div className="p-6 md:p-7">
+
+                                            {/* ================= VEHICLE HEADER ================= */}
+                                            <div className="
+                                flex
+                                items-center
+                                justify-between
+                                gap-4
+                                pb-6
+                                border-b border-gray-100
+                            ">
+
+                                                <div className="min-w-0">
+
+                                                    <p className="
+                                        text-xs
+                                        font-bold
+                                        uppercase
+                                        tracking-[0.2em]
+                                        text-gray-400
+                                    ">
+                                                        Vehicle
                                                     </p>
 
-                                                    <h3 className="mt-1 text-2xl font-bold text-gray-900">
+                                                    <h3 className="
+                                        mt-2
+                                        text-xl md:text-2xl
+                                        font-bold
+                                        text-gray-900
+                                        truncate
+                                    ">
                                                         {pricing.vehicle_name}
                                                     </h3>
+
                                                 </div>
 
-                                                <div
-                                                    className="
-                                        w-12 h-12 rounded-full
-                                        bg-purple-100
-                                        flex items-center justify-center
-                                        text-2xl
-                                    "
-                                                >
+
+                                                {/* Vehicle Icon */}
+                                                <div className="
+                                    flex-shrink-0
+                                    w-12 h-12
+                                    rounded-2xl
+                                    bg-red-50
+                                    text-red-500
+                                    flex
+                                    items-center
+                                    justify-center
+                                    text-xl
+                                    transition-transform duration-300
+                                    group-hover:scale-105
+                                ">
                                                     🚐
                                                 </div>
+
                                             </div>
 
-                                            {/* Pricing */}
-                                            <div className="space-y-4">
-                                                <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-                                                    <span className="text-gray-600">
-                                                        Total Cost
-                                                    </span>
 
-                                                    <span className="font-bold text-gray-900">
-                                                        ₹{pricing.total_cost}
-                                                    </span>
-                                                </div>
+                                            {/* ================= MAIN PRICE ================= */}
+                                            <div className="py-7">
 
-                                                <div className="flex items-center justify-between border-b border-gray-100 pb-3">
-                                                    <span className="text-gray-600">
-                                                        Per Person
-                                                    </span>
+                                                <p className="
+                                    text-xs
+                                    font-bold
+                                    uppercase
+                                    tracking-[0.18em]
+                                    text-gray-400
+                                ">
+                                                    Starting from
+                                                </p>
 
-                                                    <span className="text-xl font-bold text-purple-600">
+                                                <div className="
+                                    mt-2
+                                    flex
+                                    items-baseline
+                                    gap-2
+                                ">
+
+                                                    <span className="
+                                        text-4xl md:text-5xl
+                                        font-bold
+                                        tracking-tight
+                                        text-gray-900
+                                    ">
                                                         ₹{pricing.per_person_cost}
                                                     </span>
-                                                </div>
 
-                                                <div className="flex items-center justify-between">
-                                                    <span className="text-gray-600">
-                                                        Minimum Persons
+                                                    <span className="text-sm text-gray-500">
+                                                        / person
                                                     </span>
 
-                                                    <span className="font-semibold text-gray-900">
+                                                </div>
+
+                                                <p className="mt-2 text-sm text-gray-500">
+                                                    Based on a minimum group of{" "}
+                                                    <span className="font-semibold text-gray-700">
+                                                        {pricing.minimum_persons} travelers
+                                                    </span>
+                                                </p>
+
+                                            </div>
+
+
+                                            {/* ================= PRICE DETAILS ================= */}
+                                            <div className="
+                                rounded-2xl
+                                border border-gray-100
+                                bg-gray-50
+                                divide-y divide-gray-100
+                            ">
+
+                                                {/* Total */}
+                                                <div className="
+                                    flex
+                                    items-center
+                                    justify-between
+                                    gap-4
+                                    px-4 py-4
+                                ">
+
+                                                    <div>
+                                                        <p className="text-sm font-medium text-gray-600">
+                                                            Total Package Cost
+                                                        </p>
+
+                                                        <p className="mt-0.5 text-xs text-gray-400">
+                                                            Minimum group size
+                                                        </p>
+                                                    </div>
+
+                                                    <span className="
+                                        font-bold
+                                        text-gray-900
+                                    ">
+                                                        ₹{pricing.total_cost}
+                                                    </span>
+
+                                                </div>
+
+
+                                                {/* Minimum Persons */}
+                                                <div className="
+                                    flex
+                                    items-center
+                                    justify-between
+                                    gap-4
+                                    px-4 py-4
+                                ">
+
+                                                    <span className="text-sm font-medium text-gray-600">
+                                                        Minimum Travelers
+                                                    </span>
+
+                                                    <span className="
+                                        inline-flex
+                                        items-center
+                                        rounded-full
+                                        bg-white
+                                        border border-gray-200
+                                        px-3 py-1
+                                        text-sm
+                                        font-semibold
+                                        text-gray-800
+                                    ">
                                                         {pricing.minimum_persons} Pax
                                                     </span>
+
                                                 </div>
+
                                             </div>
 
-                                            {/* Bottom Info */}
-                                            <div className="mt-6 rounded-xl bg-purple-50 p-4">
-                                                <p className="text-sm text-purple-800">
-                                                    Suitable for groups of{" "}
-                                                    <span className="font-bold">
-                                                        {pricing.minimum_persons} or more
-                                                    </span>{" "}
-                                                    travelers.
-                                                </p>
+
+                                            {/* ================= GROUP INFO ================= */}
+                                            <div className="
+                                mt-5
+                                flex
+                                items-start
+                                gap-3
+                                rounded-2xl
+                                bg-red-50
+                                px-4 py-4
+                            ">
+
+                                                <div className="
+                                    flex-shrink-0
+                                    w-8 h-8
+                                    rounded-full
+                                    bg-white
+                                    text-red-500
+                                    flex items-center justify-center
+                                ">
+                                                    ✓
+                                                </div>
+
+                                                <div>
+                                                    <p className="
+                                        text-sm
+                                        font-semibold
+                                        text-gray-900
+                                    ">
+                                                        Ideal for groups
+                                                    </p>
+
+                                                    <p className="
+                                        mt-0.5
+                                        text-xs
+                                        leading-5
+                                        text-gray-600
+                                    ">
+                                                        Suitable for{" "}
+                                                        <span className="font-semibold">
+                                                            {pricing.minimum_persons} or more
+                                                        </span>{" "}
+                                                        travelers.
+                                                    </p>
+                                                </div>
+
                                             </div>
+
                                         </div>
+
                                     </div>
+
                                 ))}
+
                         </div>
+
                     ) : (
-                        <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 text-center">
-                            <p className="text-gray-600">
-                                No pricing details available for this package yet.
+
+                        /* ================= EMPTY STATE ================= */
+                        <div className="
+            rounded-3xl
+            border border-gray-200
+            bg-white
+            px-6 py-12
+            text-center
+            shadow-sm
+        ">
+
+                            <div className="
+                mx-auto
+                w-12 h-12
+                rounded-2xl
+                bg-gray-100
+                flex items-center justify-center
+                text-gray-400
+                text-xl
+            ">
+                                ₹
+                            </div>
+
+                            <h3 className="
+                mt-4
+                text-lg
+                font-semibold
+                text-gray-900
+            ">
+                                Pricing information unavailable
+                            </h3>
+
+                            <p className="
+                mt-2
+                text-sm
+                text-gray-500
+                max-w-md
+                mx-auto
+            ">
+                                Pricing details for this package haven't been added yet.
+                                Please contact our team for current rates.
                             </p>
+
                         </div>
+
                     )}
+
                 </section>
 
                 {/* FAQs */}
-                <section className="py-8">
-                    <div className="mb-8">
-                        <h2 className="text-4xl font-semibold text-purple-500">
+                {/* ================= FAQs ================= */}
+                <section className="relative py-10 md:py-16">
+
+                    {/* Section Header */}
+                    <div className="max-w-3xl mb-10 md:mb-14">
+                        <div className="flex items-center gap-3 mb-4">
+                            <span className="h-px w-10 bg-red-500" />
+
+                            <span className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-red-500">
+                                Need to know
+                            </span>
+                        </div>
+
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900">
                             Frequently Asked Questions
                         </h2>
 
-                        <p className="mt-3 text-gray-600 max-w-2xl">
-                            Everything you need to know before booking your journey with us.
+                        <p className="mt-4 text-base md:text-lg leading-7 text-gray-600 max-w-2xl">
+                            Everything you need to know before booking your journey.
+                            If you still have questions, our team is always here to help.
                         </p>
                     </div>
 
-                    <div className="space-y-5">
+                    {/* FAQ List */}
+                    <div className="max-w-4xl space-y-3">
                         {faqs.map((faq, index) => {
-                            const isOpen = openFAQ === index;
+                            const isOpen = openFAQ === index
+
                             return (
                                 <div
                                     key={faq.id}
-                                    className="rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-all duration-300"
+                                    className={`
+                        group overflow-hidden rounded-2xl
+                        border transition-all duration-300
+                        ${isOpen
+                                            ? 'border-red-200 bg-white shadow-md'
+                                            : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'
+                                        }
+                    `}
                                 >
+
+                                    {/* Question */}
                                     <button
                                         type="button"
                                         onClick={() =>
                                             setOpenFAQ(isOpen ? null : index)
                                         }
-                                        className="w-full flex items-center justify-between px-6 py-5 text-left"
+                                        aria-expanded={isOpen}
+                                        className="
+                            w-full
+                            flex items-center justify-between
+                            gap-6
+                            px-5 py-5
+                            md:px-7 md:py-6
+                            text-left
+                            cursor-pointer
+                        "
                                     >
-                                        <h3 className="text-lg font-semibold text-gray-900">
-                                            {faq.question}
-                                        </h3>
 
-                                        <div className="transition-all duration-300 hover:scale-110">
+                                        <div className="flex items-start gap-4">
+
+                                            {/* Number */}
+                                            <span
+                                                className={`
+                                    hidden sm:flex
+                                    flex-shrink-0
+                                    items-center justify-center
+                                    w-8 h-8
+                                    rounded-lg
+                                    text-xs font-bold
+                                    transition-all duration-300
+                                    ${isOpen
+                                                        ? 'bg-red-500 text-white'
+                                                        : 'bg-gray-100 text-gray-500 group-hover:bg-red-50 group-hover:text-red-500'
+                                                    }
+                                `}
+                                            >
+                                                {String(index + 1).padStart(2, '0')}
+                                            </span>
+
+                                            <h3
+                                                className={`
+                                    text-base md:text-lg
+                                    font-semibold
+                                    leading-6
+                                    transition-colors duration-300
+                                    ${isOpen
+                                                        ? 'text-red-600'
+                                                        : 'text-gray-900 group-hover:text-red-600'
+                                                    }
+                                `}
+                                            >
+                                                {faq.question}
+                                            </h3>
+
+                                        </div>
+
+                                        {/* Plus / Minus */}
+                                        <div
+                                            className={`
+                                flex-shrink-0
+                                flex items-center justify-center
+                                w-9 h-9
+                                rounded-full
+                                border
+                                transition-all duration-300
+                                ${isOpen
+                                                    ? 'rotate-0 border-red-500 bg-red-500 text-white'
+                                                    : 'border-gray-200 bg-gray-50 text-gray-500 group-hover:border-red-200 group-hover:text-red-500'
+                                                }
+                            `}
+                                        >
                                             {isOpen ? (
-                                                <Minus size={22} className="text-purple-600 cursor-pointer" />
+                                                <Minus size={18} strokeWidth={2} />
                                             ) : (
-                                                <Plus size={22} className="text-purple-600 cursor-pointer" />
+                                                <Plus size={18} strokeWidth={2} />
                                             )}
                                         </div>
+
                                     </button>
 
+                                    {/* Answer */}
                                     <div
-                                        className={`overflow-hidden transition-all duration-300 ${isOpen
-                                            ? "max-h-96 opacity-100"
-                                            : "max-h-0 opacity-0"
-                                            }`}
+                                        className={`
+                            grid transition-all duration-300 ease-in-out
+                            ${isOpen
+                                                ? 'grid-rows-[1fr] opacity-100'
+                                                : 'grid-rows-[0fr] opacity-0'
+                                            }
+                        `}
                                     >
-                                        <div className="px-6 pb-6 border-t border-gray-100">
-                                            <p className="pt-4 leading-7 text-gray-700">
-                                                {faq.answer}
-                                            </p>
+                                        <div className="overflow-hidden">
+
+                                            <div className="mx-5 md:mx-7 border-t border-gray-100">
+                                                <div className="py-5 md:py-6 pl-0 sm:pl-12">
+
+                                                    <p className="
+                                        text-sm md:text-base
+                                        leading-7
+                                        text-gray-600
+                                        max-w-3xl
+                                    ">
+                                                        {faq.answer}
+                                                    </p>
+
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
+
                                 </div>
-                            );
+                            )
                         })}
                     </div>
+
+                    {/* Bottom Help */}
+                    <div className="
+        mt-10
+        max-w-4xl
+        rounded-2xl
+        border border-gray-200
+        bg-white
+        px-5 py-5
+        md:px-7 md:py-6
+        flex flex-col sm:flex-row
+        sm:items-center
+        sm:justify-between
+        gap-4
+    ">
+
+                        <div>
+                            <p className="font-semibold text-gray-900">
+                                Still have questions?
+                            </p>
+
+                            <p className="mt-1 text-sm text-gray-500">
+                                Our travel team can help you plan your journey.
+                            </p>
+                        </div>
+
+                        <Link
+                            href="/contact"
+                            className="
+                inline-flex items-center justify-center
+                gap-2
+                rounded-xl
+                bg-gray-900
+                px-5 py-3
+                text-sm font-semibold
+                text-white
+                transition-all duration-300
+                hover:bg-red-600
+                hover:shadow-lg
+                whitespace-nowrap
+            "
+                        >
+                            Contact Us
+                            <span className="text-base transition-transform duration-300 group-hover:translate-x-1">
+                                →
+                            </span>
+                        </Link>
+
+                    </div>
+
                 </section>
 
-                {/* Call to Action */}
-                <section className="text-center py-10">
-                    <h2 className="text-3xl font-semibold text-purple-700 mb-4">Plan Your Journey</h2>
-                    <p className="text-gray-700 max-w-2xl mx-auto mb-6">
-                        Ready to explore {pkg.title}? Let Heritage Junction craft the perfect itinerary for you —
-                        from guided tours and cultural immersion to comfortable stays and authentic dining.
-                    </p>
-                    <Link
-                        href={`/booking/${pkg.id}`}
-                        className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg shadow hover:bg-purple-700 transition"
-                    >
-                        Book Your Experience
-                    </Link>
-                </section>
+           {/* ================= FINAL CTA ================= */}
+<section className="relative overflow-hidden rounded-[2rem] bg-gray-950">
+
+    {/* Background Image */}
+    <div className="absolute inset-0">
+        <img
+            src={pkg.cover_image}
+            alt=""
+            className="h-full w-full object-cover opacity-30"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/90 to-gray-950/70" />
+    </div>
+
+    {/* Decorative Elements */}
+    <div className="
+        absolute
+        -right-32
+        -top-32
+        h-80 w-80
+        rounded-full
+        border border-white/10
+    " />
+
+    <div className="
+        absolute
+        -right-20
+        -top-20
+        h-56 w-56
+        rounded-full
+        border border-white/5
+    " />
+
+    {/* Content */}
+    <div className="
+        relative
+        px-6 py-14
+        sm:px-10 sm:py-16
+        lg:px-16 lg:py-20
+    ">
+
+        <div className="
+            flex
+            flex-col
+            gap-10
+            lg:flex-row
+            lg:items-center
+            lg:justify-between
+        ">
+
+            {/* LEFT */}
+            <div className="max-w-2xl">
+
+                {/* Eyebrow */}
+                <div className="flex items-center gap-3">
+
+                    <span className="
+                        h-px
+                        w-10
+                        bg-red-500
+                    " />
+
+                    <span className="
+                        text-xs
+                        font-semibold
+                        uppercase
+                        tracking-[0.25em]
+                        text-red-400
+                    ">
+                        Ready when you are
+                    </span>
+
+                </div>
+
+
+                {/* Heading */}
+                <h2 className="
+                    mt-5
+                    text-3xl
+                    font-bold
+                    leading-tight
+                    tracking-tight
+                    text-white
+                    sm:text-4xl
+                    lg:text-5xl
+                ">
+                    Your journey to{" "}
+                    <span className="text-red-400">
+                        {pkg.title}
+                    </span>{" "}
+                    starts here.
+                </h2>
+
+
+                {/* Description */}
+                <p className="
+                    mt-5
+                    max-w-xl
+                    text-base
+                    leading-7
+                    text-gray-400
+                    sm:text-lg
+                ">
+                    Everything is planned.
+                    All that's left is to choose your dates
+                    and start the journey.
+                </p>
+
+
+                {/* Quick Info */}
+                <div className="
+                    mt-7
+                    flex
+                    flex-wrap
+                    gap-x-6
+                    gap-y-3
+                    text-sm
+                    text-gray-400
+                ">
+
+                    <div className="flex items-center gap-2">
+                        <span className="text-red-400">●</span>
+                        {pkg.duration_days} Days / {pkg.duration_nights} Nights
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                        <span className="text-red-400">●</span>
+                        {pkg.starting_city} → {pkg.ending_city}
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                        <span className="text-red-400">●</span>
+                        From ₹{pkg.starting_price} / person
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            {/* RIGHT — ACTION */}
+            <div className="
+                flex
+                shrink-0
+                flex-col
+                items-start
+                lg:items-end
+            ">
+
+                <p className="
+                    mb-3
+                    text-xs
+                    font-medium
+                    uppercase
+                    tracking-wider
+                    text-gray-500
+                ">
+                    Start planning your trip
+                </p>
+
+                <Link
+                    href={`/booking/${pkg.id}`}
+                    className="
+                        group
+                        inline-flex
+                        items-center
+                        gap-3
+                        rounded-xl
+                        bg-red-600
+                        px-7
+                        py-4
+                        text-sm
+                        font-semibold
+                        text-white
+                        shadow-xl
+                        shadow-red-950/30
+                        transition-all
+                        duration-300
+                        hover:-translate-y-1
+                        hover:bg-red-500
+                        hover:shadow-2xl
+                        hover:shadow-red-950/40
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-red-400
+                        focus:ring-offset-2
+                        focus:ring-offset-gray-950
+                    "
+                >
+
+                    <span>
+                        Book This Journey
+                    </span>
+
+                    <span className="
+                        text-lg
+                        transition-transform
+                        duration-300
+                        group-hover:translate-x-1
+                    ">
+                        →
+                    </span>
+
+                </Link>
+
+                <p className="
+                    mt-3
+                    text-xs
+                    text-gray-500
+                ">
+                    Secure your experience with Heritage Junction
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
             </div>
             <Footer />
         </div>
