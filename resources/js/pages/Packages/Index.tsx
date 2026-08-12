@@ -203,12 +203,19 @@ const Index = ({ packages }: { packages: Package[] }) => {
                                             All Destinations
                                         </option>
 
-                                        <option value="Varanasi">
-                                            Varanasi
+                                         <option value="Agra">
+                                            Agra
                                         </option>
 
                                         <option value="Ayodhya">
                                             Ayodhya
+                                        </option>
+                                        <option value="Varanasi">
+                                            Varanasi
+                                        </option>
+
+                                        <option value="Firozabad">
+                                            Firozabad
                                         </option>
 
                                         <option value="Naimisharanya">

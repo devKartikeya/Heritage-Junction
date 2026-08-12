@@ -69,6 +69,7 @@ const Welcome = () => {
             {/* Featured Destinations */}
             <div className="featured-destinations">
                 <FeaturedDestinations />
+                m
             </div>
             {/* Services */}
             <div className="services-section">

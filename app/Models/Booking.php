@@ -25,6 +25,7 @@ class Booking extends Model
         'start_date',
         'per_person_cost',
         'total_cost',
+        'status'
     ];
 
     // Relationships
